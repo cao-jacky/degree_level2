@@ -18,6 +18,9 @@ def g_bdm(x, dx):
 
     print f_deriv
 
+#Creating 100 evenly spaced points between -2*pi and 2*pi
+xs = numpy.linspace(-numpy.pi, numpy.pi, 100)
+
 #Testing the code
 if __name__ == '__main__':
 
@@ -25,4 +28,4 @@ if __name__ == '__main__':
     import cp_assessment_1
 
     #cp_assessment_1.f(numpy.array([1,2,3,4,5]))
-    cp_assessment_1.g_bdm(10, 0.1)
+    cp_assessment_1.g_bdm(numpy.array([1,2,3,4,5]), numpy.array([0.1,0.1,0.1,0.1,0.1]))
