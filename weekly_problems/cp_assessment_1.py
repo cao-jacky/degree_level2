@@ -8,5 +8,21 @@ USER_ID = "bbvw84"
 def f(x):
     '''docstring here'''
 
+    print numpy.cos(x)
+    return numpy.cos(x)
+
 def g_bdm(x, dx):
     '''docstring'''
+
+    f_deriv = (f(x) - f(x - dx)) / dx
+
+    print f_deriv
+
+#Testing the code
+if __name__ == '__main__':
+
+    import numpy
+    import cp_assessment_1
+
+    #cp_assessment_1.f(numpy.array([1,2,3,4,5]))
+    cp_assessment_1.g_bdm(10, 0.1)
