@@ -30,7 +30,7 @@ pyplot.plot(xs, df_dx_small - df_dx_analytic , label='dx small')
 pyplot.plot(xs, df_dx_good - df_dx_analytic, label='dx good')
 pyplot.plot(xs, df_dx_large - df_dx_analytic, label='dx large')
 pyplot.xlabel("x increment"); pyplot.ylabel("Error")
-pyplot.title("Graph showing"); pyplot.legend(loc='upper right')
-pyplot.show()
+pyplot.title("Error between backwards difference derivative and analytic derivative of the function cos(x)", fontsize=11)
+pyplot.legend(loc='upper right'); pyplot.show()
 
 ANSWER1 = """ """
