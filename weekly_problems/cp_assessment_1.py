@@ -17,23 +17,20 @@ def g_bdm(x, dx):
     '''docstring'''
     return (f(x) - f(x - dx)) / dx
 
-#Creating 100 evenly spaced points between -2*pi and 2*pi
-xs = numpy.linspace(-numpy.pi, numpy.pi, 100)
+xs = numpy.linspace(-2*numpy.pi, 2*numpy.pi, 100) #100 evenly spaced points between -2*pi and 2*pi
+
+df_dx_small = g_bdm(xs, dx=1e-7)
+df_dx_good = g_bdm(xs, dx=1e-5)
+df_dx_large = g_bdm(xs, dx=1e-4)
+
+df_dx_analytic = g(xs)
 
 pyplot.figure(figsize=(8,4))
-df_dx_small = pyplot.plot(xs, g_bdm(xs, dx=1e-7) - g(xs), label='dx small')
-df_dx_good = pyplot.plot(xs, g_bdm(xs, dx=1e-10) - g(xs), label='dx good')
-df_dx_large = pyplot.plot(xs, g_bdm(xs, dx=1e-20) - g(xs), label='dx large')
-pyplot.title("askjdns"); pyplot.legend(loc='upper left')
+pyplot.plot(xs, df_dx_small - df_dx_analytic , label='dx small')
+pyplot.plot(xs, df_dx_good - df_dx_analytic, label='dx good')
+pyplot.plot(xs, df_dx_large - df_dx_analytic, label='dx large')
+pyplot.xlabel("x increment"); pyplot.ylabel("Error")
+pyplot.title("Graph showing"); pyplot.legend(loc='upper right')
 pyplot.show()
 
-ANSWER1 =
-
-#Testing the code
-if __name__ == '__main__':
-
-    import numpy
-    import cp_assessment_1
-
-    #cp_assessment_1.f(numpy.array([1,2,3,4,5]))
-    cp_assessment_1.g_bdm(numpy.array([1,2,3,4,5]), numpy.array([0.1,0.1,0.1,0.1,0.1]))
+ANSWER1 = """ """
