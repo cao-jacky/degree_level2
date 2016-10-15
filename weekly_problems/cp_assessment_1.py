@@ -19,7 +19,7 @@ def g_bdm(x, dx):
 
 xs = numpy.linspace(-2*numpy.pi, 2*numpy.pi, 100) #100 evenly spaced points between -2*pi and 2*pi
 
-df_dx_small = g_bdm(xs, dx=1e-7)
+df_dx_small = g_bdm(xs, dx=1e-10)
 df_dx_good = g_bdm(xs, dx=1e-5)
 df_dx_large = g_bdm(xs, dx=1e-4)
 
@@ -29,8 +29,8 @@ pyplot.figure(figsize=(8,4))
 pyplot.plot(xs, df_dx_small - df_dx_analytic , label='dx small')
 pyplot.plot(xs, df_dx_good - df_dx_analytic, label='dx good')
 pyplot.plot(xs, df_dx_large - df_dx_analytic, label='dx large')
-pyplot.xlabel("x increment"); pyplot.ylabel("Error")
+pyplot.xlabel("x values"); pyplot.ylabel("Error"); pyplot.legend(loc='upper right')
 pyplot.title("Error between backwards difference derivative and analytic derivative of the function cos(x)", fontsize=11)
-pyplot.legend(loc='upper right'); pyplot.show()
+pyplot.show()
 
-ANSWER1 = """ """
+ANSWER1 = """As dx becomes smaller, the plot becomes jagged, there is no smoothness, the difference between error values is increasing. """
