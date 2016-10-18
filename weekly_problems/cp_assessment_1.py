@@ -32,8 +32,14 @@ pyplot.figure(figsize=(8,4))
 pyplot.plot(xs, df_dx_small - df_dx_analytic , label='dx small')
 pyplot.plot(xs, df_dx_good - df_dx_analytic, label='dx good')
 pyplot.plot(xs, df_dx_large - df_dx_analytic, label='dx large')
-pyplot.xlabel("x"); pyplot.ylabel("Error in the derivative of f(x)"); pyplot.legend(loc='upper right')
-pyplot.title("Error between backwards difference derivative and analytic derivative of the function cos(x)", fontsize=11)
+pyplot.xlabel("x"); pyplot.ylabel("Error in the derivative of f(x)")
+pyplot.legend(loc='upper right')
+pyplot.title("Error between backwards difference derivative and analytic
+derivative of the function cos(x)", fontsize=11)
 pyplot.show()
 
-ANSWER1 = """As dx becomes smaller, plot becomes more jagged, the difference between error values varies considerably leading to a less accurate approximation of the derivative. With dx increasing, the error increases considerably so a greater variation between the bdm value and the analytic value for the derivative, so less accurate."""
+ANSWER1 = """As dx becomes smaller, plot becomes more jagged, the difference
+between error values varies considerably leading to a less accurate
+approximation of the derivative. With dx increasing, the error increases
+considerably so a greater variation between the bdm value and the analytic value
+ for the derivative, so less accurate."""
