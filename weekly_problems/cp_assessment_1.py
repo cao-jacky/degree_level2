@@ -21,10 +21,10 @@ def g_bdm(x, dx):
 xs = numpy.linspace(-2*numpy.pi, 2*numpy.pi, 100)
 
 # Evaluating the derivatives
-df_dx_small = g_bdm(xs, dx=1e-10)
-df_dx_good = g_bdm(xs, dx=1e-5)
-df_dx_large = g_bdm(xs, dx=1e-4)
-# Analytical
+df_dx_small = g_bdm(xs, dx=1e-15)
+df_dx_good = g_bdm(xs, dx=1e-8)
+df_dx_large = g_bdm(xs, dx=1e-1)
+# Analytical function
 df_dx_analytic = g(xs)
 
 # Plotting the three graphs, labelling the axes, adding a legend, and a title
@@ -34,11 +34,11 @@ pyplot.plot(xs, df_dx_good - df_dx_analytic, label='dx good')
 pyplot.plot(xs, df_dx_large - df_dx_analytic, label='dx large')
 pyplot.xlabel("x"); pyplot.ylabel("Error in the derivative of f(x)")
 pyplot.legend(loc='upper right')
-pyplot.title("Error between backwards difference derivative and analytic
-derivative of the function cos(x)", fontsize=11)
+pyplot.title("""Error between backwards difference derivative and analytic
+derivative of the function cos(x)""".replace('\n', ' '), fontsize=11)
 pyplot.show()
 
-ANSWER1 = """As dx becomes smaller, plot becomes more jagged, the difference
+ANSWER1 = """As dx becomes smaller, the plot becomes more jagged, the difference
 between error values varies considerably leading to a less accurate
 approximation of the derivative. With dx increasing, the error increases
 considerably so a greater variation between the bdm value and the analytic value
