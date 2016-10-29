@@ -24,8 +24,6 @@ def solve_euler(n0, t1, n_panels):
 	# Integrate each panel
 	for i in range(n_panels):
 		n_history[i] = n # Record current values
-		t = i * dt # more accurate than t = t + dt as less rounding errors
-		# Mind you, this DEQ doesn't depend on time anyway
 		# Calculate next time step
 		n = n + f(n) * dt # Euler time step involving f(n)
 	return n_history
@@ -38,40 +36,42 @@ def solve_heun(n0, t1, n_panels):
 	n_history = numpy.zeros((n_panels,), dtype=numpy.float32)
 	for i in range(n_panels):
 		n_history[i] = n # Record current values
-		t = i * dt # more accurate than t = t + dt as less rounding errors
-		k_1 = f(n)
-		n = n + k_1 * dt
-		k_2 = f(n)
-
+		k_0 = f(n)
+		k_1 = f(n + k_0 * dt)
+		n = n + (dt / 2) * (k_0 + k_1)
 	return n_history
 
-N0 = 1000 # Initial conditions - number of nuclei
-T1 = 60 # Integrate over time range 0 <= t <= t1
-N_PANELS = 10 # Number of panels to divide the time range into
+t1 = 60 # Integrate over time range 0 <= t <= t1
+N_PANELS = 15 # Number of panels to divide the time range into
+N0 = 1200 # Initial conditions - number of nuclei
+
 
 # Time at the start of each panel - used for plotting and analytical solution
-timebase = numpy.arange(0, T1, T1/N_PANELS)
+timebase = numpy.arange(0, t1, t1/N_PANELS)
 # Evaluate various methods
-n_analytic = analytic(N0, timebase)
-n_euler = solve_euler(N0, T1, N_PANELS)
-n_heun = solve_heun(N0, T1, N_PANELS)
+n_analytic 	= analytic(N0, timebase)
+n_euler 	= solve_euler(N0, t1, N_PANELS)
+n_heun 		= solve_heun(N0, t1, N_PANELS)
 # Graphing time
 pyplot.figure()
 pyplot.subplot(211) # Top plot - count vs time for methods
-pyplot.plot(timebase, n_analytic, color='grey')
-pyplot.plot(timebase, n_euler, color='red')
-pyplot.plot(timebase, n_heun, color='blue', linestyle='--')
+pyplot.plot(timebase, n_analytic, color='grey', label='Analytic')
+pyplot.plot(timebase, n_euler, color='red', label='Euler')
+pyplot.plot(timebase, n_heun, color='blue', label='Heun', linestyle='--')
 pyplot.xlabel("Time in hours")
 pyplot.ylabel("Number of undecayed atoms")
+pyplot.legend(loc='upper right')
 
 pyplot.subplot(212) # Bottom plot - error vs time for numerics
 pyplot.semilogy() # Make y-axis log
-err_euler = abs(n_euler-n_analytic)/n_analytic
-err_heun = abs(n_heun-n_analytic)/n_analytic
-pyplot.plot(timebase, err_euler, color='red')
-pyplot.plot(timebase, err_euler, color='blue')
+err_euler 	= abs(n_euler-n_analytic)/n_analytic
+err_heun 	= abs(n_heun-n_analytic)/n_analytic
+pyplot.plot(timebase, err_euler, color='red', label='Euler')
+pyplot.plot(timebase, err_heun, color='blue', label='Heun')
 pyplot.xlabel("Time in hours")
 pyplot.ylabel("Absolute relative error")
+pyplot.legend(loc='upper right')
 
 pyplot.show()
-ANSWER1 = " "
+ANSWER1 = """Heun's method is more accurate than Euler's as it uses another
+method to predict the next point"""
