@@ -51,5 +51,5 @@ increases as the total incremental value for area becomes closer and closer to
 the true analytical value.'''
 ANSWER2 = '''If the function x^2 was integrated the accuracy would decrease as
 the function x^2 is in the Simpson's Rule expansion itself, so the area of
-calculated with the Rule will be the same as if it was analytically calculated
+calculated with the rule will be the same as if it was analytically calculated
 so there would be no error.'''
