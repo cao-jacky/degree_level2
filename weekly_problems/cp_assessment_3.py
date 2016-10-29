@@ -28,13 +28,22 @@ def solve_euler(n0, t1, n_panels):
 		# Mind you, this DEQ doesn't depend on time anyway
 		# Calculate next time step
 		n = n + f(n) * dt # Euler time step involving f(n)
-
 	return n_history
 
 def solve_heun(n0, t1, n_panels):
-	# A lot like Euler but with more maths
-	#return n_history
-	return "poop"
+	dt = t1 / n_panels # Width of a panel
+	# Initialise simulation parameters
+	n, t = n0, 0
+	# Make an array to hold the counts at each time point in
+	n_history = numpy.zeros((n_panels,), dtype=numpy.float32)
+	for i in range(n_panels):
+		n_history[i] = n # Record current values
+		t = i * dt # more accurate than t = t + dt as less rounding errors
+		k_1 = f(n)
+		n = n + k_1 * dt
+		k_2 = f(n)
+
+	return n_history
 
 N0 = 1000 # Initial conditions - number of nuclei
 T1 = 60 # Integrate over time range 0 <= t <= t1
@@ -49,12 +58,20 @@ n_heun = solve_heun(N0, T1, N_PANELS)
 # Graphing time
 pyplot.figure()
 pyplot.subplot(211) # Top plot - count vs time for methods
-#??? # Plot n_analytic vs timebase etc.
+pyplot.plot(timebase, n_analytic, color='grey')
+pyplot.plot(timebase, n_euler, color='red')
+pyplot.plot(timebase, n_heun, color='blue', linestyle='--')
+pyplot.xlabel("Time in hours")
+pyplot.ylabel("Number of undecayed atoms")
 
 pyplot.subplot(212) # Bottom plot - error vs time for numerics
 pyplot.semilogy() # Make y-axis log
 err_euler = abs(n_euler-n_analytic)/n_analytic
-#err_heun = ???
+err_heun = abs(n_heun-n_analytic)/n_analytic
+pyplot.plot(timebase, err_euler, color='red')
+pyplot.plot(timebase, err_euler, color='blue')
+pyplot.xlabel("Time in hours")
+pyplot.ylabel("Absolute relative error")
 
 pyplot.show()
 ANSWER1 = " "
