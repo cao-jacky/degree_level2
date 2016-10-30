@@ -50,6 +50,5 @@ ANSWER1 = '''If you increase the number of panels used, then the accuracy
 increases as the total incremental value for area becomes closer and closer to
 the true analytical value.'''
 ANSWER2 = '''If the function x^2 was integrated the accuracy would decrease as
-the function x^2 is in the Simpson's Rule expansion itself, so the area of
-calculated with the rule will be the same as if it was analytically calculated
-so there would be no error.'''
+the function x^2 is in the Simpson's Rule expansion itself, the number of panel
+counts would not matter as there would be no error for that term.'''
