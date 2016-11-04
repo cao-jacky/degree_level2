@@ -8,8 +8,18 @@ USER    = "Jacky Cao"
 USER_ID = "bbvw84"
 
 # Define all constants
-# r, area, rho_air, rho_iron, g, kappa, v0, v1, t1, n_panels
-# calculating mass and area of cannonball of radium r, of iron
+r = 0.15 # Radius of cannonball in meters
+rho_iron = 7874.00 # Density of iron in kg/m**3
+g = 9.81 # Acceleration due to gravity in ms**-2
+kappa = 0.47 # Drag coefficient of a sphere
+rho_air = 1.23 # Density of air
+t1 = 25.00 # End time for our ODE integration in s
+v0 = 125.00 # Launch speed in ms**-1 
+n_panels = 100 # The number of panels to use 
+
+# Calculating mass and area of cannonball of radium r, of iron
+area = numpy.pi * r**2 # Cross sectional area of the cannon ball in m**2
+mass = rho_iron * (4 * numpy.pi * r**3)/3 # Mass of the cannonball in kg
 
 def f((x, y, vx, vy), t):
 	# Calculate the forces on the cannonball
