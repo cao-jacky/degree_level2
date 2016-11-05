@@ -28,12 +28,11 @@ def f((x, y, vx, vy), time):
 	Fy_drag = kappa * rho_air * area * v0 * vy # Fluid resistance, y-component
 	d_x = vx # dx/dt
 	d_y = vy # dy/dt
-	d_vx = Fx_grav / mass # dvx/dt (acceleration)
-	d_vy = Fy_grav / mass # dvy/dt
+	d_vx = (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
+	d_vy = (Fy_grav + Fy_drag) / mass # dvy/dt
 	return numpy.array((d_x, d_y, d_vx, d_vy))
 
 def solve_euler(X0, t1, n_panels):
-	print X0
 	dt = t1 / n_panels # Width of a panel
 	# Initialise simulation parameters
  	X = X0
@@ -43,11 +42,8 @@ def solve_euler(X0, t1, n_panels):
 	for i in range(n_panels):
 		history[i] = X # Record current values
 		t = i * dt
-		print f(X, t)
 		# Calculate next time step
-		X1 = X + f(X, t)*dt
-		#print history
-
+		X = X + f(X, t)*dt
 	return history
 
 pyplot.figure()
@@ -71,20 +67,27 @@ for theta in thetas:
 	vx, vy = v0*numpy.cos(theta), v0*numpy.sin(theta)
 	initial_conditions = (0, 0, vx, vy)
 
-	#values_scipy = scipy.integrate.odeint(f, initial_conditions, timebase)
+	values_scipy = scipy.integrate.odeint(f, initial_conditions, timebase)
 	values_euler = solve_euler(initial_conditions, t1, n_panels)
-	#values_scipy = trim_trajectory(values_scipy)
+	values_scipy = trim_trajectory(values_scipy)
 	values_euler = trim_trajectory(values_euler)
 	# Calculate the range
-	x_first, y_first, vx_first, vy_first = values_euler[0]
-	x_final, y_final, vx_final, vy_final = values_euler[-1]
-	rnge = 3
+	x_first, y_first, vx_first, vy_first = values_scipy[0]
+	x_final, y_final, vx_final, vy_final = values_scipy[-1]
+	rnge =
 	proj_range.append(rnge)
+	pyplot.subplot(211)
+	pyplot.xlabel("Distance (m)"); pyplot.ylabel("Height (m)")
 	# Plot the odeint trajectory - grey line
+	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey', label='odeint')
 	# Plot the Euler trajectory - blue dashed line
-	pyplot.plot(timebase, values_euler, color='blue', label='Euler', linestyle='--')
+	pyplot.plot(values_euler[:,0], values_euler[:,1], color='blue', label='Euler', linestyle='--')
 
 
 pyplot.subplot(212)
 # Plot range vs theta
+pyplot.plot(rnge, thetas)
 pyplot.show()
+
+ANSWER1 = """ """
+ANSWER2 = """ """
