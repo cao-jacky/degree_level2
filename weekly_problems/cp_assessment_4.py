@@ -26,10 +26,10 @@ def f((x, y, vx, vy), time):
 	Fy_grav = - mass * g # Gravity, y-component
 	Fx_drag = kappa * rho_air * area * v0 * vx # Fluid resistance, x-component
 	Fy_drag = kappa * rho_air * area * v0 * vy # Fluid resistance, y-component
-	d_x = vx # dx/dt
-	d_y = vy # dy/dt
-	d_vx = (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
-	d_vy = (Fy_grav + Fy_drag) / mass # dvy/dt
+	d_x 	= vx # dx/dt
+	d_y 	= vy # dy/dt
+	d_vx 	= (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
+	d_vy 	= (Fy_grav + Fy_drag) / mass # dvy/dt
 	return numpy.array((d_x, d_y, d_vx, d_vy))
 
 def solve_euler(X0, t1, n_panels):
@@ -80,9 +80,11 @@ for theta in thetas:
 	pyplot.subplot(211)
 	pyplot.xlabel("Distance (m)"); pyplot.ylabel("Height (m)")
 	# Plot the odeint trajectory - grey line
-	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey', label='odeint')
+	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey',
+	label='odeint')
 	# Plot the Euler trajectory - blue dashed line
-	pyplot.plot(values_euler[:,0], values_euler[:,1], color='blue', label='Euler', linestyle='--')
+	pyplot.plot(values_euler[:,0], values_euler[:,1], color='blue',
+	label='Euler', linestyle='--')
 
 
 pyplot.subplot(212)
