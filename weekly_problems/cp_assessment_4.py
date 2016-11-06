@@ -43,7 +43,11 @@ def solve_euler(X0, t1, n_panels):
 		history[i] = X # Record current values
 		t = i * dt
 		# Calculate next time step
-		X = X + f(X, t)*dt
+		#X = X + f(X, t)*dt
+
+		k_0 = f(X, t) # k_0 as required by Heun's method
+		k_1 = f(X + k_0 * dt, t) # k_1 as required by Heun's method
+		X = X + (dt / 2) * (k_0 + k_1) # Applying the complete Heun's method
 	return history
 
 pyplot.figure()
@@ -71,6 +75,7 @@ for theta in thetas:
 	values_euler = solve_euler(initial_conditions, t1, n_panels)
 	values_scipy = trim_trajectory(values_scipy)
 	values_euler = trim_trajectory(values_euler)
+	print values_scipy[:,1]
 	# Calculate the range
 	x_first, y_first, vx_first, vy_first = values_scipy[0]
 	x_final, y_final, vx_final, vy_final = values_scipy[-1]
@@ -90,5 +95,7 @@ pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
 pyplot.plot(numpy.degrees(thetas), proj_range)
 pyplot.show()
 
-ANSWER1 = """ """
-ANSWER2 = """ """
+ANSWER1 = """For the maximum range under the specified conditions, the angle
+from the horizontal is about 50 degrees. """
+ANSWER2 = """As the air density increases the angle at which maximum range is
+achieved, decreases. """
