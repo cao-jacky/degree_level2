@@ -43,11 +43,7 @@ def solve_euler(X0, t1, n_panels):
 		history[i] = X # Record current values
 		t = i * dt
 		# Calculate next time step
-		#X = X + f(X, t)*dt
-
-		k_0 = f(X, t) # k_0 as required by Heun's method
-		k_1 = f(X + k_0 * dt, t) # k_1 as required by Heun's method
-		X = X + (dt / 2) * (k_0 + k_1) # Applying the complete Heun's method
+		X = X + f(X, t)*dt
 	return history
 
 pyplot.figure()
