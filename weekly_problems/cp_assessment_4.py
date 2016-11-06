@@ -74,7 +74,7 @@ for theta in thetas:
 	# Calculate the range
 	x_first, y_first, vx_first, vy_first = values_scipy[0]
 	x_final, y_final, vx_final, vy_final = values_scipy[-1]
-	rnge =
+	rnge = x_final - x_first
 	proj_range.append(rnge)
 	pyplot.subplot(211)
 	pyplot.xlabel("Distance (m)"); pyplot.ylabel("Height (m)")
@@ -85,8 +85,9 @@ for theta in thetas:
 
 
 pyplot.subplot(212)
+pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
 # Plot range vs theta
-pyplot.plot(rnge, thetas)
+pyplot.plot(numpy.degrees(thetas), proj_range)
 pyplot.show()
 
 ANSWER1 = """ """
