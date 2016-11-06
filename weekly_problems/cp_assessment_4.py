@@ -77,7 +77,6 @@ for theta in thetas:
 	x_final, y_final, vx_final, vy_final = values_scipy[-1]
 	rnge = x_final - x_first
 	proj_range.append(rnge)
-	pyplot.subplot(211)
 	pyplot.xlabel("Distance (m)"); pyplot.ylabel("Height (m)")
 	# Plot the odeint trajectory - grey line
 	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey',
