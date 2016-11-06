@@ -71,7 +71,6 @@ for theta in thetas:
 	values_euler = solve_euler(initial_conditions, t1, n_panels)
 	values_scipy = trim_trajectory(values_scipy)
 	values_euler = trim_trajectory(values_euler)
-	print values_scipy[:,1]
 	# Calculate the range
 	x_first, y_first, vx_first, vy_first = values_scipy[0]
 	x_final, y_final, vx_final, vy_final = values_scipy[-1]
@@ -84,7 +83,7 @@ for theta in thetas:
 	# Plot the Euler trajectory - blue dashed line
 	pyplot.plot(values_euler[:,0], values_euler[:,1], color='blue',
 	label='Euler', linestyle='--')
-
+	pyplot.title("Range of iron cannonball")
 
 pyplot.subplot(212)
 pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
