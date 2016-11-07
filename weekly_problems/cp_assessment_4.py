@@ -92,7 +92,7 @@ pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
 pyplot.plot(numpy.degrees(thetas), proj_range)
 pyplot.show()
 
-ANSWER1 = """For the maximum range under the specified conditions, the angle
+ANSWER1 = """ For the maximum range under the specified conditions, the angle
 from the horizontal is about 50 degrees. """
-ANSWER2 = """As the air density increases the angle at which maximum range is
+ANSWER2 = """ As the air density increases the angle at which maximum range is
 achieved, decreases. """
