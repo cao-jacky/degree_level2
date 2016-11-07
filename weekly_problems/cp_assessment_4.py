@@ -22,10 +22,11 @@ mass = rho_iron * (4 * numpy.pi * r**3)/3 # Mass of the cannonball in kg
 
 def f((x, y, vx, vy), time):
 	# Calculate the forces on the cannonball
+	v_mag = ((vx**2) + (vy**2))**0.5
 	Fx_grav = - mass * g * 0 # Gravity, x-component
 	Fy_grav = - mass * g # Gravity, y-component
-	Fx_drag = kappa * rho_air * area * v0 * vx # Fluid resistance, x-component
-	Fy_drag = kappa * rho_air * area * v0 * vy # Fluid resistance, y-component
+	Fx_drag = - kappa * rho_air * area * v_mag * vx # Fluid resistance, x-component
+	Fy_drag = - kappa * rho_air * area * v_mag * vy # Fluid resistance, y-component
 	d_x 	= vx # dx/dt
 	d_y 	= vy # dy/dt
 	d_vx 	= (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
@@ -78,13 +79,15 @@ for theta in thetas:
 
 	pyplot.xlabel("Range (m)"); pyplot.ylabel("Height (m)")
 	# Plot the odeint trajectory
-	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey',
-	label='odeint')
+	pyplot.plot(values_scipy[:,0], values_scipy[:,1], color='grey')
 	# Plot the Euler trajectory
 	pyplot.plot(values_euler[:,0], values_euler[:,1], color='blue',
-	label='Euler', linestyle='--')
-	#pyplot.legend(loc='upper right')
-	pyplot.title("Range of iron cannonball")
+	linestyle='--')
+	pyplot.title("Range of an iron cannonball")
+
+pyplot.plot(0, 0, color='blue', label='Euler', linestyle='--')
+pyplot.plot(0, 0, color='grey', label='odeint')
+pyplot.legend(loc='upper right')
 
 pyplot.subplot(212)
 pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
@@ -93,6 +96,6 @@ pyplot.plot(numpy.degrees(thetas), proj_range)
 pyplot.show()
 
 ANSWER1 = """ For the maximum range under the specified conditions, the angle
-from the horizontal is about 50 degrees. """
+from the horizontal is about 45 degrees. """
 ANSWER2 = """ As the air density increases the angle at which maximum range is
 achieved, decreases. """
