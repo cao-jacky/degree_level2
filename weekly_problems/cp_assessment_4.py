@@ -92,7 +92,7 @@ pyplot.legend(loc='upper right')
 pyplot.subplot(212)
 pyplot.xlabel("Angle (degrees)"); pyplot.ylabel("Range (m)")
 # Plot range vs theta
-pyplot.plot(numpy.degrees(thetas), proj_range)
+pyplot.plot(numpy.degrees(thetas), proj_range, "-+")
 pyplot.show()
 
 ANSWER1 = """ For the maximum range under the specified conditions, the angle
