@@ -25,8 +25,8 @@ def f((x, y, vx, vy), time):
 	v_mag = ((vx**2) + (vy**2))**0.5
 	Fx_grav = - mass * g * 0 # Gravity, x-component
 	Fy_grav = - mass * g # Gravity, y-component
-	Fx_drag = - kappa * rho_air * area * v_mag * vx # Fluid resistance, x-component
-	Fy_drag = - kappa * rho_air * area * v_mag * vy # Fluid resistance, y-component
+	Fx_drag = - kappa * rho_air * area * v_mag * vx # Fluid resistance, x-compo
+	Fy_drag = - kappa * rho_air * area * v_mag * vy # Fluid resistance, y-compo
 	d_x 	= vx # dx/dt
 	d_y 	= vy # dy/dt
 	d_vx 	= (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
