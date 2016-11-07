@@ -96,6 +96,6 @@ pyplot.plot(numpy.degrees(thetas), proj_range, "-+")
 pyplot.show()
 
 ANSWER1 = """ For the maximum range under the specified conditions, the angle
-from the horizontal is about 45 degrees. """
+from the horizontal is about 40 to 45 degrees. """
 ANSWER2 = """ As the air density increases the angle at which maximum range is
 achieved, decreases. """
