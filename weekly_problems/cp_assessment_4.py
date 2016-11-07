@@ -16,7 +16,7 @@ t1 			= 25.00 # End time for our ODE integration in s
 v0 			= 125.00 # Launch speed in ms**-1
 n_panels 	= 400 # Number of panels to use
 
-# Calculating mass and area of cannonball of radium r, of iron
+# Calculating mass and area of an iron cannonball of radius r
 area = numpy.pi * r**2 # Cross sectional area of the cannon ball in m**2
 mass = rho_iron * (4 * numpy.pi * r**3)/3 # Mass of the cannonball in kg
 
@@ -25,9 +25,9 @@ def f((x, y, vx, vy), time):
 	v_mag = ((vx**2) + (vy**2))**0.5
 	Fx_grav = - mass * g * 0 # Gravity, x-component
 	Fy_grav = - mass * g # Gravity, y-component
-	Fx_drag = - kappa * rho_air * area * v_mag * vx # Fluid resistance, x-compo
-	Fy_drag = - kappa * rho_air * area * v_mag * vy # Fluid resistance, y-compo
-	d_x 	= vx # dx/dt
+	Fx_drag = - kappa * rho_air * area * v_mag * vx # Fluid resistance, x-comp-
+	Fy_drag = - kappa * rho_air * area * v_mag * vy # Fluid resistance, y-comp-
+	d_x 	= vx # dx/dt (velocity)
 	d_y 	= vy # dy/dt
 	d_vx 	= (Fx_grav + Fx_drag) / mass # dvx/dt (acceleration)
 	d_vy 	= (Fy_grav + Fy_drag) / mass # dvy/dt
@@ -35,7 +35,7 @@ def f((x, y, vx, vy), time):
 
 def solve_euler(X0, t1, n_panels):
 	dt = t1 / n_panels # Width of a panel
- 	X = X0 # Initialise simulation parameters
+ 	X, t = X0, 0 # Initialise simulation parameters
 	# Allocate array to store (x,y,vx,vy) at all time points
 	history = numpy.zeros((n_panels, len(X0)), dtype=numpy.float32)
 	# Integrate each panel
