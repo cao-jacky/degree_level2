@@ -8,6 +8,7 @@ python modules solving a given problem/modelling a system to find a solution to 
 - week 2: numerical integration
 - week 3: differential equations 1
 - week 4: differential equations 2
+- week 5: monte carlo methods
 
 ## lab_reports
 ### viscosity of water
