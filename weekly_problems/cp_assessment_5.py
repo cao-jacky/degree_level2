@@ -15,7 +15,7 @@ def estimate_pi(n):
     history = numpy.zeros((n,2), dtype=numpy.float32)
 
     # Seed
-    seeded = numpy.random.seed(seed=1)
+    #seeded = numpy.random.seed(seed=1)
 
     # Generate the random numbers
     history = numpy.random.uniform(size=(n,2))
@@ -30,29 +30,34 @@ def estimate_pi(n):
             hits = hits + 1
 
     # Calculating pi after finding all hits and misses
-    pi_value = (hits / (n - hits))
+    pi = 4 * (hits / n)
 
-    return pi_value
+    return pi
 
 def measure_error(n):
-    pi_values = estimate_pi(n)
-    pi_values = numpy.mean((pi_values - numpy.pi)**2)**.5
-    return pi_values
+    pi_values = numpy.zeros((80), dtype=numpy.float32)
+    for j in range(80):
+        pi_values[j] = estimate_pi(n)
+
+    square_error = numpy.mean((pi_values - numpy.pi)**2)**.5
+    return square_error
 
 # Plotting code
 pyplot.figure()
 point_counts=[25, 50, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200]
 error = []
 
-for j in range(0, len(point_counts)):
-    points = point_counts[j]
+for k in range(0, len(point_counts)):
+    points = point_counts[k]
     calculate = measure_error(points)
     error.append(calculate)
 
-pyplot.plot(point_counts, error)
+pyplot.semilogx(point_counts, error, "-+")
 pyplot.xlabel("Number of points cast")
 pyplot.ylabel("Scaling of the error")
+pyplot.title("Estimating the value of $\pi$")
 pyplot.show()
 
-
-ANSWER1 = """ """
+ANSWER1 = """ As the number of points increases we see that the accuracy
+increases - the error between the calculated and analytical value of pi
+decreases."""
