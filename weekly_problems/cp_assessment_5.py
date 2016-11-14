@@ -44,5 +44,6 @@ pyplot.title("Estimating the value of $\pi$")
 pyplot.show()
 
 ANSWER1 = """ As the number of points increases we see that the accuracy
-increases - the error between the calculated and analytical value of pi
-decreases."""
+increases - the plotted graph shows that the error between the calculated and
+analytical value of pi decreases. This result appears as there are more values
+which are closer to the true value of Pi - the fraction of hits increases. """
