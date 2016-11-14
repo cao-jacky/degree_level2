@@ -38,7 +38,7 @@ for k in range(0, len(point_counts)):
     error_point_counts = measure_error(points)
     error.append(error_point_counts)
 
-pyplot.semilogx(point_counts, error, "-+")
+pyplot.semilogx(point_counts, error, "-o", linestyle='none')
 pyplot.xlabel("Number of points cast"); pyplot.ylabel("Scaling of the error")
 pyplot.title("Estimating the value of $\pi$")
 pyplot.show()
