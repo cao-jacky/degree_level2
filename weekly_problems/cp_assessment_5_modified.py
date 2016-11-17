@@ -61,9 +61,10 @@ pyplot.semilogx(point_counts, error, "-o", linestyle='none')
 pyplot.xlabel("Number of points cast"); pyplot.ylabel("Scaling of the error")
 pyplot.title("Estimating the value of $\pi$")
 
-point_count = [51200]
+point_count = [6400]
 
 pyplot.subplot(212)
+pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
 for l in range(0, len(point_count)):
     point = point_count[l]
     point_counted = hits_returner(point)
@@ -71,11 +72,11 @@ for l in range(0, len(point_count)):
         pointed = i
         if pointed[2] == 1:
             pyplot.scatter(pointed[0], pointed[1], color='green')
-
         if pointed[2] == 0:
             pyplot.scatter(pointed[0], pointed[1], color='red')
 
+pyplot.subplots_adjust(hspace=.5)
 pyplot.scatter(0, 0, color='green', label='Inside')
 pyplot.scatter(0, 0, color='red', label='Outside')
-pyplot.legend(loc='bottom right')
+pyplot.legend(loc='lower left')
 pyplot.show()
