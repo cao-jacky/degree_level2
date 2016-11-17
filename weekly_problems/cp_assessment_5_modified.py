@@ -7,20 +7,36 @@ USER_ID = "bbvw84"
 
 circle_radius = 1.0 # Unit circle radius
 
-
+def random_numbers(n): # Function to generate random points
+    random_points = numpy.random.uniform(size=(n,2))
+    return random_points
 
 def estimate_pi(n):
     hits = 0 # Hit counter
     # Generate random points and store in numpy array
-    random_numbers = numpy.random.uniform(size=(n,2))
+    generated_points = random_numbers(n)
     for i in range(n):
-        x_coord = random_numbers[i][0] # x-component of the random point
-        y_coord = random_numbers[i][1] # y-component of the random point
+        x_coord = generated_points[i][0] # x-component of the random point
+        y_coord = generated_points[i][1] # y-component of the random point
         random_radius = numpy.sqrt(x_coord**2 + y_coord**2) # Radius of point
         if random_radius <= circle_radius:
             hits = hits + 1
     pi_fraction = (hits / n)
     return 4 * pi_fraction # Calculate a value of pi
+
+def hits_returner(n):
+    hits = 0 # Hit counter
+    generated_points = random_numbers(n)
+    extra_zeroes = numpy.zeros((n, 1), dtype=generated_points.dtype)
+    storing_array = numpy.concatenate((generated_points,extra_zeroes), axis=1)
+    for i in range(n):
+        x_coord = generated_points[i][0] # x-component of the random point
+        y_coord = generated_points[i][1] # y-component of the random point
+        random_radius = numpy.sqrt(x_coord**2 + y_coord**2) # Radius of point
+        if random_radius <= circle_radius:
+            hits = hits + 1
+            storing_array[i][2] = 1
+    return storing_array
 
 def measure_error(n):
     pi_values = numpy.zeros((80), dtype=numpy.float32)
@@ -40,12 +56,26 @@ for k in range(0, len(point_counts)):
     error_point_counts = measure_error(points)
     error.append(error_point_counts)
 
+pyplot.subplot(211)
 pyplot.semilogx(point_counts, error, "-o", linestyle='none')
 pyplot.xlabel("Number of points cast"); pyplot.ylabel("Scaling of the error")
 pyplot.title("Estimating the value of $\pi$")
-pyplot.show()
 
-ANSWER1 = """ As the number of points increases we see that the accuracy
-increases - the plotted graph shows that the error between the calculated and
-analytical value of pi decreases. This result appears as there are more values
-which are closer to the true value of Pi - the fraction of hits increases. """
+point_count = [51200]
+
+pyplot.subplot(212)
+for l in range(0, len(point_count)):
+    point = point_count[l]
+    point_counted = hits_returner(point)
+    for i in point_counted:
+        pointed = i
+        if pointed[2] == 1:
+            pyplot.scatter(pointed[0], pointed[1], color='green')
+
+        if pointed[2] == 0:
+            pyplot.scatter(pointed[0], pointed[1], color='red')
+
+pyplot.scatter(0, 0, color='green', label='Inside')
+pyplot.scatter(0, 0, color='red', label='Outside')
+pyplot.legend(loc='bottom right')
+pyplot.show()
