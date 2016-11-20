@@ -17,7 +17,7 @@ def estimate_pi(n):
     generated_points = random_numbers(n)
     for i in range(n):
         x_coord = generated_points[i][0] # x-component of the random point
-        y_coord = generated_points[i][1] # y-component of the random point
+        y_coord = generated_points[i][1] # y-component of the random pointhbury
         random_radius = numpy.sqrt(x_coord**2 + y_coord**2) # Radius of point
         if random_radius <= circle_radius:
             hits = hits + 1
