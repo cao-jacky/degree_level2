@@ -9,9 +9,9 @@ USER_ID = "bbvw84"
 # Defining data to use
 xl, xu = -0.2, 1.2          # x-bounds
 yl, yu = -0.2, 1.2          # y-bounds
-x0, y0 = 0.5, 0.5           # Initial position
+x0, y0 = 0.2, 1.0           # Initial position
 r0 = numpy.array((x0,y0))   # Vector form of the initial position
-n_panels = 5000             # Number of panels used, also max iteration value
+n_panels = 100000           # Number of panels used, also max iteration value
 convergence_criteria = 1e-11
 
 # Exploring 1000 points in x and y
@@ -41,13 +41,12 @@ def gradient_descent((x,y), gamma):
 
     for i in range(n_panels):
         r_history[i,:2] = r # Record current values
-        #r_history[i,:4] = grad(r)
         fLast = f(r)
         r = r - gamma * grad(r) # Euler time step involving f(n)
         fNew = f(r)
         if abs(fNew - fLast) < convergence_criteria:
             break
-    #r_history = r_history[0:i+1]
+    r_history = r_history[0:i+1]
     print 'Found minimum in %i iterations' % i
     return r_history
 
@@ -66,8 +65,9 @@ for iy, y in enumerate(y_axis):
 pyplot.figure()
 for gamma in gammas:
     data = gradient_descent(r0, gamma)
-    data = trim_gradient(data)
+    #data = trim_gradient(data)
     pyplot.plot(data[:,0], data[:,1], label=gamma)
+    
 
 pyplot.legend(loc='lower left')
 pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
