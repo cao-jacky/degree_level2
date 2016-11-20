@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  9 NOV 2016 09:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  20 NOV 2016 20:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,7 +275,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-No file viscosity_of_water.aux.
+(./viscosity_of_water.aux)
 \openout1 = `viscosity_of_water.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -292,6 +292,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 14.
+
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -374,126 +375,94 @@ Package gensymb Info: Using \textohm for \ohm on input line 14.
 Package gensymb Info: Using \textmu for \micro on input line 14.
 
 
-Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Lab Group A, Thur
-sday, Lab Partner: Maddie Butterfield\\ Date of experiment: 11/11/2016, Date of
- report: ??/11/2016.
+Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Thursda
+y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, 
+Date of report: 20/11/2016.
 
 
-Package natbib Warning: Citation `lens' on page 1 undefined on input line 37.
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+
+ []
 
 
-Package natbib Warning: Citation `labscript' on page 1 undefined on input line 
-37.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--57
+Underfull \hbox (badness 10000) in paragraph at lines 53--56
 
  []
 
 <fig1.pdf, id=1, 516.93124pt x 249.93375pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 65.
+Package pdftex.def Info: fig1.pdf used on input line 64.
 (pdftex.def)             Requested size: 256.0748pt x 123.81483pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 65--66
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 64--65
  [] 
  []
 
-
-Package natbib Warning: Citation `labscript' on page 1 undefined on input line 
-78.
-
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
-1.pdf>] <fig2.pdf, id=32, 751.80875pt x 444.66125pt>
+<fig2.pdf, id=2, 751.80875pt x 444.66125pt>
 File: fig2.pdf Graphic file (type pdf)
  <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf used on input line 92.
+Package pdftex.def Info: fig2.pdf used on input line 91.
 (pdftex.def)             Requested size: 256.0748pt x 151.461pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 92--93
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 91--92
  [] 
  []
 
 
-Overfull \hbox (1.3476pt too wide) in paragraph at lines 104--127
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (1.3476pt too wide) in paragraph at lines 103--126
  []$[]$ 
  []
 
+[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
+1.pdf>]
 
-Package natbib Warning: Citation `manchester' on page 2 undefined on input line
- 151.
-
-
-LaTeX Warning: Reference `LastBibItem' on page 2 undefined on input line 159.
-
-
-Underfull \hbox (badness 4995) in paragraph at lines 171--174
- []\OT1/cmr/m/n/9 P. Swift. \OT1/cmr/m/it/9 Dis-cov-ery Skills in Physics 2015/
-2016,
- []
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 137.
 
 [2 <./fig2.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
-[3]
-
-Class revtex4 Warning: Endnote numbers changed: rerun LaTeX.
-
-
-Package natbib Warning: There were undefined citations.
-
-(./viscosity_of_water.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
-
-
- ) 
+[3] (./viscosity_of_water.aux) ) 
 Here is how much of TeX's memory you used:
  4442 strings out of 493089
- 58660 string characters out of 6134841
- 164126 words of memory out of 5000000
- 7854 multiletter control sequences out of 15000+600000
- 13557 words of font info for 47 fonts, out of 8000000 for 9000
+ 58685 string characters out of 6134841
+ 150142 words of memory out of 5000000
+ 7853 multiletter control sequences out of 15000+600000
+ 13249 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,23p,772b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on viscosity_of_water.pdf (3 pages, 316711 bytes).
+ 38i,12n,23p,768b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/d
+vips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on viscosity_of_water.pdf (3 pages, 308410 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
+ 139 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
