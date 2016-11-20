@@ -22,8 +22,8 @@ dy = (yu-yl)/N_POINTS
 y_axis = numpy.arange(yl, yu, dy) # Generating points between lower and upper y
 x_axis = numpy.arange(xl, xu, dx) # Generating points between lower and upper x
 
-points = numpy.zeros((len(y_axis), len(x_axis)))
-gammas = [0.001, 0.0008, 0.000003, 0.00000007, 0.002]
+points = numpy.zeros((len(y_axis), len(x_axis)))        # Generating points
+gammas = [0.001, 0.0008, 0.000003, 0.00000007, 0.002]   # Various gammas
 
 def f((x, y)):
     """ Function at vec(r) """
@@ -67,7 +67,6 @@ for gamma in gammas:
     data = gradient_descent(r0, gamma)
     #data = trim_gradient(data)
     pyplot.plot(data[:,0], data[:,1], label=gamma)
-    
 
 pyplot.legend(loc='lower left')
 pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
