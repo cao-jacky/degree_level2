@@ -41,16 +41,16 @@ def gradient_descent((x,y), gamma):
 
     for i in range(max_iter):
         r_history[i,:2] = r         # Record current values
-        fLast = f(r)
-        r = r - gamma * grad(r)     # Euler time step involving f(n)
-        fNew = f(r)
+        fLast = f(r)                # Last value calculated of f(r)
+        r = r - gamma * grad(r)     # Gradient Descent method applied
+        fNew = f(r)                 # New value of f(vec(r)) after GD
         if abs(fNew - fLast) < convergence_criteria:
-            break
+            break                   # Terminate if convergence criteria met
     r_history = r_history[0:i+1]    # Trim the r_history array
     print 'Found minimum in %i iterations' % i
     return r_history
 
-for iy, y in enumerate(y_axis):
+for iy, y in enumerate(y_axis):     # Explore all points and populate array
     for ix, x in enumerate(x_axis):
         points[iy, ix] = f((x, y))
 
@@ -62,12 +62,12 @@ for gamma in gammas: # Call function and plot for different gamma values
         final_gamma = gradient_descent(r0, gammas[-1])
         xmin, ymin = final_gamma[-1][0], final_gamma[-1][1]
 
-pyplot.legend(loc='lower left')
-pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
-pyplot.title("Finding the minima of Rosenbrock's Banana Function")
+# Show a greyscale colourmap of the data
 im = pyplot.imshow(points, extent=(xl, xu, yl, yu), origin='lower',
 cmap=matplotlib.cm.gray, norm=matplotlib.colors.LogNorm(vmin=0.2, vmax=200))
-
+pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
+pyplot.legend(loc='lower left')
+pyplot.title("Finding the minima of Rosenbrock's Banana Function")
 pyplot.colorbar(im, orientation='vertical')
 pyplot.show()
 
