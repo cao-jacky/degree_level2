@@ -10,6 +10,9 @@ a lab report about determining the viscosity of water
 
 Things to talk about here:
 
+What do I want to initially talk about??
+- How liquids have various properties attributed to them and how viscosity is one of them. Viscosity is the internal friction within a fluid
+
 - How the equation is derived, Poiseuille’s Equation - find a reference for that 
 	- how poiseuille found that provided the fluid is in streamlined motion (non-turbulent), the equation for volume flow rate through a tube of length L and radius a is (...)
 - Water density variations with the temperature 
