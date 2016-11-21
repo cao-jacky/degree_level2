@@ -2,11 +2,18 @@
 
 a lab report about determining the viscosity of water
 
+## data analysis
+211116
+
+- lab partner (one of them) used the calculated value of viscosity from the data and used it again in the theoretical model -> does not make sense at all! 
+- finish off the error calculation for viscosity [+ more or less finished with the calculation, need to find the uncertainties for the individual terms now! and where they have come from!]
+
+
 ## abstract
 
 - 
 
-## introduction
+## introduction (try and finish on 22/23 of 1116)
 
 Things to talk about here:
 
@@ -26,7 +33,7 @@ What do I want to initially talk about?? (initial preamble)
 		- the proportionality factor is the viscosity \eta 
 		- eqn: F/A = \eta dv_x/dz
 
-## method
+## method (try to begin on 22/23 of 1116)
 - set-up of the experiment - firstly describe the equipment used and provide a nice figure to show it! 
 - water holder/container thing, capillary tubes (three of them: blue, black, and red) were used/connected to the water container 
 - beaker used to catch the water, this was on top of a set of measuring scales 

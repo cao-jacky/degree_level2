@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  21 NOV 2016 22:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  21 NOV 2016 22:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -380,46 +380,46 @@ y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016,
 Date of report: 20/11/2016.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--54
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 
  []
 
 <fig1.pdf, id=1, 516.93124pt x 249.93375pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 62.
+Package pdftex.def Info: fig1.pdf used on input line 61.
 (pdftex.def)             Requested size: 256.0748pt x 123.81483pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 62--63
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 61--62
  [] 
  []
 
 <fig2.pdf, id=2, 751.80875pt x 444.66125pt>
 File: fig2.pdf Graphic file (type pdf)
  <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf used on input line 89.
+Package pdftex.def Info: fig2.pdf used on input line 88.
 (pdftex.def)             Requested size: 256.0748pt x 151.461pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 89--90
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 88--89
  [] 
+ []
+
+
+Overfull \hbox (1.3476pt too wide) in paragraph at lines 100--123
+ []$[]$ 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Overfull \hbox (1.3476pt too wide) in paragraph at lines 101--124
- []$[]$ 
- []
-
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
-1.pdf>]
+1.pdf> <./fig2.pdf>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 137.
+ on input line 134.
 
-[2 <./fig2.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 181--183
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
@@ -430,10 +430,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
 
  ) 
 Here is how much of TeX's memory you used:
- 4442 strings out of 493089
- 58685 string characters out of 6134841
- 150142 words of memory out of 5000000
- 7853 multiletter control sequences out of 15000+600000
+ 4443 strings out of 493089
+ 58693 string characters out of 6134841
+ 157132 words of memory out of 5000000
+ 7854 multiletter control sequences out of 15000+600000
  13249 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,23p,768b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -459,7 +459,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on viscosity_of_water.pdf (3 pages, 308189 bytes).
+Output written on viscosity_of_water.pdf (3 pages, 308151 bytes).
 PDF statistics:
  139 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
