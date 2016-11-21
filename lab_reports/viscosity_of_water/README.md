@@ -4,6 +4,8 @@ a lab report about determining the viscosity of water
 
 ## abstract
 
+- 
+
 ## introduction
 
 Things to talk about here:
@@ -22,13 +24,29 @@ Things to talk about here:
 		- eqn: F/A = \eta dv_x/dz
 
 ## method
-- set-up of the experiment - firstly describe the equipment used and provided a nice figure to show it! 
+- set-up of the experiment - firstly describe the equipment used and provide a nice figure to show it! 
+- water holder/container thing, capillary tubes (three of them: blue, black, and red) were used/connected to the water container 
+- beaker used to catch the water, this was on top of a set of measuring scales 
+- pippet used to transfer water from beaker to measuring cylinder 
 
 ## results
 - a table of data, include temperatures maybe?
+- what does the results show?
+- can our chi square values be improved? reduced? what??
 
 ## discussions
-- dicussion of the results
+- discussion of the results
+- provide a value for the written value of the viscosity of water
+- comparison between values
+
 - limitations of experiment
+	- the tubes are not all the same size throughout - also don't know where the diameter of the tube begins, scratched around the diameter of the tube
+	- air bubbles forming
+	- tools for measuring isn't accurate? the ruler, vernier scale
+	
+- improvements on the experiment
+	- water bath to keep constant temperature - temperature varied during data collection, the density of water changes with temperature 
+
 
 ## conclusions
+- 
