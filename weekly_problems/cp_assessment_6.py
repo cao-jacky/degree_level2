@@ -11,7 +11,7 @@ xl, xu = -0.2, 1.2          # x-bounds
 yl, yu = -0.2, 1.2          # y-bounds
 x0, y0 = 0.2, 1.0           # Initial position
 r0 = numpy.array((x0,y0))   # Vector form of the initial position
-n_panels = 100000           # Number of panels used, also max iteration value
+max_iter = 100000           # Maximum number of iterations
 convergence_criteria = 1e-11
 
 # Exploring 1000 points in x and y
@@ -37,45 +37,44 @@ def grad((x, y)):
 
 def gradient_descent((x,y), gamma):
     r = r0
-    r_history = numpy.zeros((n_panels, 2), dtype=numpy.float32)
+    r_history = numpy.zeros((max_iter, 2), dtype=numpy.float32)
 
-    for i in range(n_panels):
-        r_history[i,:2] = r # Record current values
+    for i in range(max_iter):
+        r_history[i,:2] = r         # Record current values
         fLast = f(r)
-        r = r - gamma * grad(r) # Euler time step involving f(n)
+        r = r - gamma * grad(r)     # Euler time step involving f(n)
         fNew = f(r)
         if abs(fNew - fLast) < convergence_criteria:
             break
-    r_history = r_history[0:i+1]
+    r_history = r_history[0:i+1]    # Trim the r_history array
     print 'Found minimum in %i iterations' % i
     return r_history
-
-def trim_gradient(values):
-	# Process a gradient to terminate when it goes below y=0
-	for i in range(len(values)-1):
-		x0, y0 = values[i]
-		x1, y1 = values[i+1]
-		if y0 == 0: return values[:i]
-	return values
 
 for iy, y in enumerate(y_axis):
     for ix, x in enumerate(x_axis):
         points[iy, ix] = f((x, y))
 
 pyplot.figure()
-for gamma in gammas:
+for gamma in gammas: # Call function and plot for different gamma values
     data = gradient_descent(r0, gamma)
-    #data = trim_gradient(data)
     pyplot.plot(data[:,0], data[:,1], label=gamma)
+    if gamma == gammas[-1]:
+        final_gamma = gradient_descent(r0, gammas[-1])
+        xmin, ymin = final_gamma[-1][0], final_gamma[-1][1]
 
 pyplot.legend(loc='lower left')
 pyplot.xlabel("x-axis"); pyplot.ylabel("y-axis")
 pyplot.title("Finding the minima of Rosenbrock's Banana Function")
-im = pyplot.imshow(points, extent=(xl, xu, yl, yu), origin='lower', cmap=matplotlib.cm.gray, norm=matplotlib.colors.LogNorm(vmin=0.2, vmax=200))
+im = pyplot.imshow(points, extent=(xl, xu, yl, yu), origin='lower',
+cmap=matplotlib.cm.gray, norm=matplotlib.colors.LogNorm(vmin=0.2, vmax=200))
 
 pyplot.colorbar(im, orientation='vertical')
 pyplot.show()
 
-ANSWER1 = """ """
+ANSWER1 = """ As larger values of the step size parameter (gamma) is chosen
+we see that the Gradient Descent method struggles to find the value of the
+minimum. If a value of gamma is chosen which provides the best GD trajectory,
+it finds the minimum with the least number of iterations. As gamma varies from
+this best value, we see that the number of iterations required increases - at
+times the number of iterations reaches the maximum limit."""
 ANSWER2 = 'Minima occurs at %.2f, %.2f' % (xmin, ymin)
-print ANSWER2

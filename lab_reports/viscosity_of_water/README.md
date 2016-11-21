@@ -25,7 +25,10 @@ Things to talk about here:
 - set-up of the experiment - firstly describe the equipment used and provided a nice figure to show it! 
 
 ## results
+- a table of data, include temperatures maybe?
 
 ## discussions
+- dicussion of the results
+- limitations of experiment
 
 ## conclusions
