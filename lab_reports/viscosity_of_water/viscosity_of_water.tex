@@ -33,29 +33,26 @@ The Newton's Rings interference pattern is a consequence of the wave-like nature
 \section{Introduction} 
 \vspace{-2ex} 
 
-Discovered by Poiseulle in whenver, and Hagen in whenver, for a liquid (fluid?) flowing out of a tube of density, at height, and through a tube of radius and length, the flow rate can be expressed functionally.  
-
-When considering fluids, amongst other properties one which we can study is the viscosity of the fluid. The viscosity of a fluid can be defined as the internal friction within it. This results in shear stress when two adjacent layers of fluid move relative to each other. 
-
-If we consider a fluid to be moving in a single direction, as shown in figure (whatever), then we can say that as the top layer (lamina) moves across, it slides over another lamina - this causes the streamlines for the lamina flow to be smooth. 
-
-In situations where the a fluid is considered be incompressible, if we allow the flthrough various measurements of the properties attributed with the liquid, we can calculate a value for the viscosity of the fluid. 
-
-As disocvered by Poiseeule in whenever, and Hagen in whenenver, the following equation relates the flow rate ($\frac{dV}{dt}$) to vaksjndas
-
+Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $\frac{dV}{dt}$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
 
 \begin{equation} \tag{1}
-\frac{dV}{dt}=\frac{\pi}{8}\frac{\rho gh}{\eta}\frac{a^4}{L}
+\frac{dV}{dt}=\frac{\pi}{8}\frac{\rho gh}{\eta}\frac{a^4}{L}. 
 \end{equation}
+
+Noting that the group $\rho gh$ can be collectively termed the pressure difference $\Delta P$ between the two ends of the tube \cite{collegephysics}.
+
+If we consider that a fluid is flowing through said tube, it experiences both friction with the inner wall and internal friction within itself. This can be defined more readily as the viscosity of the fluid $\eta$, and this results in shear stress when two adjacent layers (laminas) of fluid move relative to each other. 
+
+We find that as $\eta$ increases, the volume flow rate decreases, the shear stress between two laminas becomes greater and so restricts the movement of the fluid's molecules trying to flow through the tube. 
+
+The lamina flow streamlines can be generally described as being smooth, top layers sliding over other laminas without the system having any turbulent motion. This condition being required for equation [1] to be valid. 
+
+When the fluid flows in just one direction, we can say that as the top layer moves across, it slides over another lamina, causing the streamlines for the lamina flow to be smooth. This condition is required for the above relation to be valid, non-turbulent motion within the fluid. 
+
+Using the relation derived by Hagen and Poisseuille it is possible to experimentally calculate a value for the viscosity of water. 
 
 In experimentation we can obtain a value for $\eta$ for water by considering the liquid to be partly ideal - incompressible, but there is internal friction. With this, $\eta$ can be experimentally determined.  
 
-Generally, to observe the fringes the image is magnified by a factor of $M$ so, $\rho_m=Mr_m$, which leads to, 
-\begin{equation} \tag{3}
-\rho_m^2=M^2R\lambda{(m-1)}+2M^2Rd_0,
-\end{equation}
-this can be used accordingly with data collected from experimentation.
-\\
 
 \vspace{-3ex}
 \section{Method} 
@@ -151,20 +148,20 @@ There are other ways in which the radius of curvature of a lens can be measured 
 In conclusion, through measurements of Newton's Rings it has been possible to determine a value for the radius of curvature of a planoconvex lens, $R_{IE}=(15\pm3)$m. A value which at first was doubted, however after additional investigation it has been possible to compare and verify it is valid along with it's uncertainty. However, through modifying the experimental set-up it could be possible to reduce certain sources of uncertainties, and to remove some of the experimental issues experienced.
 
 \begin{thebibliography}{5}
-\bibitem{lens} 
+\bibitem{poiseuillehagen}
+	Salvatore P. Sutera and Richard Skalak
+	\textit{The History of Poiseuille's Law}.
+	Annu. Rev. Fluid Mech., 1993.
+	
+\bibitem{collegephysics}
+	Raymond A. Serway, Chris Vuille, and Jerry S. Faughin
+	\textit{College Physics, 8th Edition}.
+	Brooks/Cole, Belmont, CA, USA, 2009.
+
+\bibitem{youngandfreedman} 
 	Hugh D. Young and Roger A. Freedman.
 	\textit{University Physics with Modern Physics, 13th Edition}. 
 	Pearson Education Limited, Harlow, Essex, 2015.
-	
-\bibitem{manchester}
-	S. Tolansky.
-	\textit{New Interference Phenomena with Newton's Rings}.
-	Nature, Vol. 153, 1944, p. 314.
-
-\bibitem{labscript}
-	P. Swift.
-	\textit{Discovery Skills in Physics 2015/2016, Epiphany Term 2016, Full Experiments}.
-	Department of Physics, Durham University, Durham, 2016
 	
 \end{thebibliography}
 \clearpage
