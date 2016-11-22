@@ -11,13 +11,21 @@ a lab report about determining the viscosity of water
 
 ## abstract
 
-- 
 
 ## introduction (try and finish on 22/23 of 1116)
+
+221116, so:
+
+- what is the viscosity of a fluid and how it is defined?
+- talk about how this can be compared to an ideal fluid where the ideal fluid is incompressible and there is no internal friction.
+- how it has important effects througb liquids flowing through pipes?? 
+- how poiseuille experimented and derived the equation, link it in with our discussion on laminas and smooth/non-turbulent fluid flow.
+- then how we can use that equation with experimental data to calculate the viscosity 
 
 Things to talk about here:
 
 What do I want to initially talk about?? (initial preamble)
+
 - How liquids have various properties attributed to them and how viscosity is one of them. Viscosity is the internal friction within a fluid. Viscous forces oppose motion of one portion of fluid to another. 
 
 - How the equation is derived, Poiseuille’s Equation - find a reference for that 
