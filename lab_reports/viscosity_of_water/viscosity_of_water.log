@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 NOV 2016 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 NOV 2016 17:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -379,54 +379,49 @@ Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Thursda
 y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, 
 Date of report: 20/11/2016.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
 <fig1.pdf, id=1, 516.93124pt x 249.93375pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 68.
+Package pdftex.def Info: fig1.pdf used on input line 70.
 (pdftex.def)             Requested size: 256.0748pt x 123.81483pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 68--69
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 70--71
+ [] 
+ []
+
+<fig2.pdf, id=2, 751.80875pt x 444.66125pt>
+File: fig2.pdf Graphic file (type pdf)
+ <use fig2.pdf>
+Package pdftex.def Info: fig2.pdf used on input line 89.
+(pdftex.def)             Requested size: 256.0748pt x 151.461pt.
+
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 89--90
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<fig2.pdf, id=2, 751.80875pt x 444.66125pt>
-File: fig2.pdf Graphic file (type pdf)
- <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf used on input line 87.
-(pdftex.def)             Requested size: 256.0748pt x 151.461pt.
-
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 87--88
- [] 
- []
-
-
-Overfull \hbox (1.3476pt too wide) in paragraph at lines 96--119
- []$[]$ 
- []
-
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
-1.pdf> <./fig2.pdf>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+1.pdf> <./fig2.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 125.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
  []
 
 [3] (./viscosity_of_water.aux) ) 
 Here is how much of TeX's memory you used:
  4443 strings out of 493089
- 58757 string characters out of 6134841
- 137156 words of memory out of 5000000
+ 58761 string characters out of 6134841
+ 138156 words of memory out of 5000000
  7854 multiletter control sequences out of 15000+600000
  13249 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,23p,466b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,23p,582b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/d
 vips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
@@ -434,24 +429,25 @@ ublic/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-
-Output written on viscosity_of_water.pdf (3 pages, 284392 bytes).
+amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.
+pfb>
+Output written on viscosity_of_water.pdf (3 pages, 294106 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
