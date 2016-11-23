@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 NOV 2016 09:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 NOV 2016 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -380,17 +380,17 @@ y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016,
 Date of report: 20/11/2016.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 <fig1.pdf, id=1, 516.93124pt x 249.93375pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 64.
+Package pdftex.def Info: fig1.pdf used on input line 66.
 (pdftex.def)             Requested size: 256.0748pt x 123.81483pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 64--65
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 66--67
  [] 
  []
 
@@ -400,36 +400,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <fig2.pdf, id=2, 751.80875pt x 444.66125pt>
 File: fig2.pdf Graphic file (type pdf)
  <use fig2.pdf>
-Package pdftex.def Info: fig2.pdf used on input line 83.
+Package pdftex.def Info: fig2.pdf used on input line 85.
 (pdftex.def)             Requested size: 256.0748pt x 151.461pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 83--84
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 85--86
  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.3476pt too wide) in paragraph at lines 92--115
+Overfull \hbox (1.3476pt too wide) in paragraph at lines 94--117
  []$[]$ 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
 1.pdf> <./fig2.pdf>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 157--159
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 [3] (./viscosity_of_water.aux) ) 
 Here is how much of TeX's memory you used:
- 4445 strings out of 493089
- 58782 string characters out of 6134841
- 155156 words of memory out of 5000000
- 7856 multiletter control sequences out of 15000+600000
+ 4443 strings out of 493089
+ 58761 string characters out of 6134841
+ 136156 words of memory out of 5000000
+ 7854 multiletter control sequences out of 15000+600000
  13249 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,23p,466b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -454,7 +448,7 @@ y6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
 pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
 b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
 
-Output written on viscosity_of_water.pdf (3 pages, 284342 bytes).
+Output written on viscosity_of_water.pdf (3 pages, 283969 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
