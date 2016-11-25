@@ -10,6 +10,7 @@ python modules solving a given problem/modelling a system to find a solution to 
 - week 4: differential equations 2
 - week 5: monte carlo methods
 - week 6: optimisation
+- week 7: random walks
 
 ## lab_reports
 ### viscosity of water

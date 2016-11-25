@@ -7,12 +7,12 @@ USER    = "Jacky Cao"
 USER_ID = "bbvw84"
 
 # Defining data to use
-xl, xu = -0.2, 1.2          # x-bounds
-yl, yu = -0.2, 1.2          # y-bounds
-x0, y0 = 0.2, 1.0           # Initial position
-r0 = numpy.array((x0,y0))   # Vector form of the initial position
-max_iter = 100000           # Maximum number of iterations
-convergence_criteria = 1e-11
+xl, xu = -0.2, 1.2              # x-bounds
+yl, yu = -0.2, 1.2              # y-bounds
+x0, y0 = 0.2, 1.0               # Initial position
+r0 = numpy.array((x0,y0))       # Vector form of the initial position
+max_iter = 100000               # Maximum number of iterations
+convergence_criteria = 1e-11    # Convergence critera
 
 # Exploring 1000 points in x and y
 N_POINTS = 1000
