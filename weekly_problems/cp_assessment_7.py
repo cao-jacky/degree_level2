@@ -51,40 +51,25 @@ def bacteria((x,y)):
     r = r0
     dt = 1 # Time step of 1s
 
-    time_step_count = 0 # Tracking total time
-    eOriginal = f(r0)
-    shift = [0, 0, 0, 0, 0, 0, 0]
+    shift = [f(r0), 0, 0, 0, 0, 0, 0]
     increasing, decreasing = 0, 0
+    print shift
 
     for i in range(max_steps):
         bacteria_history[i,:2] = r
-        if time_step_count < total_time: # going over steps until reach limit
-            time_step_count = time_step_count + time_step
-        #print time_step_count
 
-        r_flat = r.flatten()
-        eNew = f(r_flat) # New energy level
-        print eNew
+        p_nt = 0.5
+        print r
+        """
+        eNew = f(r.flatten()) # New energy level
         shift.append(eNew) # add to the python list
         shift = shift[-10:] # keep only the 10 most recent entries
         de = shift[-1] - shift[0] # [-1] is the newest entry, [0] is the oldest
-        #print de
-
-
-        t_half = 1 + k * (de/dt) #Half-life, de is the rate of change of energy fielf for 1s
+        t_half = 1 + k * (de/dt)
         mean_life = t_half / numpy.log(2)
-        prob = numpy.exp(- dt / mean_life) # Probability of not tumbling
-        print prob
+        p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. it does nothing"""
 
-        if de/dt > 0:
-            increasing = increasing + 1
-        else:
-            decreasing = decreasing + 1
-
-        if t_half < 0.1:
-            prob = 0
-
-        if random_generator(1) > prob: # tumble then move
+        if random_generator(1) > p_nt: # if the randomly generated probability is greater than probability of not tumbling, then tumble
             # Tumbling
             angle = 2 * numpy.pi * random_generator(1)
             x_coord = 2 * numpy.cos(angle) # Random direction x_coord
@@ -101,11 +86,6 @@ def bacteria((x,y)):
 
             r = r + r_new
 
-    # half_life = 1 + k * df
-    #print shift
-    #print bacteria_history
-    print "increasing", increasing
-    print "decreasing", decreasing
     return bacteria_history
 
 bacterias = 1      # Number of bacteria being launched
