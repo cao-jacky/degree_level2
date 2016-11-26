@@ -51,25 +51,38 @@ def bacteria((x,y)):
     r = r0
     dt = 1 # Time step of 1s
 
-    shift = [f(r0), 0, 0, 0, 0, 0, 0]
+    a = f(r0)
+    a = 2000
+
+    shift = [a, a, a, a, a, a, a, a, a, a]
     increasing, decreasing = 0, 0
-    print shift
+    print "begins"
 
     for i in range(max_steps):
         bacteria_history[i,:2] = r
-
-        p_nt = 0.5
         print r
-        """
+
+        #p_nt = 0.5
         eNew = f(r.flatten()) # New energy level
         shift.append(eNew) # add to the python list
         shift = shift[-10:] # keep only the 10 most recent entries
         de = shift[-1] - shift[0] # [-1] is the newest entry, [0] is the oldest
+        print de
+        print shift
         t_half = 1 + k * (de/dt)
-        mean_life = t_half / numpy.log(2)
-        p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. it does nothing"""
 
-        if random_generator(1) > p_nt: # if the randomly generated probability is greater than probability of not tumbling, then tumble
+        if t_half < 0.1:
+            t_half = - t_half
+
+        print 'half-life is:', t_half
+
+        mean_life = t_half / numpy.log(2)
+        p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. it does nothing
+        print 'probability of not tumbling is:', p_nt
+
+        # p_nt is a varibale, it changes, we need to change it to account for the energy field - make it related to the energy field
+
+        if random_generator(1) < p_nt: # if the randomly generated probability is less than probability of not tumbling, then tumble
             # Tumbling
             angle = 2 * numpy.pi * random_generator(1)
             x_coord = 2 * numpy.cos(angle) # Random direction x_coord
@@ -78,17 +91,13 @@ def bacteria((x,y)):
 
             # Moving
             r = r + r_new
+            print r
         else:
-            if bacteria_history[i][0] == bacteria_history[i-1][0]:
-                r_new = 0 # If initially no tumble, allow bacteria to try again
-            else:
-                r_new = 0
-
-            r = r + r_new
+            r = r
 
     return bacteria_history
 
-bacterias = 1      # Number of bacteria being launched
+bacterias = 1     # Number of bacteria being launched
 
 pyplot.figure()
 for i in range(bacterias):
