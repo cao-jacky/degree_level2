@@ -54,6 +54,7 @@ def bacteria((x,y)):
     time_step_count = 0 # Tracking total time
     eOriginal = f(r0)
     shift = [0, 0, 0, 0, 0, 0, 0]
+    increasing, decreasing = 0, 0
 
     for i in range(max_steps):
         bacteria_history[i,:2] = r
@@ -63,21 +64,25 @@ def bacteria((x,y)):
 
         r_flat = r.flatten()
         eNew = f(r_flat) # New energy level
+        print eNew
         shift.append(eNew) # add to the python list
         shift = shift[-10:] # keep only the 10 most recent entries
         de = shift[-1] - shift[0] # [-1] is the newest entry, [0] is the oldest
         #print de
 
+
         t_half = 1 + k * (de/dt) #Half-life, de is the rate of change of energy fielf for 1s
-        #print t_half
+        mean_life = t_half / numpy.log(2)
+        prob = numpy.exp(- dt / mean_life) # Probability of not tumbling
+        print prob
+
+        if de/dt > 0:
+            increasing = increasing + 1
+        else:
+            decreasing = decreasing + 1
 
         if t_half < 0.1:
-            prob = 1
-        else:
-            mean_life = t_half / numpy.log(2)
-            #print mean_life
-            prob = numpy.exp(- dt / mean_life)  # Probability of not tumbling
-            print prob
+            prob = 0
 
         if random_generator(1) > prob: # tumble then move
             # Tumbling
@@ -92,13 +97,15 @@ def bacteria((x,y)):
             if bacteria_history[i][0] == bacteria_history[i-1][0]:
                 r_new = 0 # If initially no tumble, allow bacteria to try again
             else:
-                r_new = r
+                r_new = 0
 
             r = r + r_new
 
     # half_life = 1 + k * df
     #print shift
-    print bacteria_history
+    #print bacteria_history
+    print "increasing", increasing
+    print "decreasing", decreasing
     return bacteria_history
 
 bacterias = 1      # Number of bacteria being launched
