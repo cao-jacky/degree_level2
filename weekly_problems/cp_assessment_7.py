@@ -25,13 +25,7 @@ def df(x,y):
     return "123"
 
 def random_generator(p):
-    """ Generates either a random direction, or point for bacteria to
-    head in
-
-    For p = 1:
-        random_position is generated
-        p = 0:
-        random_coord is generated"""
+    """Generates random number to use"""
 
     random_position = numpy.random.uniform(size=(1,1)) # Initial direction of the bacteria
     random_coord = numpy.random.uniform(size=(1,2)) # Generates coordinate for the bacteria
@@ -44,31 +38,30 @@ def bacteria((x,y)):
     t_half = 0          # Half-life
     mean_lifetime = 0   # Mean lifetime
     prob = 0.5          # Probability of not tumbling, implement full function later
-    time_step_count = 0
+    time_step_count = 0 # Tracking total time
 
-    if time_step_count < max_steps: # going over steps until reach limit
-        time_step_count = time_step_count + 1
+    for i in range(max_steps):
+        bacteria_history[i,:2] = r
 
-        for i in range(max_steps):
-            bacteria_history[i,:2] = r
+        if time_step_count < total_time: # going over steps until reach limit
+            time_step_count = time_step_count + time_step
 
-            if random_generator(1) < prob: # tumble then move
-                angle = 2 * numpy.pi * random_generator(1)
-                x_coord = 2 * numpy.cos(angle) # Random direction x_coord
-                y_coord = 2 * numpy.sin(angle) # Random direction y_coord
+        if random_generator(1) < prob: # tumble then move
+            # Tumbling
+            angle = 2 * numpy.pi * random_generator(1)
+            x_coord = 2 * numpy.cos(angle) # Random direction x_coord
+            y_coord = 2 * numpy.sin(angle) # Random direction y_coord
+            r_new = numpy.hstack((x_coord, y_coord))
 
-                r_new = numpy.hstack((x_coord, y_coord))
+            # Moving
+            r = r + r_new
+        else:
+            if bacteria_history[1][0] == 0:
+                r_new = 0 # If initially no tumble, allow bacteria to try again
 
-                r = r + r_new
+            r = r + r_new
 
-                #bacteria_history[i][0] =  bacteria_history[i-1][0] + x_coord
-                #bacteria_history[i][1] =  bacteria_history[i-1][1] + y_coord
-
-            else:
-                r = r
-
-
-    print bacteria_history
+    #print bacteria_history
 
     # half_life = 1 + k * df
 
@@ -79,6 +72,6 @@ numpy.savetxt('bacteria_history.txt', bacteria_data, delimiter=',')   # X is an 
 
 
 pyplot.figure()
-pyplot.plot(bacteria_data[:,0], bacteria_data[:,1], '-o')
+pyplot.plot(bacteria_data[:,0], bacteria_data[:,1])
 pyplot.xlabel("x-axis (microns)"); pyplot.ylabel("y-axis (microns)")
 pyplot.show()
