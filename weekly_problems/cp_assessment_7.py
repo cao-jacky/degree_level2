@@ -49,10 +49,10 @@ def random_generator(p):
 def bacteria((x,y)):
     bacteria_history = numpy.zeros((max_steps, 2), dtype=numpy.float32) # Initial array to store bacteria information
     r = r0
-    dt = 1 # Time step of 1s
+    dt = 1 # Time step in seconds
+    angle = 3.73
 
-    a = f(r0)
-    a = 2000
+    a = 0
 
     shift = [a, a, a, a, a, a, a, a, a, a]
     increasing, decreasing = 0, 0
@@ -60,44 +60,46 @@ def bacteria((x,y)):
 
     for i in range(max_steps):
         bacteria_history[i,:2] = r
-        print r
+        #print r
 
         #p_nt = 0.5
         eNew = f(r.flatten()) # New energy level
         shift.append(eNew) # add to the python list
         shift = shift[-10:] # keep only the 10 most recent entries
         de = shift[-1] - shift[0] # [-1] is the newest entry, [0] is the oldest
-        print de
-        print shift
+        #print 'de is:', de
+        #print shift
         t_half = 1 + k * (de/dt)
 
-        if t_half < 0.1:
+        if t_half < 0:
             t_half = - t_half
 
         print 'half-life is:', t_half
 
         mean_life = t_half / numpy.log(2)
-        p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. it does nothing
-        print 'probability of not tumbling is:', p_nt
+
+        if t_half < 0.1:
+            #p_nt = 0
+            b = c
+        else:
+            p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. not changing coordinate, it's happy
+            #print 'probability of not tumbling is:', p_nt
 
         # p_nt is a varibale, it changes, we need to change it to account for the energy field - make it related to the energy field
 
         if random_generator(1) < p_nt: # if the randomly generated probability is less than probability of not tumbling, then tumble
             # Tumbling
             angle = 2 * numpy.pi * random_generator(1)
-            x_coord = 2 * numpy.cos(angle) # Random direction x_coord
-            y_coord = 2 * numpy.sin(angle) # Random direction y_coord
-            r_new = numpy.hstack((x_coord, y_coord))
-
-            # Moving
-            r = r + r_new
-            print r
         else:
-            r = r
+            dist = v * dt
+            x_coord = dist * numpy.cos(angle) # Random direction x_coord
+            y_coord = dist * numpy.sin(angle) # Random direction y_coord
+            r_new = numpy.hstack((x_coord, y_coord))
+            r = r + r_new
 
     return bacteria_history
 
-bacterias = 1     # Number of bacteria being launched
+bacterias = 2     # Number of bacteria being launched
 
 pyplot.figure()
 for i in range(bacterias):
