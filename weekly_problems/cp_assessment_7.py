@@ -80,7 +80,7 @@ def bacteria((x,y)):
 
         if t_half < 0.1:
             #p_nt = 0
-            b = c
+            b = 0
         else:
             p_nt = numpy.exp(-dt / mean_life) # Probability of not tumbling, i.e. not changing coordinate, it's happy
             #print 'probability of not tumbling is:', p_nt
