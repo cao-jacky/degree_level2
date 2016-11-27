@@ -35,9 +35,6 @@ for iy, y in enumerate(y_axis):     # Explore all points and populate array
     for ix, x in enumerate(x_axis):
         points[iy, ix] = f((x, y))
 
-def df(x,y):
-    return "123"
-
 def random_generator(p):
     """Generates random number to use"""
 
