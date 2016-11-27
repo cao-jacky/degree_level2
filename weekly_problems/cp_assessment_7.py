@@ -39,7 +39,7 @@ def random_generator(): # Generate a random number to use each time called
 
 def bacteria((x,y)):
     # Initial system for each bacterium
-    bacteria_history = numpy.zeros((max_steps, 6), dtype=numpy.float32)
+    bacteria_history = numpy.zeros((max_steps, 5), dtype=numpy.float32)
     r = r0
     angle = 2 * numpy.pi * random_generator()
     shift = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -54,7 +54,6 @@ def bacteria((x,y)):
         msd_max = numpy.average((posn_t-posn_max)**2)   # MSD from max E posn
         bacteria_history[i][3] = msd_origin # Index the value of msd_origin
         bacteria_history[i][4] = msd_max    # Index the value of msd_max
-        bacteria_history[i][5] = numpy.average(msd_origin + msd_max)
         # Energy minimisation calculations
         eNew = f(r.flatten())       # New energy level
         shift.append(eNew)          # Add to the 'shift' list
@@ -88,10 +87,9 @@ for i in range(bacterias):
     pyplot.plot((b_d[0][0], b_d[-1][0]), (b_d[0][1], b_d[-1][1]), '-o')
     pyplot.xlabel("x-axis $(\mu m )$"); pyplot.ylabel("y-axis $(\mu m)$")
     pyplot.subplot(212)     # Mean Square Displacements
-    pyplot.plot(b_d[:,2], b_d[:,3], '-r', alpha=0.1)
-    pyplot.plot(b_d[:,2], b_d[:,4], '-b', alpha=0.1)
+    pyplot.plot(b_d[:,2], b_d[:,3], '-r')
+    pyplot.plot(b_d[:,2], b_d[:,4], '-b')
     pyplot.xlabel("Time $(s)$"); pyplot.ylabel("MSD $({\mu m}^2)$")
-pyplot.plot(b_d[:,2], b_d[:,5], '-b')
 pyplot.plot(0,0, '-r', label='Initial point, $(0,0)$')
 pyplot.plot(0,0, '-b', label='Max energy')
 pyplot.legend(loc='lower right')
