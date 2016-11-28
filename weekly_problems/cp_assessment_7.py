@@ -34,8 +34,7 @@ for iy, y in enumerate(y_axis):     # Explore all points and populate array
         points[iy, ix] = f((x, y))
 
 def random_generator(): # Generate a random number to use each time called
-    random_position = numpy.random.uniform(size=(1,1))
-    return random_position
+    return numpy.random.uniform(size=(1,1))
 
 def bacteria((x,y)):
     # Initial system for each bacterium
@@ -76,8 +75,10 @@ def bacteria((x,y)):
 
 pyplot.figure()
 pyplot.title('')
+bacteria_average_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
+bacteria_average_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 for i in range(bacterias):
-    b_d = bacteria(r0) # Bacteria data
+    b_d = bacteria(r0)      # Bacteria data
     pyplot.subplot(221)     # Energy field and bacteria tracks
     pyplot.plot(b_d[:,0], b_d[:,1])
     pyplot.imshow(points, extent=(xl, xu, yl, yu), origin='lower',
@@ -87,9 +88,18 @@ for i in range(bacterias):
     pyplot.plot((b_d[0][0], b_d[-1][0]), (b_d[0][1], b_d[-1][1]), '-o')
     pyplot.xlabel("x-axis $(\mu m )$"); pyplot.ylabel("y-axis $(\mu m)$")
     pyplot.subplot(212)     # Mean Square Displacements
-    pyplot.plot(b_d[:,2], b_d[:,3], '-r')
-    pyplot.plot(b_d[:,2], b_d[:,4], '-b')
+    pyplot.plot(b_d[:,2], b_d[:,3], '-r', alpha=0.05) # MSD for origin
+    pyplot.plot(b_d[:,2], b_d[:,4], '-b', alpha=0.05) # MSD for max energy
+    bacteria_average_origin[:,i] = b_d[:,3]
+    bacteria_average_energy[:,i] = b_d[:,4]
     pyplot.xlabel("Time $(s)$"); pyplot.ylabel("MSD $({\mu m}^2)$")
+
+for i in range(max_steps):
+    bacteria_average_origin[i][20] = numpy.average(bacteria_average_origin[i,:19])
+    bacteria_average_energy[i][20] = numpy.average(bacteria_average_energy[i,:19])
+
+pyplot.plot(b_d[:,2], bacteria_average_origin[:,20], color='red') # Average of
+pyplot.plot(b_d[:,2], bacteria_average_energy[:,20], color='blue') # Average of
 pyplot.plot(0,0, '-r', label='Initial point, $(0,0)$')
 pyplot.plot(0,0, '-b', label='Max energy')
 pyplot.legend(loc='lower right')
