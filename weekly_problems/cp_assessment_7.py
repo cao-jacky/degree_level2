@@ -58,7 +58,7 @@ def bacteria((x,y)):
         shift.append(eNew)          # Add to the 'shift' list
         shift = shift[-10:]         # Keep only the 10 most recent entries
         de = shift[-1] - shift[0]   # [-1] is newest entry, [0] is the oldest
-        t_half = 1 + k * (de/dt)
+        t_half = 1 + k * (de/dt)    # Half-life of a run event
         mean_life = t_half / numpy.log(2)
         if t_half < 0: # Calculating probabilites of tumbling
             p_nt = 1
@@ -75,8 +75,8 @@ def bacteria((x,y)):
 
 pyplot.figure()
 pyplot.title('')
-bacteria_average_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
-bacteria_average_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
+bac_average_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
+bac_average_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 for i in range(bacterias):
     b_d = bacteria(r0)      # Bacteria data
     pyplot.subplot(221)     # Energy field and bacteria tracks
@@ -90,18 +90,18 @@ for i in range(bacterias):
     pyplot.subplot(212)     # Mean Square Displacements
     pyplot.plot(b_d[:,2], b_d[:,3], '-r', alpha=0.05) # MSD for origin
     pyplot.plot(b_d[:,2], b_d[:,4], '-b', alpha=0.05) # MSD for max energy
-    bacteria_average_origin[:,i] = b_d[:,3]
-    bacteria_average_energy[:,i] = b_d[:,4]
+    bac_average_origin[:,i] = b_d[:,3] # Storing MSD_origin in ith column
+    bac_average_energy[:,i] = b_d[:,4] # Storing MSD_max in ith column
     pyplot.xlabel("Time $(s)$"); pyplot.ylabel("MSD $({\mu m}^2)$")
 
-for i in range(max_steps):
-    bacteria_average_origin[i][20] = numpy.average(bacteria_average_origin[i,:19])
-    bacteria_average_energy[i][20] = numpy.average(bacteria_average_energy[i,:19])
+for i in range(max_steps): # Average of each MSD at a time
+    bac_average_origin[i][20] = numpy.average(bac_average_origin[i,:19])
+    bac_average_energy[i][20] = numpy.average(bac_average_energy[i,:19])
 
-pyplot.plot(b_d[:,2], bacteria_average_origin[:,20], color='red') # Average of
-pyplot.plot(b_d[:,2], bacteria_average_energy[:,20], color='blue') # Average of
-pyplot.plot(0,0, '-r', label='Initial point, $(0,0)$')
-pyplot.plot(0,0, '-b', label='Max energy')
+pyplot.plot(b_d[:,2], bac_average_origin[:,20], '-r') # Average of origin
+pyplot.plot(b_d[:,2], bac_average_energy[:,20], '-b') # Average of max E
+pyplot.plot(0,0, '-r', label='Initial point, $(30,20)$')
+pyplot.plot(0,0, '-b', label='Max energy, $(0,0)$')
 pyplot.legend(loc='lower right')
 pyplot.show()
 
