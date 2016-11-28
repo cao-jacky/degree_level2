@@ -43,6 +43,7 @@ def bacteria((x,y)):
     for i in range(max_steps):
         bacteria_history[i][2] = i # Storing time of step
         bacteria_history[i,:2] = r # Storing position of molecule
+
         # Mean square displacement calculations
         posn_0 = bacteria_history[0,:2] # Particle position at time 0
         posn_max = numpy.array((0,0))   # Position of maximum energy
@@ -51,6 +52,7 @@ def bacteria((x,y)):
         msd_max = numpy.average((posn_t-posn_max)**2)   # MSD from max E posn
         bacteria_history[i][3] = msd_origin # Index the value of msd_origin
         bacteria_history[i][4] = msd_max    # Index the value of msd_max
+
         # Energy minimisation calculations
         eNew = f(r.flatten())       # New energy level
         shift.append(eNew)          # Add to the 'shift' list
@@ -58,10 +60,12 @@ def bacteria((x,y)):
         de = shift[-1] - shift[0]   # [-1] is newest entry, [0] is the oldest
         t_half = 1 + k * (de/dt)    # Half-life of a run event
         mean_life = t_half / numpy.log(2)
+
         if t_half < 0: # Calculating probabilites of tumbling
             p_nt = 1
         else:
             p_nt = 1 - numpy.exp(-dt / mean_life)
+
         if random_generator() < p_nt: # Generate new angle or continue on
             angle = 2 * numpy.pi * random_generator()
         else:
@@ -72,31 +76,40 @@ def bacteria((x,y)):
     return bacteria_history
 
 pyplot.figure()
+
+
 bac_av_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 bac_av_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
+
 for i in range(bacterias):  # Plot all three plots
     b_d = bacteria(r0)      # Bacteria data
+
     pyplot.subplot(221)     # Energy field and bacteria tracks
     pyplot.plot(b_d[:,0], b_d[:,1])
     pyplot.imshow(points, extent=(xl, xu, yl, yu), origin='lower',
     cmap=matplotlib.cm.gray)
     pyplot.xlabel("x-axis $(\mu m )$"); pyplot.ylabel("y-axis $(\mu m)$")
+
     pyplot.subplot(222)     # Simplified trajectorys
     pyplot.plot((b_d[0][0], b_d[-1][0]), (b_d[0][1], b_d[-1][1]), '-o')
     pyplot.xlabel("x-axis $(\mu m )$"); pyplot.ylabel("y-axis $(\mu m)$")
+
     pyplot.subplot(212); pyplot.subplots_adjust(hspace=.25)
-    pyplot.plot((b_d[:,2])*dt, b_d[:,3], '-r', alpha=0.05) # MSD for origin
-    pyplot.plot((b_d[:,2])*dt, b_d[:,4], '-b', alpha=0.05) # MSD for max energy
+    pyplot.plot(b_d[:,2]*dt, b_d[:,3], '-r', alpha=0.05) # MSD for origin
+    pyplot.plot(b_d[:,2]*dt, b_d[:,4], '-b', alpha=0.05) # MSD for max energy
     bac_av_origin[:,i] = b_d[:,3] # Storing MSD_origin in ith column
     bac_av_energy[:,i] = b_d[:,4] # Storing MSD_max in ith column
     pyplot.xlabel("Time $(s)$"); pyplot.ylabel("MSD $({\mu m}^2)$")
+
 for i in range(max_steps):  # Storing MSD origin and energy in ith column
     bac_av_origin[i][20] = numpy.average(bac_av_origin[i,:19])
     bac_av_energy[i][20] = numpy.average(bac_av_energy[i,:19])
-pyplot.plot((b_d[:,2])*dt,bac_av_origin[:,20], '-r',label='Initial point, $(30,20)$')
-pyplot.plot((b_d[:,2])*dt,bac_av_energy[:,20], '-b',label='Max energy, $(0,0)$')
+
+pyplot.plot(b_d[:,2]*dt,bac_av_origin[:,20], '-r',label='Initial, $(30,20)$')
+pyplot.plot(b_d[:,2]*dt,bac_av_energy[:,20], '-b',label='Max E, $(0,0)$')
 pyplot.legend(loc='lower right')
 pyplot.suptitle("Bacteria as chemotaxis", fontsize='x-large')
 pyplot.show()
 
-ANSWER1 = """  """
+ANSWER1 = """ If sensitivity becomes too small, the bacteria will not be able
+to find the maximum energy. The half-life """
