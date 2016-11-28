@@ -94,7 +94,7 @@ for i in range(bacterias):
     bac_average_energy[:,i] = b_d[:,4] # Storing MSD_max in ith column
     pyplot.xlabel("Time $(s)$"); pyplot.ylabel("MSD $({\mu m}^2)$")
 
-for i in range(max_steps): # Average of each MSD at a time
+for i in range(max_steps): # Average of MSD values at each time step
     bac_average_origin[i][20] = numpy.average(bac_average_origin[i,:19])
     bac_average_energy[i][20] = numpy.average(bac_average_energy[i,:19])
 
