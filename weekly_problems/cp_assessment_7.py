@@ -77,7 +77,6 @@ def bacteria((x,y)):
 
 pyplot.figure()
 
-
 bac_av_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 bac_av_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 
@@ -112,4 +111,8 @@ pyplot.suptitle("Bacteria as chemotaxis", fontsize='x-large')
 pyplot.show()
 
 ANSWER1 = """ If sensitivity becomes too small, the bacteria will not be able
-to find the maximum energy. The half-life """
+to find the maximum energy. Instead, the bacteria will wander off on more
+random paths and never reach any similar point as a group within the given
+time scale. On the other hand, if sensitivity becomes too large, no discernible
+difference is noticable between the paths of the bacteria during large k and
+'normal sensitivity'. """
