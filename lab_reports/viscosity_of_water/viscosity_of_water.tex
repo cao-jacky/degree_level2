@@ -87,7 +87,7 @@ The change in flow rate of water with height is shown in Fig. \ref{fig:fig2}, th
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{fig1-2}
-\caption[]{The fringe radius squared plotted as a function of $(m-1)\lambda$. Horizontal error bars are too small to be seen.}
+\caption[]{The flow rate of water as a function of height for three different capillary tubes. Normalised residuals have been displayed underneath the plot. The vertical error bars on $dV/dt$ are too small to be seen.}
 \label{fig:fig2}
 \end{center}
 \end{figure}
@@ -95,17 +95,17 @@ The change in flow rate of water with height is shown in Fig. \ref{fig:fig2}, th
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c|c| } 
+\begin{tabular}{ |c|c|c|c|c| } 
  \hline
- \textbf{Tube} & \textbf{Radius, a $[mm]$} & \textbf{$\boldsymbol{\eta_{water}}$ $[mPa]$} & \textbf{$\boldsymbol{\chi^2_v}$}\\ [0.5ex] 
+ \textbf{Tube} & \textbf{Radius, a $[mm]$} & \textbf{$\boldsymbol{\eta_{water}}$ $[mPa\cdot{s}]$} & \textbf{$\boldsymbol{\chi^2_v}$} & $\mathcal{D}$\\ [0.5ex] 
  \hline\hline
- $Blue$ &$0.55\pm0.03$ & $1.1\pm0.3$ & 11.0\\ 
- $Red$ & $0.47\pm0.03$ & $1.2\pm0.4$ & 5.31\\
- $Black$ & $0.46\pm0.03$ & $1.3\pm0.4$ & 1.94\\
+ $Blue$ &$0.55\pm0.03$ & $1.1\pm0.3$ & 11.0 & 1.11\\ 
+ $Red$ & $0.47\pm0.03$ & $1.2\pm0.4$ & 5.31 & 2.20\\
+ $Black$ & $0.46\pm0.03$ & $1.3\pm0.4$ & 1.94 & 2.91\\
  
  \hline
 \end{tabular}
-\caption{Values for radius of the tube, their respective calculated value for $\eta_{water}$, and the reduced $\chi^2$ value for each value, using rearranged equation [\ref{pohagen}] as the model. }
+\caption{Values for radius of the tube, their respective calculated value for $\eta_{water}$, and the reduced $\chi^2$ value is shown. The Durbin-Watson statistic, $\mathcal{D}$, is shown for each tube as well.  }
 \label{table:1}
 \end{table}
 
@@ -115,6 +115,9 @@ The change in flow rate of water with height is shown in Fig. \ref{fig:fig2}, th
 
 What can I talk about first?\\
 1. the values for the viscosity of water - the main experiment...\\
+
+The variation of $dV/dt$ with height does initially appear to have some linearity, however the 
+
 
 
 \vspace{-5ex}
