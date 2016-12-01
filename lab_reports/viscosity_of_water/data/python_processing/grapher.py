@@ -30,17 +30,23 @@ blue_error = numpy.array((0.005560451, 0.005572149, 0.005575628, 0.005584188, 0.
 #blue_n_resid = numpy.array((1.01877615, 3.046240999, 0.090678174, -1.266799348, -3.415611863, 2.364021224, 0.819666274, -1.698484312, -5.784179379, -3.36815283, 1.515492796, 3.822722148, 5.666108442))
 blue_n_resid = numpy.array((1.806245733, 3.671820494, 0.555730547, -0.962351229, -3.271242107, 2.348826005, 0.646495703, -2.02906551, -6.272385757, -4.009077638, 0.728112141, 2.745677902, 4.312452971))
 
+blue_std_er = 0.030471874
+
 ## Red Tube
 red_heights = numpy.array((2, 4, 6, 8, 10, 12, 14, 16))
 red_v_prime = numpy.array((0.021111111, 0.045, 0.045555556, 0.091111111, 0.1, 0.121111111, 0.156111111, 0.2))
 red_error = numpy.array((0.0055567, 0.005561116, 0.005561254, 0.005578314, 0.00558296, 0.005595706, 0.005622107, 0.005664377))
 red_n_resid = numpy.array((1.260929807, 1.300062916, -2.855550597, 1.077263889, -1.57042023, -2.023387231, 0.00212071, 3.572328553))
 
+red_std_er = 0.021479144
+
 ## Black Tube
 black_heights = numpy.array((2, 4, 6, 8, 10, 12, 14, 16))
 black_v_prime = numpy.array((0.018888889, 0.028888889, 0.06, 0.075555556, 0.087777778, 0.098888889, 0.111666667, 0.148888889))
 black_error = numpy.array((0.000565272, 0.000578028, 0.000646938, 0.000694905, 0.000737447, 0.00077919, 0.000830217, 0.000992621))
 black_n_resid = numpy.array((-0.245697937, 1.069541768, -1.411781623, -1.095480207, -0.182151226, 0.928401832, 1.737921554, -1.815873529))
+
+black_std_er = 0.015190021
 
 # Grapher
 fig = pyplot.figure(1)
@@ -55,6 +61,8 @@ frame1=fig.add_axes((.1,.3,.8,.6))
 pyplot.xlim(2, 16)
 pyplot.errorbar(blue_heights, blue_v_prime, yerr=blue_error, linestyle='None', marker='o', markeredgecolor='blue', markersize='5', color='blue')
 pyplot.plot(xs, blue_line, color='blue')
+#pyplot.plot(xs, blue_line+blue_std_er, color='blue', alpha=0.1)
+#pyplot.plot(xs, blue_line-blue_std_er, color='blue', alpha=0.1)
 
 # Plot red data and errors
 pyplot.errorbar(red_heights, red_v_prime, yerr=red_error, linestyle='None', marker='s', markeredgecolor='red', markersize='5', color='red')
@@ -91,7 +99,7 @@ pyplot.yticks(y_ticks, custom_y_ticks)
 #pyplot.tick_params(axis='y', pad=1)
 
 pyplot.xlabel(r'\textbf{Heights} $(cm)$')
-pyplot.ylabel(r'\textbf{Residuals}')
+pyplot.ylabel(r'\textbf{Normalised Residuals}')
 
 pyplot.savefig('fig1-2.pdf')
 pyplot.show()

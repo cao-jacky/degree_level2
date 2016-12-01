@@ -1,8 +1,4 @@
 \documentclass[twocolumn]{revtex4}
-%\documentclass[onecolumn,12pt]{revtex4}
-%\usepackage{amsfonts,amssymb,amsmath,mathbbol}              % for math symbols.
-%\usepackage{epstopdf}
-%\usepackage{mathbbol}              % for math symbols.
 \usepackage{graphics,graphicx,epsfig,ulem} 
 \usepackage{amsmath}
 \usepackage{multirow}
@@ -33,7 +29,7 @@ asdkjasnkdnasd
 \section{Introduction} 
 \vspace{-2ex} 
 
-Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $\frac{dV}{dt}$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
+Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $dV/dt$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
 
 \begin{equation} 
 \frac{dV}{dt}=\frac{\pi}{8}\frac{\rho gh}{\eta}\frac{a^4}{L}. 
@@ -55,15 +51,11 @@ Density of water changes with temperature???!!! How we can actually calculate th
 \vspace{-3ex}
 \section{Method} 
 \vspace{-2ex}
-A flow of water was created by fixing a capillary tube to a water tank. The tank was then filled up with water from heights 2cm to 16cm at 2cm intervals, these values were measured with the markings on the side of the tank. During this we had to ensure that we did not create parallax between the level of the water and the markings on the side. 
+A flow of water was created by fixing a capillary tube to a water tank. The tank was raised to an initial height arbitrary height above the work surface[?]. The tank was then filled up with water from heights 2cm to 16cm at 2cm intervals, these values were measured with the markings on the side of the tank. During this we had to ensure that we did not create parallax between the level of the water and the markings on the side. 
 
 The water was then allowed to flow out of the tube for a period of 90s for each height of water, this time was measured using a digital stopwatch. As the water flowed out it was caught within a large beaker so that the mass and volume of it could be measured after the allotted time had passed. 
 
 The mass was found by having the beaker already on a set of electronic scales and initially zeroed to account for the beaker's mass. The volume on the other hand required the water to be transferred from the beaker to a measuring cylinder, this was performed by using a pipette. Care was again taken so that there was no parallax and that no unaccounted water was left in the beaker. It was also necessary to clear the tube once air bubbles formed along the length of it, this reduced the flow rate of the water. The bubbles were cleared out using a long piece of copper wire. 
-
-Three total sets of data were taken for each of the three capillary tubes that were used, and with each tube varying in their internal diameter. The first tube had a diameter of 0.110cm, the next at 0.094cm, and the final tube of 0.093cm. These values were calculated from multiple measurements taken using a travelling microscope  along the horizontal axis, this was repeated to ensure an accurate value could be calculated. 
-
-The collected data was then applied to a least square fitting to create an initial linear model, then chi-squared analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
 
 \begin{figure}[!h]
 \begin{center}
@@ -75,56 +67,92 @@ The collected data was then applied to a least square fitting to create an initi
 \end{center}
 \end{figure}
 
+Three total sets of data were taken for each of the three capillary tubes that were used, and with each tube varying in their internal diameter. The first tube had a diameter of 0.110cm, the next at 0.094cm, and the final tube of 0.093cm. These values were calculated from multiple measurements taken using a travelling microscope  along the horizontal axis, this was repeated to ensure an accurate value could be calculated. 
+
+The collected data was then applied to a least square fitting to create an initial linear model, then chi-squared analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
+
+The length of the tube was measured using a ruler
+
 askjdnasd
 
 \vspace{-3ex}
 \section{Results}
 \vspace{-2ex}
 
-The change in flow rate of water with height is shown in Fig. \ref{fig:fig2}, the measured radii of the capillary tubes and their respective calculated values for the viscosity of water is shown in Table \ref{table:1}.
+The volumetric flow rate of water is plotted against the varying height, as shown in Fig. \ref{fig:fig2}. This flow rate was calculated by dividing each value of the measured volume with the measured time period. Using this data, a value of viscosity could be calculated through a rearranged form of equation [\ref{pohagen}],
+
+\begin{equation} 
+\eta=\frac{\pi \rho g a^4 }{8 L m}, 
+\label{r-pohagen}
+\end{equation}
+
+where $m$ is the gradient of the least squares regression line, calculated with the known data for $dV/dt$ and $h$.
+
+The calculated values for the viscosity of water are shown in Table \ref{table:1} with which respective tube was used, the radius, the reduced $\chi^2$, and the Durbin-Watson statistic ($\mathcal{D}$) for each of those tubes. 
+
+An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s}$, which [does/does not?] agree with the literature value \cite{crc}, $1.31m \pm ?? Pa\cdot{s}$. 
 
 \vspace{-1ex}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{fig1-2}
-\caption[]{The flow rate of water as a function of height for three different capillary tubes. Normalised residuals have been displayed underneath the plot. The vertical error bars on $dV/dt$ are too small to be seen.}
+\caption[]{The volume flow rate of water ($dV/dt$) as a function of height ($h$) for three capillary tubes of different diameter. The vertical error bars on $dV/dt$ are too small to be seen.}
 \label{fig:fig2}
 \end{center}
 \end{figure}
-
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{ |c|c|c|c|c| } 
  \hline
- \textbf{Tube} & \textbf{Radius, a $[mm]$} & \textbf{$\boldsymbol{\eta_{water}}$ $[mPa\cdot{s}]$} & \textbf{$\boldsymbol{\chi^2_v}$} & $\mathcal{D}$\\ [0.5ex] 
+ \textbf{Tube} & \textbf{Radius, a $[mm]$} & \textbf{$\boldsymbol{\eta_{water}}$ $[mPa\cdot{s}]$} & \textbf{$\boldsymbol{\chi^2_{\nu}}$} & $\mathcal{D}$\\ [0.5ex] 
  \hline\hline
- $Blue$ &$0.55\pm0.03$ & $1.1\pm0.3$ & 11.0 & 1.11\\ 
- $Red$ & $0.47\pm0.03$ & $1.2\pm0.4$ & 5.31 & 2.20\\
- $Black$ & $0.46\pm0.03$ & $1.3\pm0.4$ & 1.94 & 2.91\\
+ $Blue$ &$0.55\pm0.03$ & $1.0\pm0.2$ & 11.0 & 1.11\\ 
+ $Red$ & $0.47\pm0.03$ & $1.1\pm0.3$ & 5.31 & 2.20\\
+ $Black$ & $0.46\pm0.03$ & $1.0\pm0.3$ & 1.94 & 2.91\\
  
  \hline
 \end{tabular}
-\caption{Values for radius of the tube, their respective calculated value for $\eta_{water}$, and the reduced $\chi^2$ value is shown. The Durbin-Watson statistic, $\mathcal{D}$, is shown for each tube as well.  }
+\caption{Radius of the three tubes, their respective calculated value for $\eta_{water}$, the reduced $\chi^2$ value, and the calculated Durbin-Watson statistic, $\mathcal{D}$, is shown for each tube as well.}
 \label{table:1}
 \end{table}
+
 
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
+From an initial inspection of Fig. \ref{fig:fig2} we see that the variation of $dV/dt$ with $h$ for the blue and red tubes do not appear to fit a linear regression model, while the black tube does appear to have a more linear trend. We can also see that the majority of the points and their respective error bars for all three sets of data do not seem to be within the lines of best fit. This implies that either our initial assumption of linearity in our data is not valid, or that there were some defects in the experiment. 
 
-What can I talk about first?\\
-1. the values for the viscosity of water - the main experiment...\\
+We can further question our model by looking at the calculated values for $\chi^2_{\nu}$, and for $\mathcal{D}$. For a reasonable fit, $\chi^2_{\nu}$ should be approximately one \cite{hughesandhayes}. We see that for our data, $\chi^2_{\nu-blue}$ and $\chi^2_{\nu-red}$ are not close to one at all, but for t$\chi^2_{\nu-black}$, while not exactly one it is a similar value. This holding with our belief [? change this word] from before, that the data for the black tube is more linear. 
 
-The variation of $dV/dt$ with height does initially appear to have some linearity, however the 
+On the other hand, once we consider 
 
+[[Experimentally, what is happening? 
 
+% should this paragraph be in here so early?
+However, from Table \ref{table:1} we see that $\eta_{water}$ for each tube are in agreement within their experimental errors. While the model may not be correct, the values produced, which when averaged [are/are not] in agreement with literature values. 
+
+The calculated values for reduced $\chi^2$ statistic further shows that the model chosen was not a good fit. If the data was a reasonable fit then a value for $\chi^2_{\nu}$ would be approximately one \cite{hughesandhayes}. however for the black tube we see that it has the closest value to 1, and if we also look at the normalised residuals as shown in Fig. [\ref{fig:fig2}] we see that the points are within the (-2,2) boundary limits. If we also look at Fig. [\ref{fig:fig2}] we see that for specifically the black tube, a linear least squares fitting model regression thing [?] is most suited for this.
+
+When we look at the red and blue tubes we find that a linear regression model is not suitable for the theoretical prediction, and that another model needs to be considered. If the non-normalised residuals are plotted we see that 
+
+[don't just continually blame the model, what else could be wrong with the experimental procedure - I chose to use these various methods for a reason]
+
+However, we must also consider other possibilities as to why our $\chi^2_{\nu}$ can deviate from one so much. One possibility could be the fact that temperature was not considered to be a major factor [ADD REFERENCE ABOUT TEMP AFFECTING DENSITY OF WATER!!!]
+
+Because of the way we measured the volume of the water, there was always some water omitted from the measuring cylinder, so a non-true value was calculated for $dV/dt$? The volume of the water could have been measured better instead of using a measuring cylinder.
+
+The temperature of the environment also varied, a value was recorded during each measurement. Enviroment temperature has an effect. 
+
+The experiment was limited by difficulties in measurement, the amount of data unable to be taken - more data could have been taken to account for the temperature change maybe. Also repeat measurements so the mean and standard error could be used instead of trying to calculate values yourself.
+
+We can also draw that for varying radii sizes, the values are consistent? 
 
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
  
-askjdnjkasd
+In conclusion, through experimentation it is possible to calculate values for the viscosity of water which are similar to 
 
 \begin{thebibliography}{5}
 \bibitem{poiseuillehagen}
@@ -140,7 +168,17 @@ askjdnjkasd
 \bibitem{youngandfreedman} 
 	Hugh D. Young and Roger A. Freedman.
 	\textit{University Physics with Modern Physics, 13th Edition}. 
-	Pearson Education Limited, Harlow, Essex, 2015.
+	Pearson Education Limited, Essex, UK, 2015.
+	
+\bibitem{crc} 
+	David R. Lie
+	\textit{CRC Handbook of Chemistry and Physics, 84th Edition}. 
+	CRC Press, Florida, USA, 2004.
+	
+\bibitem{hughesandhayes} 
+	I. G. Hughes and T. P. A. Hase
+	\textit{Measurements and their Uncertainties}. 
+	Oxford University Press, Oxford, UK, 2010.
 	
 \end{thebibliography}
 \clearpage
@@ -151,42 +189,7 @@ askjdnjkasd
 \section*{Appendix}
 \vspace{-2ex}
 
-The uncertainty calculated for the radius of curvature $R$ was found by propagating other uncertainties related to quantities found in equation (3). The majority of those uncertainties are calculated using equations based off formulae found in \textit{Measurements and their Uncertainties} [I. G. Hughes and T. P. A. Hase, \textit{Measurements and their Uncertainties}, Oxford University Press, Oxford, United Kingdom, 2010]. 
-\\
-
-Firstly for the square of the magnified radius of a bright fringe, $\rho_m^2$, the error is, 
-\begin{equation} 
-\alpha_{r^2}=\alpha_r\abs{2\times r}
-\end{equation}
-
-where $r$ is the value for the magnified radius of a bright fringe, and $\alpha_r$ is it's respective uncertainty. In our experiment this value arises due to a 30 cm ruler being used to measure the diameter, so the highest precision achievable would have been limited at half a division, therefore $\alpha_r$=0.5 cm. 
-
-The uncertainty on the magnification squared, $M^2$, is found by,
-\begin{equation} 
-\alpha_{M^2}=M^2\abs{2\times\frac{\alpha_M}{M}}
-\end{equation}
-
-with $\alpha_{M}$ as the error on the magnification. For the initial and repeated experiment this value was taken to be $0.5$ due to the difficulties in measuring the width of one of the tick-marks with a $30$cm ruler. In the Travelling Microscope experiment $\alpha_{M}=0.005$ due to the precision to which we could measure with the vernier scale.    
-
-To calculate the uncertainty on the radius of curvature $R$, the following equation is thus used,
-\begin{equation} 
-\alpha_R=R\times\sqrt{\Big(\frac{\alpha_n}{n}\Big)^2 + \Big(\frac{\alpha_{M^2}}{M^2}\Big)^2 },
-\end{equation}
-
-where the term $n=(m-1)\lambda$, and the uncertainty on that, $\alpha_n$, was found by using a least squares fitting function in the software Microsoft\textregistered \ Excel. $M^2$ is again, the magnification squared with it's uncertainty $\alpha_{M^2}$ found above in equation (5).  
-
-The uncertainty on $d_0$ is found by further propagating the uncertainties found above, the resulting equation is, 
-
-\begin{equation} 
-\alpha_{d_0}=d_0\times\sqrt{\Big(\frac{\alpha_c}{c}\Big)^2 + \Big(\frac{\alpha_{M^2}}{M^2}\Big)^2 + \Big(\frac{\alpha_R}{R}\Big)^2}
-\end{equation}
-
-where $c$ is the intercept of the least squares fitting, and $\alpha_c$ is it's respective uncertainty.
-
-With the case of the Travelling Microscope there is also the uncertainty on the vernier scale used, we shall take the highest precision it can measure to be $\alpha_{vernier}=0.5$mm.
+WIP
 
 \clearpage
-
-%\footnotetext{I am not entirely too sure about what I did for (7), it was help from other students and the demonstrator}
-
 \end{document}
