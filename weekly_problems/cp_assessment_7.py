@@ -59,14 +59,14 @@ def bacteria((x,y)):
         shift = shift[-10:]         # Keep only the 10 most recent entries
         de = shift[-1] - shift[0]   # [-1] is newest entry, [0] is the oldest
         t_half = 1 + k * (de/dt)    # Half-life of a run event
-        mean_life = t_half / numpy.log(2)
+        mean_life = t_half / numpy.log(2) # Mean lifetime
 
-        if t_half < 0: # Calculating probabilites of tumbling
-            p_nt = 1
+        if t_half < 0:  # Calculate probability of tumbling
+            prob = 1    # Ensures bacterium will tumble
         else:
-            p_nt = 1 - numpy.exp(-dt / mean_life)
+            prob = 1 - numpy.exp(-dt / mean_life)
 
-        if random_generator() < p_nt: # Generate new angle or continue on
+        if random_generator() < prob: # Generate new angle, or continue on
             angle = 2 * numpy.pi * random_generator()
         else:
             x_coord = v * dt * numpy.cos(angle) # Random direction's x_coord
@@ -77,10 +77,11 @@ def bacteria((x,y)):
 
 pyplot.figure()
 
+# Arrays to store MSD data
 bac_av_origin = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 bac_av_energy = numpy.zeros((max_steps,(bacterias+1)), dtype=numpy.float32)
 
-for i in range(bacterias):  # Plot all three plots
+for i in range(bacterias):  # Plot all three plots onto one figure
     b_d = bacteria(r0)      # Bacteria data
 
     pyplot.subplot(221)     # Energy field and bacteria tracks

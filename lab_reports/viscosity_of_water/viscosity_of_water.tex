@@ -36,17 +36,15 @@ Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuilleh
 \label{pohagen}
 \end{equation}
 
-Noting that the group $\rho gh$ can be collectively termed the pressure difference $\Delta P$ between the two ends of the tube \cite{collegephysics}.
+Noting that the group $\rho gh$ can be collectively termed the pressure difference $\Delta P$ between the two ends of the tube \cite{collegephysics}. [[?? add something more to here]]
 
-If we consider that a fluid is flowing through said tube, it experiences both friction with the inner wall and internal friction within itself. The latter can be defined more readily as the viscosity of the fluid $\eta$, and this results in shear stress when two adjacent layers (laminas) of fluid move relative to each other. 
+If we consider that a fluid is flowing through said [[?]] tube, it experiences both friction with the inner wall and internal friction within itself. The latter can be defined more readily as the viscosity of the fluid $\eta$, and this results in shear stress when two adjacent layers (laminas) of fluid move relative to each other. 
 
 We find that as $\eta$ increases, the volume flow rate decreases, the shear stress between two laminas becomes greater and so restricts the movement of the fluid's molecules trying to flow through the tube. 
 
 Generally we can say that the lamina flow streamlines are smooth, top layers sliding over other laminas without the system having any turbulent motion - this condition is required for equation [\ref{pohagen}] to be valid. 
 
-Using the relation derived by Hagen and Poiseuille it is possible to experimentally calculate a value for the viscosity of water, $\eta_{water}$.
-
-Density of water changes with temperature???!!! How we can actually calculate the viscosity!!!
+Using a rearranged form of the relation derived by Hagen and Poiseuille it is possible to experimentally calculate a value for the viscosity of water.
 
 \vspace{-3ex}
 \section{Method} 
@@ -67,13 +65,13 @@ The mass was found by having the beaker already on a set of electronic scales an
 \end{center}
 \end{figure}
 
-Three total sets of data were taken for each of the three capillary tubes that were used, and with each tube varying in their internal diameter. The first tube had a diameter of 0.110cm, the next at 0.094cm, and the final tube of 0.093cm. These values were calculated from multiple measurements taken using a travelling microscope  along the horizontal axis, this was repeated to ensure an accurate value could be calculated. 
+An initial density of water was calculated by taking four measurements of the volume and mass of the water, then calculating four values for $\rho_{water}$, and then averaging it so find a value. 
+
+One set of data was taken for each of the three capillary tubes that were used. Each tube varied in their internal diameter. These values were calculated from multiple measurements taken using a travelling microscope along the horizontal axis.
 
 The collected data was then applied to a least square fitting to create an initial linear model, then chi-squared analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
 
-The length of the tube was measured using a ruler
-
-askjdnasd
+The length of the tube was measured using a ruler from one end to the other, so that the entire length was measured. [[???]]
 
 \vspace{-3ex}
 \section{Results}
@@ -87,6 +85,8 @@ The volumetric flow rate of water is plotted against the varying height, as show
 \end{equation}
 
 where $m$ is the gradient of the least squares regression line, calculated with the known data for $dV/dt$ and $h$.
+
+From preliminary results taking, our calculated value for the density of water, which was used in further calculations is $1001 \pm 1 kg m^{-1}$.
 
 The calculated values for the viscosity of water are shown in Table \ref{table:1} with which respective tube was used, the radius, the reduced $\chi^2$, and the Durbin-Watson statistic ($\mathcal{D}$) for each of those tubes. 
 
@@ -123,28 +123,24 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s
 \vspace{-2ex}
 From an initial inspection of Fig. \ref{fig:fig2} we see that the variation of $dV/dt$ with $h$ for the blue and red tubes do not appear to fit a linear regression model, while the black tube does appear to have a more linear trend. We can also see that the majority of the points and their respective error bars for all three sets of data do not seem to be within the lines of best fit. This implies that either our initial assumption of linearity in our data is not valid, or that there were some defects in the experiment. 
 
-We can further question our model by looking at the calculated values for $\chi^2_{\nu}$, and for $\mathcal{D}$. For a reasonable fit, $\chi^2_{\nu}$ should be approximately one \cite{hughesandhayes}. We see that for our data, $\chi^2_{\nu-blue}$ and $\chi^2_{\nu-red}$ are not close to one at all, but for t$\chi^2_{\nu-black}$, while not exactly one it is a similar value. This holding with our belief [? change this word] from before, that the data for the black tube is more linear. 
+We can further explore the validity of our model by looking at the calculated values for $\chi^2_{\nu}$. A reasonable fit to the data should see $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. We find that for our data, the blue and red tubes $\chi^2_{\nu}$s  are not close to one at all, but with the black tube, while not exactly one, it is a similar value. This affirms our initial assumption that the data for the black tube has more linearity, while we should consider changing the theoretical model for the other two tubes. 
 
-On the other hand, once we consider 
+Experimentally, we can consider that there were some limitations with how the data was collected. For the volume of the water, it was likely that some water was left within the pipette thus causing some of the data for $V$ to be not true [[change!!]]. 
 
-[[Experimentally, what is happening? 
+When attatching the capillary tube on, the rubber seal was not always air tight so water did leak out! 
+
+How can our experiment be limited? The volume - what changes the data, think of the setup  
+
+Considerations of other factors were not taken into account such as the variation of the density of water with temperature. The temperature  The arising of random errors can not be considered as n
 
 % should this paragraph be in here so early?
 However, from Table \ref{table:1} we see that $\eta_{water}$ for each tube are in agreement within their experimental errors. While the model may not be correct, the values produced, which when averaged [are/are not] in agreement with literature values. 
 
 The calculated values for reduced $\chi^2$ statistic further shows that the model chosen was not a good fit. If the data was a reasonable fit then a value for $\chi^2_{\nu}$ would be approximately one \cite{hughesandhayes}. however for the black tube we see that it has the closest value to 1, and if we also look at the normalised residuals as shown in Fig. [\ref{fig:fig2}] we see that the points are within the (-2,2) boundary limits. If we also look at Fig. [\ref{fig:fig2}] we see that for specifically the black tube, a linear least squares fitting model regression thing [?] is most suited for this.
 
-When we look at the red and blue tubes we find that a linear regression model is not suitable for the theoretical prediction, and that another model needs to be considered. If the non-normalised residuals are plotted we see that 
-
-[don't just continually blame the model, what else could be wrong with the experimental procedure - I chose to use these various methods for a reason]
-
-However, we must also consider other possibilities as to why our $\chi^2_{\nu}$ can deviate from one so much. One possibility could be the fact that temperature was not considered to be a major factor [ADD REFERENCE ABOUT TEMP AFFECTING DENSITY OF WATER!!!]
-
-Because of the way we measured the volume of the water, there was always some water omitted from the measuring cylinder, so a non-true value was calculated for $dV/dt$? The volume of the water could have been measured better instead of using a measuring cylinder.
-
 The temperature of the environment also varied, a value was recorded during each measurement. Enviroment temperature has an effect. 
 
-The experiment was limited by difficulties in measurement, the amount of data unable to be taken - more data could have been taken to account for the temperature change maybe. Also repeat measurements so the mean and standard error could be used instead of trying to calculate values yourself.
+The experiment was limited by difficulties in measurement, the amount of data unable to be taken - more data could have been taken to account for the temperature change maybe. Also repeat measurements so the mean and standard error could be used instead of trying to calculate values yourself. More time needed so more data, in the time given, only one set of data was taken for each tube so that different flow rates could be considered. 
 
 We can also draw that for varying radii sizes, the values are consistent? 
 
