@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  1 DEC 2016 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  1 DEC 2016 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -379,24 +379,20 @@ Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Thursda
 y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, 
 Date of report: 20/11/2016.
 
-<fig1.pdf, id=1, 516.93124pt x 249.93375pt>
+<fig1.pdf, id=1, 287.0725pt x 277.035pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
 Package pdftex.def Info: fig1.pdf used on input line 60.
-(pdftex.def)             Requested size: 256.0748pt x 123.81483pt.
-
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 60--61
- [] 
- []
-
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig
-1.pdf>] <fig1-2.pdf, id=29, 578.16pt x 433.62pt>
+(pdftex.def)             Requested size: 142.26378pt x 137.29126pt.
+ [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fi
+g1.pdf>]
+<fig1-2.pdf, id=28, 578.16pt x 433.62pt>
 File: fig1-2.pdf Graphic file (type pdf)
  <use fig1-2.pdf>
-Package pdftex.def Info: fig1-2.pdf used on input line 98.
+Package pdftex.def Info: fig1-2.pdf used on input line 96.
 (pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 98--99
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 96--97
  [] 
  []
 
@@ -404,7 +400,7 @@ Overfull \hbox (10.0748pt too wide) in paragraph at lines 98--99
 Here is how much of TeX's memory you used:
  4447 strings out of 493089
  58842 string characters out of 6134841
- 156200 words of memory out of 5000000
+ 157200 words of memory out of 5000000
  7859 multiletter control sequences out of 15000+600000
  12903 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -432,10 +428,10 @@ ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti9.pfb>
-Output written on viscosity_of_water.pdf (3 pages, 381674 bytes).
+Output written on viscosity_of_water.pdf (3 pages, 380193 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 144 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
