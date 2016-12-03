@@ -11,6 +11,7 @@ python modules solving a given problem/modelling a system to find a solution to 
 - week 5: monte carlo methods
 - week 6: optimisation
 - week 7: random walks
+- week 8: chaos and fractals
 
 ## lab_reports
 ### viscosity of water
