@@ -20,7 +20,7 @@
 
 \begin{abstract}              
  
-asdkjasnkdnasd
+The Newton's Rings interference pattern is a consequence of the wave-like nature of light. By performing analysis of measurements of the diameters of the interference fringes it is possible to calculate the radius of curvature of a planoconvex lens. The value obtained through initial experimentation is $R_{IE}=(15\pm3)$m, initially not taken as valid at first due to the large uncertainty. It is not until after subsequent investigations have been made and other values are obtained, $R_{TM}=(24\pm2)$m and $R_{RE}=(18\pm5)$m, that the initial value should be accepted. 
 
 \end{abstract}
 
@@ -57,17 +57,17 @@ The mass was found by having the beaker already on a set of electronic scales an
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=5cm]{fig1}
+\includegraphics[width=4.5cm]{fig1}
 \caption[]{A schematic of the experimental set-up used to collect data. }
 \label{fig:fig1}
 \end{center}
 \end{figure}
 
-An initial density of water was calculated by taking four measurements of the volume and mass of the water, then calculating four values for $\rho_{water}$, and then averaging it so find a value. 
+An initial density value for water was calculated by taking four measurements of the volume and mass of the water, then calculating four values for $\rho_{water}$, and then averaging it so find a value. 
 
 One set of data was taken for each of the three capillary tubes that were used. Each tube varied in their internal diameter. These values were calculated from multiple measurements taken using a travelling microscope along the horizontal axis. The total length of the tube, from end to end, was measured using a ruler. 
 
-The collected data was then applied to a least square fitting to create an initial linear model. The difference between the model and the data was then calculated, then this was divided by the uncertainty on the flow rate - this became our normalised residuals. Finally, these values were squared and summed up to a create a chi-squared value, then this was divided by the number of degrees of freedom to create the reduced chi-squared statistic. This analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
+The collected data was then applied to a least squares fitting to create an initial linear model. The difference between the model and the data was then calculated, then this was divided by the uncertainty on the flow rate - this became our normalised residuals. Finally, these values were squared and summed up to a create a chi-squared value, then this was divided by the number of degrees of freedom to create the reduced chi-squared statistic. This analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
 
 \vspace{-3ex}
 \section{Results}
@@ -82,11 +82,11 @@ The volumetric flow rate of water is plotted against the varying height, as show
 
 where $m$ is the gradient of the least squares regression line, calculated with the known data for $dV/dt$ and $h$.
 
-From preliminary results taking, our calculated value for the density of water, which was used in further calculations is $1001 \pm 1 kg m^{-1}$.
+From preliminary results taking, our calculated value for the density of water, which was used in further calculations is ${1001 \pm 1}$ kgm$^{-3}$.
 
 The calculated values for the viscosity of water are shown in Table \ref{table:1} with which respective tube was used, the radius, the reduced $\chi^2$, and the Durbin-Watson statistic ($\mathcal{D}$) for each of those tubes. 
 
-An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s}$, which [does/does not?] agree with the literature value \cite{crc}, $1.31m \pm ?? Pa\cdot{s}$. 
+An average value for viscosity can thus be found to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value \cite{crc}, $1.679$  mPa {s}. 
 
 \vspace{-1ex}
 \begin{figure}[!h]
@@ -101,7 +101,7 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s
 \centering
 \begin{tabular}{ |c|c|c|c|c| } 
  \hline
- \textbf{Tube} & \textbf{Radius, a $[mm]$} & \textbf{$\boldsymbol{\eta_{water}}$ $[mPa\cdot{s}]$} & \textbf{$\boldsymbol{\chi^2_{\nu}}$} & $\mathcal{D}$\\ [0.5ex] 
+ \textbf{Tube} & \textbf{Radius, a [mm]} & \textbf{$\boldsymbol{\eta_{water}}$ [mPa {s}]} & \textbf{$\boldsymbol{\chi^2_{\nu}}$} & $\mathcal{D}$\\ [0.5ex] 
  \hline\hline
  $Blue$ &$0.55\pm0.03$ & $1.0\pm0.2$ & 11.0 & 1.11\\ 
  $Red$ & $0.47\pm0.03$ & $1.1\pm0.3$ & 5.31 & 2.20\\
@@ -117,15 +117,17 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
-From an initial inspection of Fig. \ref{fig:fig2} we see that the variation of $dV/dt$ with $h$ for the blue and red tubes do not appear to fit a linear regression model, while the black tube does appear to have a more linear trend. We can also see that the majority of the points and their respective error bars for all three sets of data do not seem to be within the lines of best fit. This implies that either our initial assumption of linearity in our data is not valid, or that there were some defects in the experiment. 
+From an initial inspection of Fig. \ref{fig:fig2} we see that the variation[[?]] of $dV/dt$ with $h$ for the blue and red tubes do not appear to fit a linear regression model, while the black tube does appear to have a more linear trend. We can also see that the majority of the points and their respective error bars for all three sets of data do not seem to be within the lines of best fit. This implies that either our initial assumption of the linearity in our data is not valid, or that there were some defects in the experiment. [[?]]
 
-We can further explore the validity of our model by looking at the calculated values for $\chi^2_{\nu}$. A reasonable fit to the data should see $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. We find that for our data, the blue and red tubes $\chi^2_{\nu}$s  are not close to one at all, but with the black tube, while not exactly one, it is a similar value. This affirms our initial assumption that the data for the black tube has more linearity, while we should consider changing the theoretical model for the other two tubes. 
+We can further explore the validity of our data by looking at the calculated values for $\chi^2_{\nu}$. A reasonable fit to the model should see $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. We find that for our data, the blue and red tubes $\chi^2_{\nu}$s are not close to one at all, but with the black tube, while not exactly one, it is of a similar value. [[?]] This affirms our initial suggestion that the data for the black tube has more linearity. But, since  we should consider either changing the theoretical model for the other two tubes, or taking more measurements. [[? link into the next paragraph]]
 
-Experimentally, we can consider that there were some limitations with how the data was collected. For the volume of the water, it was likely that some water was left within the pipette thus causing some of the data for $V$ to be not its true value [[?!]]. This was also the case for when the capillary tube was attached, the rubber seal was not perfectly air tight so water did leak out, leading to similar problems. This can be potentially remedied by... However, with what time we had, we made do and ensured that no water was unaccounted for during the flowing part [[?]]
+With our experimentation, we can consider that there were some limitations with how the data was collected. [[?]] For the volume of the water, it was likely that the $V$ we measured was not the actual value that had dripped out of the tank. This problem arised due to the fact that some water was left within the pipette when transferring from beaker to the measuring cylinder, and when the capillary tube was attached, the rubber seal was not perfectly air tight so water did leak out.
+
+Another experimental limitation was that the diameter of each tube was not the same throughout, this was discovered when a copper wire was attempted to be slid down throughout the length of the tube to clear air bubbles which had formed. It was noticed that after a certain point, it was not possible to entirely pass the wire through. With this, we find that 
 
 There was a systematic error in the LINEST model due to the values not being 0 and whatnot... 
 
-Considerations of other factors were not taken into account such as the variation in the density of water with temperature change \cite{dentemp}. From the Thiesen-Scheel-Diesselhorst equation, we see that as the temperature of water increases, the density of water decreases, meaning that the viscosity of water will decrease as a result. [[too much usage of water]] 
+Considerations of other factors were not taken into account such as the variation in the density of water with temperature change \cite{dentemp}. From the Thiesen-Scheel-Diesselhorst equation \cite{dentemp}, we see that as the temperature of water increases, the density of water decreases, meaning that the viscosity of water will decrease as a result. [[too much usage of water]] 
 
 The arising of random errors can not be considered as n
 
@@ -137,11 +139,8 @@ How can our experiment be limited? The volume - what changes the data, think of 
 % should this paragraph be in here so early?
 However, from Table \ref{table:1} we see that $\eta_{water}$ for each tube are in agreement within their experimental errors. While the model may not be correct, the values produced, which when averaged [are/are not] in agreement with literature values. 
 
-The temperature of the environment also varied, a value was recorded during each measurement. Enviroment temperature has an effect. 
 
 The experiment was limited by difficulties in measurement, the amount of data unable to be taken - more data could have been taken to account for the temperature change maybe. Also repeat measurements so the mean and standard error could be used instead of trying to calculate values yourself. More time needed so more data, in the time given, only one set of data was taken for each tube so that different flow rates could be considered. 
-
-We can also draw that for varying radii sizes, the values are consistent? 
 
 \vspace{-5ex}
 \section{Conclusions}
