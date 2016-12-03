@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 16:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -398,13 +398,13 @@ Overfull \hbox (10.0748pt too wide) in paragraph at lines 96--97
 
 [2 <./fig1-2.pdf>] [3] [4] (./viscosity_of_water.aux) ) 
 Here is how much of TeX's memory you used:
- 4449 strings out of 493089
- 58876 string characters out of 6134841
- 165321 words of memory out of 5000000
- 7861 multiletter control sequences out of 15000+600000
+ 4451 strings out of 493089
+ 58897 string characters out of 6134841
+ 162417 words of memory out of 5000000
+ 7863 multiletter control sequences out of 15000+600000
  12903 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,23p,670b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,23p,641b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/
@@ -428,7 +428,7 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti9.pfb>
-Output written on viscosity_of_water.pdf (4 pages, 383156 bytes).
+Output written on viscosity_of_water.pdf (4 pages, 382754 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  102 compressed objects within 2 object streams
