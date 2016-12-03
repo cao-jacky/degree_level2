@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -379,29 +379,29 @@ Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Friday,
  Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, Da
 te of report: 20/11/2016.
 
-<fig1.pdf, id=1, 287.0725pt x 277.035pt>
+<fig1.pdf, id=1, 388.45125pt x 277.035pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 60.
-(pdftex.def)             Requested size: 128.0374pt x 123.5613pt.
+Package pdftex.def Info: fig1.pdf used on input line 62.
+(pdftex.def)             Requested size: 162.18062pt x 115.66486pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fi
 g1.pdf>]
-<fig1-3.pdf, id=31, 552.93172pt x 410.05206pt>
+<fig1-3.pdf, id=36, 552.93172pt x 410.05206pt>
 File: fig1-3.pdf Graphic file (type pdf)
  <use fig1-3.pdf>
-Package pdftex.def Info: fig1-3.pdf used on input line 94.
+Package pdftex.def Info: fig1-3.pdf used on input line 101.
 (pdftex.def)             Requested size: 256.0748pt x 189.90889pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 94--95
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 101--102
  [] 
  []
 
 [2 <./fig1-3.pdf>] [3] [4] (./viscosity_of_water.aux) ) 
 Here is how much of TeX's memory you used:
- 4451 strings out of 493089
- 58898 string characters out of 6134841
- 158378 words of memory out of 5000000
- 7863 multiletter control sequences out of 15000+600000
+ 4450 strings out of 493089
+ 58886 string characters out of 6134841
+ 161263 words of memory out of 5000000
+ 7862 multiletter control sequences out of 15000+600000
  12903 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,23p,647b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -428,10 +428,10 @@ pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti9.pfb>
-Output written on viscosity_of_water.pdf (4 pages, 388585 bytes).
+Output written on viscosity_of_water.pdf (4 pages, 392718 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 153 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

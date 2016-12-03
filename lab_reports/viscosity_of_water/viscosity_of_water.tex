@@ -31,6 +31,8 @@ The volume flow rate of a fluid can be expressed functionally as derived by Pois
 
 Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $dV/dt$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
 
+\squeezeup
+
 \begin{equation} 
 \frac{dV}{dt}=\frac{\pi}{8}\frac{\rho gh}{\eta}\frac{a^4}{L}. 
 \label{pohagen}
@@ -57,11 +59,14 @@ The mass was found by having the beaker already on a set of electronic scales an
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=4.5cm]{fig1}
+\includegraphics[width=5.7cm]{fig1}
 \caption[]{A schematic of the experimental set-up used to collect data. }
 \label{fig:fig1}
 \end{center}
 \end{figure}
+
+\squeezeup
+\squeezeup
 
 An initial density value for water was calculated by taking four measurements of the volume and mass of the water, then calculating four values for $\rho_{water}$, and then averaging it so find a value. 
 
@@ -74,6 +79,8 @@ The collected data was applied to a least squares fitting to create an initial l
 \vspace{-2ex}
 
 The volumetric flow rate of water is plotted against the varying height, as shown in Fig. \ref{fig:fig2}. This flow rate was calculated by dividing each value of the measured volume with the measured time period. Using this data, a value of viscosity could be calculated through a rearranged form of equation (\ref{pohagen}),
+
+\squeezeup
 
 \begin{equation} 
 \eta=\frac{\pi \rho g a^4 }{8 L m}, 
@@ -97,6 +104,10 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03$ mPa s, wh
 \end{center}
 \end{figure}
 
+\squeezeup
+\squeezeup
+\squeezeup
+
 \begin{table}[h!]
 \centering
 \begin{tabular}{ |c|c|c|c|c| } 
@@ -113,11 +124,13 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03$ mPa s, wh
 \label{table:1}
 \end{table}
 
+\squeezeup
+\squeezeup
 
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
-From an initial inspection of Fig. \ref{fig:fig2}, whilst some points do deviate, we see that the change in $dV/dt$ with $h$ appears to follow a linear regression model. But, we can also see that the majority of the error bars for all three sets of data do not seem to be within the range of the lines of best fit. This implies that our data could be not entirely accurate, or that our initial assumption of the linearity in our data is not valid. [[?]]
+From an initial inspection of Fig. \ref{fig:fig2} we see that the change in $dV/dt$ with $h$ appears to follow a linear regression model. However, we can see that the majority of the error bars for all three sets of data do not seem to be within the range of the lines of best fit. This implies that our data could be not entirely accurate, or that our initial assumption of the linearity in our data is not valid. [[?]]
 
 We can further explore the validity of our data by looking at the calculated $\chi^2_{\nu}$ statistics. A reasonable fit to the model should see $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. For our data, the blue and red tubes have values which are not close to one at all, but with the black tube it is similar [[?]]. Similarly, looking at the Durbin-Watson statistic, $\mathcal{D}$, this should be approximately two for a good fit \cite{hughesandhayes} - the residuals are randomly distributed and follow a Gaussian distribution.  [[? what does this mean and implyyy what can we doooo]] 
 
