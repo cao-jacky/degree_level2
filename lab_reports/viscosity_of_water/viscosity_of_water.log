@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  3 DEC 2016 17:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,60 +375,64 @@ Package gensymb Info: Using \textohm for \ohm on input line 10.
 Package gensymb Info: Using \textmu for \micro on input line 10.
 
 
-Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Thursda
-y, Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, 
-Date of report: 20/11/2016.
+Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Friday,
+ Lab Partners: Peter Dorey, Jon Pritchett \\ Date of experiment: 11/11/2016, Da
+te of report: 20/11/2016.
 
 <fig1.pdf, id=1, 287.0725pt x 277.035pt>
 File: fig1.pdf Graphic file (type pdf)
  <use fig1.pdf>
-Package pdftex.def Info: fig1.pdf used on input line 62.
+Package pdftex.def Info: fig1.pdf used on input line 60.
 (pdftex.def)             Requested size: 128.0374pt x 123.5613pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fi
 g1.pdf>]
 <fig1-2.pdf, id=29, 578.16pt x 433.62pt>
 File: fig1-2.pdf Graphic file (type pdf)
  <use fig1-2.pdf>
-Package pdftex.def Info: fig1-2.pdf used on input line 96.
+Package pdftex.def Info: fig1-2.pdf used on input line 94.
 (pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 96--97
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 94--95
  [] 
  []
 
-[2 <./fig1-2.pdf>] [3] [4] (./viscosity_of_water.aux) ) 
+[2 <./fig1-2.pdf>] [3] [4] (./viscosity_of_water.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+
+
+ ) 
 Here is how much of TeX's memory you used:
- 4451 strings out of 493089
- 58897 string characters out of 6134841
- 162417 words of memory out of 5000000
- 7863 multiletter control sequences out of 15000+600000
+ 4450 strings out of 493089
+ 58886 string characters out of 6134841
+ 159606 words of memory out of 5000000
+ 7862 multiletter control sequences out of 15000+600000
  12903 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,23p,641b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti9.pfb>
-Output written on viscosity_of_water.pdf (4 pages, 382754 bytes).
+ 38i,12n,23p,647b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
+b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
+7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on viscosity_of_water.pdf (4 pages, 382665 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  102 compressed objects within 2 object streams
