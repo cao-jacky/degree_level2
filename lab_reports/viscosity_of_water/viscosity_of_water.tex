@@ -67,7 +67,7 @@ An initial density value for water was calculated by taking four measurements of
 
 One set of data was taken for each of the three capillary tubes that were used. Each tube varied in their internal diameter, $d$, this was measured using a travelling microscope along the horizontal axis. 
 
-Using the time period and volume of water measured, it was possible to calculate the volume flow rate for each specific height. This data was then applied to a least squares fitting to create an initial linear model, $dV/dt$ as a function of $h$. This was then used to calculate the flow rate for each different height. 
+The collected data was applied to a least squares fitting to create an initial linear model, $dV/dt$ as a function of $h$. This was then used to calculate the flow rate for each different height, and also allowing us to perform analysis of the data.
 
 \vspace{-3ex}
 \section{Results}
@@ -84,14 +84,14 @@ where $m$ is the gradient of the least squares regression line, calculated with 
 
 From preliminary results taking, our density of water is ${1001 \pm 1}$ kgm$^{-3}$, this was used in later calculations.
 
-The calculated values for the viscosity of water are shown in Table \ref{table:1} with which respective tube was used, the radius, the reduced $\chi^2$, and the Durbin-Watson statistic ($\mathcal{D}$) for each of those tubes. 
+The calculated values for the viscosity of water are shown in Table \ref{table:1} with which respective tube was used, the radius (found by dividing $d$ by two), the reduced $\chi^2$ statistic, and the Durbin-Watson statistic ($\mathcal{D}$) for each of those tubes. 
 
 An average value for viscosity can thus be found to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value \cite{crc}, $1.679$  mPa {s}. 
 
 \vspace{-1ex}
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=9cm]{fig1-2}
+\includegraphics[width=9cm]{fig1-3}
 \caption[]{The volume flow rate of water ($dV/dt$) as a function of height ($h$) for three capillary tubes of different diameter. The vertical error bars on $dV/dt$ are too small to be seen.}
 \label{fig:fig2}
 \end{center}

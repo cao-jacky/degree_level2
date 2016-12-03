@@ -11,13 +11,13 @@ matplotlib.rcParams['text.latex.preamble'] = [r'\boldmath']
 
 # Generate points for the lines of best fit
 def f_blue(x):
-    return (0.0242 * x) - 0.0119
+    return (0.025139234 * x) - 0.018100486
 
 def f_red(x):
-    return (0.0118 * x) - 0.0096
+    return (0.011832899 * x) - 0.009561396
 
 def f_black(x):
-    return (0.0087 * x) + 0.0002
+    return (0.00865479 * x) + 0.00021408
 
 
 xs = numpy.linspace(2, 16, 100)
@@ -73,13 +73,15 @@ pyplot.errorbar(black_heights, black_v_prime, yerr=black_error, linestyle='None'
 pyplot.plot(xs, black_line, color='black')
 
 frame1.axes.get_xaxis().set_visible(False)
-pyplot.ylabel('${dV}/{dt}$ ($cm^3 s^{-1} $)')
+pyplot.ylabel('${dV}/{dt}$ ($cm^3 s^{-1} $)', fontsize=17)
 
 # Legend stuff
 pyplot.plot(0, 0, marker='o', markeredgecolor='blue', markersize='5', color='blue', label='Blue Tube')
 pyplot.plot(0, 0, marker='s', markeredgecolor='red', markersize='5', color='red', label='Red Tube')
 pyplot.plot(0, 0, marker='^', markeredgecolor='black', markersize='5', color='black', label='Black Tube')
 pyplot.legend(loc=0, numpoints=1)
+
+pyplot.tick_params(axis='y', labelsize=17)
 
 # Plotting residuals
 frame2 = fig.add_axes((.1,.1,.8,.2))
@@ -96,10 +98,11 @@ pyplot.axhline(y=-2, color='black', alpha=0.5, linestyle='--', linewidth='0.5')
 y_ticks = numpy.array((6, 4, 2, 0, -2, -4, -6, -8))
 custom_y_ticks = ['','$4$','$2$','$0$','$-2$','$-4$','$-6$','$-8$']
 pyplot.yticks(y_ticks, custom_y_ticks)
-#pyplot.tick_params(axis='y', pad=1)
+pyplot.tick_params(axis='y', labelsize=17)
+pyplot.tick_params(axis='x', labelsize=17)
 
-pyplot.xlabel(r'\textbf{Heights} $(cm)$')
-pyplot.ylabel(r'\textbf{Normalised Residuals}')
+pyplot.xlabel(r'\textbf{Heights} $(cm)$', fontsize=17)
+pyplot.ylabel(r'\textbf{Normalised}' '\n' r'\textbf{Residuals}', multialignment='center', fontsize=17)
 
-pyplot.savefig('fig1-2.pdf')
+pyplot.savefig('fig1-3.pdf', bbox_inches='tight')
 pyplot.show()
