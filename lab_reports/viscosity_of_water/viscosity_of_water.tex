@@ -65,11 +65,9 @@ The mass was found by having the beaker already on a set of electronic scales an
 
 An initial density of water was calculated by taking four measurements of the volume and mass of the water, then calculating four values for $\rho_{water}$, and then averaging it so find a value. 
 
-One set of data was taken for each of the three capillary tubes that were used. Each tube varied in their internal diameter. These values were calculated from multiple measurements taken using a travelling microscope along the horizontal axis.
+One set of data was taken for each of the three capillary tubes that were used. Each tube varied in their internal diameter. These values were calculated from multiple measurements taken using a travelling microscope along the horizontal axis. The total length of the tube, from end to end, was measured using a ruler. 
 
-The collected data was then applied to a least square fitting to create an initial linear model, then chi-squared analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
-
-The length of the tube was measured using a ruler from one end to the other, so that the entire length was measured. [[???]]
+The collected data was then applied to a least square fitting to create an initial linear model. The difference between the model and the data was then calculated, then this was divided by the uncertainty on the flow rate - this became our normalised residuals. Finally, these values were squared and summed up to a create a chi-squared value, then this was divided by the number of degrees of freedom to create the reduced chi-squared statistic. This analysis was performed to check if the model would hold true and if our data was accurate. After analysis three values of viscosity were calculated from the data. 
 
 \vspace{-3ex}
 \section{Results}
@@ -111,7 +109,7 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03 mPa\cdot{s
  
  \hline
 \end{tabular}
-\caption{Radius of the three tubes, their respective calculated value for $\eta_{water}$, the reduced $\chi^2$ value, and the calculated Durbin-Watson statistic, $\mathcal{D}$, is shown for each tube as well.}
+\caption{Radius of the three tubes, their respective calculated value for $\eta_{water}$, the reduced chi-squared statistic, $\chi^2$, and the calculated Durbin-Watson statistic, $\mathcal{D}$, is shown for each tube as well.}
 \label{table:1}
 \end{table}
 
@@ -123,18 +121,21 @@ From an initial inspection of Fig. \ref{fig:fig2} we see that the variation of $
 
 We can further explore the validity of our model by looking at the calculated values for $\chi^2_{\nu}$. A reasonable fit to the data should see $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. We find that for our data, the blue and red tubes $\chi^2_{\nu}$s  are not close to one at all, but with the black tube, while not exactly one, it is a similar value. This affirms our initial assumption that the data for the black tube has more linearity, while we should consider changing the theoretical model for the other two tubes. 
 
-Experimentally, we can consider that there were some limitations with how the data was collected. For the volume of the water, it was likely that some water was left within the pipette thus causing some of the data for $V$ to be not true [[change!!]]. 
+Experimentally, we can consider that there were some limitations with how the data was collected. For the volume of the water, it was likely that some water was left within the pipette thus causing some of the data for $V$ to be not its true value [[?!]]. This was also the case for when the capillary tube was attached, the rubber seal was not perfectly air tight so water did leak out, leading to similar problems. This can be potentially remedied by... However, with what time we had, we made do and ensured that no water was unaccounted for during the flowing part [[?]]
 
-When attatching the capillary tube on, the rubber seal was not always air tight so water did leak out! 
+There was a systematic error in the LINEST model due to the values not being 0 and whatnot... 
+
+Considerations of other factors were not taken into account such as the variation in the density of water with temperature change \cite{dentemp}. From the Thiesen-Scheel-Diesselhorst equation, we see that as the temperature of water increases, the density of water decreases, meaning that the viscosity of water will decrease as a result. [[too much usage of water]] 
+
+The arising of random errors can not be considered as n
+
+If further analysis is performed of the data we further see that there were problems with our chosen model. If we look at firstly the 
 
 How can our experiment be limited? The volume - what changes the data, think of the setup  
 
-Considerations of other factors were not taken into account such as the variation of the density of water with temperature. The temperature  The arising of random errors can not be considered as n
 
 % should this paragraph be in here so early?
 However, from Table \ref{table:1} we see that $\eta_{water}$ for each tube are in agreement within their experimental errors. While the model may not be correct, the values produced, which when averaged [are/are not] in agreement with literature values. 
-
-The calculated values for reduced $\chi^2$ statistic further shows that the model chosen was not a good fit. If the data was a reasonable fit then a value for $\chi^2_{\nu}$ would be approximately one \cite{hughesandhayes}. however for the black tube we see that it has the closest value to 1, and if we also look at the normalised residuals as shown in Fig. [\ref{fig:fig2}] we see that the points are within the (-2,2) boundary limits. If we also look at Fig. [\ref{fig:fig2}] we see that for specifically the black tube, a linear least squares fitting model regression thing [?] is most suited for this.
 
 The temperature of the environment also varied, a value was recorded during each measurement. Enviroment temperature has an effect. 
 
@@ -168,6 +169,11 @@ In conclusion, through experimentation it is possible to calculate values for th
 	David R. Lie
 	\textit{CRC Handbook of Chemistry and Physics, 84th Edition}. 
 	CRC Press, Florida, USA, 2004.
+	
+\bibitem{dentemp} 
+	J. L. Martin and S. C. McCutcheon
+	\textit{Hydrodynamics and Transport for Water Quality Modelling}. 
+	CRC Press, Florida, USA, 1999.
 	
 \bibitem{hughesandhayes} 
 	I. G. Hughes and T. P. A. Hase
