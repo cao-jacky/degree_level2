@@ -1,43 +1,20 @@
-# Source: http://code.activestate.com/recipes/577166-newton-fractals/
+import numpy as np
+import matplotlib.pyplot as plt
 
-from PIL import Image
-from cmath import *
+f = np.poly1d([1,1,1,-1]) # x^3 - 1
+fp = np.polyder(f)
+def newton(i, guess):
+    a = np.empty(guess.shape,dtype=int)
+    a[:] = i
+    j = np.abs(f(guess))>.00001
+    if np.any(j):
+        a[j] = newton(i+1, guess[j] - np.divide(f(guess[j]),fp(guess[j])))
+    return a
 
-# creates a z**4+1 = 0 fractal using the Newton-Raphson
-# root finding method
-delta       = 0.000001  # convergence criteria
-res         = 800       # image size
-iters       = 30        # number of iterations
-
-# create an image to draw on, paint it black
-img=Image.new("RGB", (res, res), (0, 0, 0))
-
-# these are the solutions to the equation z**4+1 = 0 (Euler's formula)
-solutions = [cos((2*n+1)*pi/4)+1j*sin((2*n+1)*pi/4) for n in range(4)]
-colors = [(1, 0, 0), (0, 1, 0), (0, 0, 1), (1, 1, 0)]
-
-for re in range(0, res):
-    for im in range(0, res):
-        z = (re+1j*im)/res
-        for i in range(iters):
-            try:
-                z -= (z**4+1)/(4*z**3)
-            except ZeroDivisionError:
-                # possibly divide by zero exception
-                continue
-            if(abs(z**4+1)<delta):
-                break
-
-        # color depth is a function of the number of iterations
-        color_depth = int((iters-i)*255.0/iters)
-
-        # find to which solution this guess converged to
-        err = [ abs(z-root) for root in solutions ]
-        distances = zip(err, range(len(colors)))
-
-        # select the color associated with the solution
-        color = [i*color_depth for i in colors[min(distances)[1]]]
-        img.putpixel((re, im), tuple(color))
-
-img.save('fractal_z4s_%03d_%03d_%03d.png' % \
-    (iters, res, abs(log10(delta))), dpi=(150,150))
+npts = 1000
+x = np.linspace(-10,10,npts)
+y = np.linspace(-10,10,npts)
+xx, yy = np.meshgrid(x, y)
+pic = np.reshape(newton(0,np.ravel(xx+yy*1j)),[npts,npts])
+plt.imshow(pic)
+plt.show()
