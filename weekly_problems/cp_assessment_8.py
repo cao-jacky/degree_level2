@@ -8,27 +8,33 @@ USER_ID = "bbvw84"
 
 # Defining variables
 m = 1
-MAX_ITER = 200
+MAX_ITER = 500
 
-def func(x):
-    return x**2
+def func(z):
+    z = x + j*y
+    return z***4 - 1
 
-def func_deriv(x):
-    return 2*x
+def dfunc(z):
+    return 4*z**3
 
 # create a seed point
 def random_generator(): # Generate a random number to use each time called
-    return numpy.random.uniform(size=(1,1)) * 5
+    return numpy.random.uniform(low=-10.0,high=10.0,size=(1,1))
+
+def linear_generator():
+    x = random_generator()
+    return numpy.linspace(-x, x, 100)
 
 def newton_raphson(x):
-    n = random_generator()
+    x = x
     nr_history = numpy.zeros((MAX_ITER, 2), dtype=numpy.float32)
 
     for i in range(MAX_ITER):
-        n = n - func(x) / func_deriv(x)
+        x = x - func(x) / dfunc(x)
         nr_history[i][0] = x
-        nr_history[i][1] = n
-    print nr_history
+        nr_history[i][1] = func(x)
+        if x < 1e-15:
+            break
     return nr_history
 
 def f(x,y):
@@ -46,14 +52,18 @@ def f(x,y):
 pyplot.figure()
 
 # Generate random numbers to store into test array to find the roots
-test_123 = 100
-root_history = numpy.zeros((MAX_ITER*100, 2), dtype=numpy.float32)
-for i in range(test_123):
-    x_point = random_generator()
+root_history = numpy.zeros((1, 2), dtype=numpy.float32)
+steps = 1000
+x_values = numpy.linspace(-50, 50, steps)
+for i in range(steps):
+    x_point = x_values[i]
     test_data = newton_raphson(x_point)
-    pyplot.imshow(test_data, extent=(-5, 5, -5, 5), cmap='Accent')
+    pyplot.plot(test_data[:,0],test_data[:,1])
+
+#print root_history
+pyplot.imshow(test_data, extent=(-5, 5, -5, 5), cmap='cool', norm=matplotlib.colors.LogNorm(vmin=0.2, vmax=200))
 
 xs = numpy.linspace(-5, 5, 100)
 
-pyplot.plot(xs,func(xs))
+
 pyplot.show()
