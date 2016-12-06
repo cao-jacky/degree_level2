@@ -192,35 +192,35 @@ In conclusion, from measurements of the volume and mass of water, it was possibl
 \section*{Appendix}
 \vspace{-2ex}
 
-For the data that was collected using analogue devices, the precision is half a devision \cite{crc}. The uncertainty in the measurement of the height $h$ vertically up the side of the water tank was found to be $0.5$ cm. The volume of water within the measuring cylinder was $0.5$ cm$^{3}$. [[? how these uncertainties arise -> the markings on the side and stuff]] 
+For the data that was collected using analogue devices, the precision is half a devision \cite{crc}. The uncertainty in the measurement of the height $h$ vertically up the side of the water tank was found to be $0.5$ cm, and for the volume of water within the measuring cylinder it was $0.5$ cm$^{3}$. 
 
-With the capillary tubes while a $30$ cm was used to measure the length of the tube, and that respective error was $0.5$ cm. However, the diameter of the tube was measured using a travelling microscope setup, with the measurements read off a vernier scale. We found that we could not say the uncertainty was $0.0001$ cm as there was uncertainty in the parallax of where we defined the beginning and end of the diameter, and whether or not we could tell which tick marks lined up on the vernier scale. So instead, we took the uncertainty on the diameter, and subsequently the radius [[????]] to be $0.0003$ cm. 
+With the capillary tubes, a $30$ cm ruler was used to measure the total length of the tube and the uncertainty was $0.5$ cm. The diameter of the tube was measured using a travelling microscope setup with a vernier scale. We could not say the uncertainty was $1\times10^{-4}$ cm as there was error in defining the beginning and end points of the diameter, plus there was also difficult in reading the vernier scale. The uncertainty on the diameter was thus took to be entire division greater, so we estimated $3\times10^{-4}$ cm. 
 
-For the measured mass, the uncertainty was taken to be one in the last digit as this was a digital device. \cite{crc}, so $0.1$ g
+For the measured mass using the electric scales, the uncertainty was taken to be one in the last digit as this was a digital device \cite{crc}, $0.1$ g.
 
-The calculated values of uncertainties were found using equations based off formulae found in \textit{Measurements and their Uncertainties} [I. G. Hughes and T. P. A. Hase, \textit{Measurements and their Uncertainties}, Oxford University Press, Oxford, United Kingdom, 2010].
+The following uncertainties were found using equations based off formulae found in \textit{Measurements and their Uncertainties} [I. G. Hughes and T. P. A. Hase, \textit{Measurements and their Uncertainties}, Oxford University Press, Oxford, United Kingdom, 2010].
 
-For the density of water that was found from average four values of the density, its uncertainty is,
+For the average value of the density of water, its uncertainty was,
 \begin{equation} 
-\alpha_{\rho} = \rho \sqrt{ \sum_{i=1}^{4} \Big( \frac{\alpha_{\rho_i}}{\rho_i} \Big)^2 },
+\alpha_{\rho} = \rho \sqrt{ \sum_{i=1}^{4} \Big( \frac{\alpha_{\rho_i}}{\rho_i} \Big)^2 }.
 \label{ea-density}
 \end{equation}
 
-$\rho_i$ represents a value of the density calculated for each of the four initial sets of data. The individual density values $\rho$ were found as follows, 
-
+$\rho_i$ represented the value of density calculated from the $i$th set out of the four initial data readings. The density was found by dividing the mass $m_i$ by the volume $V_{i}$, thus,
 \begin{equation} 
 \alpha_{\rho_i} = \rho_i \sqrt{ \Bigg( \frac{\alpha_{m_i}}{m_i} \Bigg)^2 + \Bigg( \frac{\alpha_{V_i}}{V_i} \Bigg)^2 },
-\label{ea-rho}
+\label{ea-rho_error}
 \end{equation}
 
-The uncertainty in the calculated value of the volume flow rate was calculated with this equation,
+where $m_i$ is the mass of a specific volume of water $V_i$, and $\alpha_{m_i}$ and  $\alpha_{V_i}$ are their respective uncertainties.
+
+The error in the value of the volume flow rate was calculated with this equation,
 \begin{equation} 
 \alpha_{V'} = \Bigg[ \Bigg( \frac{V+\alpha_{V}}{t} - \frac{V}{t} \Bigg)^2 + \Bigg( \frac{V}{t+\alpha_{t}} - \frac{V}{t} \Bigg)^2 \Bigg]^{0.5} .
 \label{ea-volflow}
 \end{equation}
 
-For the linear model as shown in equation \ref{r-pohagen}, the error was propagated through various terms. This shall be broken down. The uncertainty in the gradient ($\alpha_m$) and the gradient value itself ($m$) was found using the LINEST function on Microsoft Excel. These values were then reduced using Solver on Microsoft Excel when trying to minimise the calculated value for $\chi^2$. The final minimised gradient and its uncertainty are shown below in Table \ref{table:2}.
-
+For the linear model that was used in our data analysis, the uncertainty in the gradient $\alpha_m$ and the gradient $m$ itself was found using the LINEST function on Microsoft Excel. These values were then reduced using Solver on Microsoft Excel during the minimisation of the calculated value for $\chi^2$. The final minimised gradient and its error for each tube is shown below in Table \ref{table:2}.
 \begin{table}[h!]
 \centering
 \begin{tabular}{ |c|c|c| } 
@@ -232,11 +232,11 @@ For the linear model as shown in equation \ref{r-pohagen}, the error was propaga
  $Black$ & $0.009$ & $0.001$ \\ 
 \hline
 \end{tabular}
-\caption{The minimised values for the gradient of the linear regression model for each tube.}
+\caption{The minimised values for the gradient of the linear regression model for each tube. The uncertainties on the gradient is also shown.}
 \label{table:2}
 \end{table}
 
-The uncertainties on the calculated values for the viscosity of water were calculated using the following equation [[with the rearranged equation \ref{r-pohagen} in mind]],
+The uncertainties on the calculated values for the viscosity of water were calculated using the following equation,
 \small
 \begin{equation} 
 \alpha_{\eta} = \eta \Bigg[ \Bigg( \frac{\alpha_{\rho g}}{\rho g} \Bigg)^2 + \Bigg( \frac{\alpha_{ha^4}}{ha^4} \Bigg)^2 + \Bigg( \frac{\alpha_{L}}{L} \Bigg)^2 + \Bigg( \frac{\alpha_{m}}{m} \Bigg)^2 \Bigg]^{0.5}.
@@ -244,19 +244,18 @@ The uncertainties on the calculated values for the viscosity of water were calcu
 \end{equation}
 \normalsize
 
-with the uncertainty on $\rho g$ and $ha^4$ being,
+with $\eta$ found from equation (\ref{r-pohagen}) and the uncertainty on $\rho g$ and $ha^4$ being,
 
 \begin{equation} 
 \alpha_{\rho g} = \rho g \sqrt{ \Bigg( \frac{\alpha_{\rho}}{\rho} \Bigg)^2 + \Bigg( \frac{\alpha_{g}}{g} \Bigg)^2 }, 
 \label{ea-rhog}
 \end{equation}
-
 \begin{equation} 
 \alpha_{ha^4} = ha^4 \sqrt{ \Bigg( \frac{\alpha_{h}}{h} \Bigg)^2 + \Bigg( \frac{\alpha_{a^4}}{a^4} \Bigg)^2 }, 
 \label{ea-hafour}
 \end{equation}
 
-respectively. The uncertainty on $a^4$ being, 
+respectively. The error on $a^4$ being, 
 
 \begin{equation} 
 \alpha_{a^4} = a^4 \abs{4 \frac{\alpha_a}{a}}.
@@ -269,7 +268,7 @@ Our $\chi^2$ values were found using this formula,
 \label{ea-chisquared}
 \end{equation}
 
-where $y_i$ represents the theoretical linear model of the volume flow rate, $y(x_i)$ is our calculated value for the volume flow rate ($V'$) using the measured $V$ and $t$, and $\alpha_i$ is the uncertainty on the $V'$ as shown above in equation (\ref{ea-volflow}).
+where $y_i$ represents the theoretical linear model of the volume flow rate, $y(x_i)$ the calculated value for the volume flow rate ($V'$) using the measured $V$ and $t$, and $\alpha_i$ is the uncertainty on $V'$ as shown in equation (\ref{ea-volflow}).
 
 $\chi^2$ was then minimised using the Solver function on Microsoft Excel, this value was then reduced using the following formula,
 \begin{equation} 
@@ -277,7 +276,7 @@ $\chi^2$ was then minimised using the Solver function on Microsoft Excel, this v
 \label{ea-redchisquared}
 \end{equation}
 
-$\nu$ being the number of degrees of freedom, in our case 11 for the blue tube, and 6 for the red and black tube.
+$\nu$ being the number of degrees of freedom, $\nu$ equalling 11 for the blue tube, and 6 for the red and black tube.
 
 The normalised residuals plotted in Figure \ref{fig:fig2} are defined as,
 \begin{equation} 
@@ -287,7 +286,6 @@ R_i = \frac{y_i - y(x_i)}{\alpha_i},
 
 with $(y_i - y(x_i))$ representing the difference between the theoretical model and the data, and $\alpha_i$ is the uncertainty in the data ($\alpha_{V'}$).
 
-other calculations and their uncertainties!!!!
 
 \clearpage
 \end{document}
