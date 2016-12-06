@@ -19,20 +19,21 @@
 
 
 \begin{abstract}              
- 
-The volume flow rate of a fluid can be expressed functionally as derived by Poiseuille and Hagen. This relationship can be rearranged so that the viscosity of water can be experimentally determined. The volume and mass of water which has flowed out of a capillary tube for various heights can be measured. It is then possible to calculate a value for the viscosity. The average value obtained was determined to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value, $1.679$ mPa s \cite{crc}. 
-
+The volume flow rate of a fluid can be expressed functionally as derived by Poiseuille and Hagen. This relationship can be rearranged so that the viscosity of water can be experimentally determined. Using a capillary tube and altering the height of water in a tank, the volume and mass of water which has flowed out can be measured. Using this data, it is then possible to calculate a value for the viscosity. The average value obtained was determined to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value, $1.679$ mPa s \cite{crc}. 
+\squeezeup
+\squeezeup
+\squeezeup
 \end{abstract}
 
 \maketitle
 
-\section{Introduction} 
-\vspace{-2ex} 
-
-Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $dV/dt$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
-
+\squeezeup
 \squeezeup
 
+\section{Introduction} 
+\vspace{-2ex} 
+Derived experimentally by Poiseuille in 1838 and Hagen in 1839 \cite{poiseuillehagen}, the volume flow rate $dV/dt$ of a fluid passing through a tube can be expressed as a function of the density of the fluid $\rho$, the value for acceleration due to gravity $g$, the height the fluid leaves the tube $h$, the radius $a$ and length $L$ of the tube, and the viscosity of the fluid $\eta$,
+\squeezeup
 \begin{equation} 
 \frac{dV}{dt}=\frac{\pi}{8}\frac{\rho gh}{\eta}\frac{a^4}{L}. 
 \label{pohagen}
@@ -79,9 +80,7 @@ The collected data was applied to a least squares fitting to create an initial l
 \vspace{-2ex}
 
 The volumetric flow rate of water is plotted against the varying height, as shown in Fig. \ref{fig:fig2}. This flow rate was calculated by dividing each value of the measured volume with the measured time period. Using this data, a value of viscosity could be calculated through a rearranged form of equation (\ref{pohagen}),
-
 \squeezeup
-
 \begin{equation} 
 \eta=\frac{\pi \rho g a^4 }{8 L m}, 
 \label{r-pohagen}
@@ -132,25 +131,24 @@ An average value for viscosity can thus be found to be $1.00 \pm 0.03$ mPa s, wh
 \vspace{-2ex}
 From an initial inspection of Fig. \ref{fig:fig2} we see that the change in $dV/dt$ with $h$ appears to follow a linear regression model. However, the normalised residuals are not contained within $\pm 2$, for the blue tube about 46\% of the points are outside this. This suggests that the fit of the blue data is not good and further experimentation may be required. 
 
-We can further explore the validity of our data by looking at the calculated reduced chi-squared statistics. A reasonable fit to the model should expect $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. After minimising and reducing $\chi^2$ using 'Solver' on Excel, we see that the black tube has the closest $\chi^2_{\nu}$ value to unity, so we can say this set of data has the best fit to the linear model, and that the viscosity value calculated here would be the most acceptable. [[?]] This could be because the black tube had the smallest diameter so the flow rate would be slower, thus the actual volume that flowed out would be easier to measure.
+We can further explore the validity of our data by looking at the calculated reduced chi-squared statistics. A reasonable fit to the model should expect $\chi^2_{\nu}$ to be approximately one \cite{hughesandhayes}. After minimising and reducing $\chi^2$, we see that the black tube has the closest $\chi^2_{\nu}$ value to unity, so we can say this set of data has the best fit to the linear model, and that the viscosity value calculated here would be the most acceptable. We could suggest this may be because the black tube had the smallest diameter so the flow rate would be slower, thus the actual volume that flowed out would be easier to measure.
 
-From Table \ref{table:1} we can see that all three values of $\eta$ do agree with each other within their experimental errors. Although, the calculated value for the viscosity using the blue tube has the biggest disparity when compared with the literature value, it also has the greatest $\chi^2_{\nu}$ value. The data not fitting the model could be due to the volume that was measured, was not the exact value that had flowed out. With increased flow rate from greater diameter, it proved more difficult to know when exactly to stop the flow. 
+From Table \ref{table:1} we can see that all three values of $\eta$ do agree with each other within their experimental errors. Although, the calculated value for the viscosity using the blue tube has the biggest disparity when compared with the literature value, it also has the greatest $\chi^2_{\nu}$ value. The data not fitting the model could be due to the volume that was measured, it was not the exact value that had flowed out. With increased flow rate from a greater diameter, it proved more difficult to know when exactly to remove the beaker. 
 
-Going back to the black tube 
-
-With our experimentation, there were other limitations affecting the measured value for the volume of water. It is highly likely that the $V$ we measured was not the actual value that had flowed out of the tank for each tube. This problem arose due to the fact that there was always some water left within the pipette when transferring from beaker to the measuring cylinder, and also that the capillary tube would not form a perfectly air tight seal with the tank so water inevitably leaked out.
+With our experimentation, there were other limitations affecting the measured value for the volume of water. It is more than likely that the $V$ we measured was not the actual value that had flowed out of the tank for each tube. This problem arose due to the fact that there was always some water left within the pipette when transferring from beaker to the measuring cylinder, and also that the capillary tube would not form a perfectly air tight seal with the tank so water inevitably leaked out.
 
 Another experimental limitation was that the diameter of each tube was not uniform throughout. With this, we see that due to the tapering of the tube, the volume flow rate would have been reduced as the flow of the water would have been non-uniform. Thus again, shifting our measured quantities from their true values.
 
-With our analysis, other factors were not taken into account during our calculations such as the variation in the density of water with temperature change. From the Thiesen-Scheel-Diesselhorst equation \cite{dentemp}, we see that as the temperature of water increases, the density decreases, meaning that the viscosity will decrease as a result. While we assumed that the fluid was incompressible, our calculations could be altered to account for this and thus potentially produce a result for $\eta_{water}$ which would closer to the literature value.
+With our analysis, other factors were not taken into account during our calculations such as the variation in the density of water with temperature change. From the Thiesen-Scheel-Diesselhorst equation \cite{dentemp}, we see that as the temperature of water increases, the density decreases, meaning that the viscosity will decrease as a result. While we assumed that the fluid was incompressible, our calculations could be altered to account for this and thus potentially produce a result for $\eta_{water}$ which would be closer to the literature value.
 
-For our experiment we took only one set of data for each tube as we were constrained by time. In future experiments it would be highly beneficial to take repeat data sets for each tube. This would allow us to create a clearer picture of whether or not our data is a good fit to the model, and if our viscosities truly disagree with the stated literature value. 
+For our experiment we took only one set of data for each tube as we were constrained by time, for the red and black tubes we had to reduce the amount of measurements that we were taking. In future experiments it would be highly beneficial to take repeat data sets for each tube. This would allow us to create a clearer picture of whether or not our data is a good fit to the model, and if our viscosities truly disagree with the stated literature value. 
+
+\squeezeup
 
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
- 
-In conclusion, from measurements of the volume and mass of water, it was possible to calculate an average value for the viscosity of water. This was found to be $1.00 \pm 0.03$ mPa s, which is not consistent with the literature value of $1.679$  mPa {s} \cite{crc}. Our data did not prove to be a perfect fit to the linear regression model, and more experimentation would be required to produce stronger [[?]] outcomes?
+In conclusion, from measurements of the volume and mass of water, it was possible to calculate an average value for the viscosity of water. This was found to be $1.00 \pm 0.03$ mPa s, which is not consistent with the literature value of $1.679$  mPa {s} \cite{crc}. Our data did not prove to be a perfect fit to the linear regression model. More experimentation would be required to produce results that would offer a clearer picture, and noting that various improvements would be required in the methodology to improve accuracy.
 \squeezeup
 \squeezeup
 
@@ -200,7 +198,28 @@ With the capillary tubes while a $30$ cm was used to measure the length of the t
 
 For the measured mass, the uncertainty was taken to be one in the last digit as this was a digital device. \cite{crc}, so $0.1$ g
 
-For the linear model as shown in equation \ref{r-pohagen}, the error was propagated through various terms. This shall be broken down. The uncertainty in the gradient ($\alpha_m$) and the gradient value itself ($m$) was found using the LINEST function on Microsoft Excel. These values were then reduced using Solver on Microsoft Excel when trying to minimise the original calculated value for $\chi^2$. The final minimised gradient and its uncertainty are shown below in Table \ref{table:2}.
+The calculated values of uncertainties were found using equations based off formulae found in \textit{Measurements and their Uncertainties} [I. G. Hughes and T. P. A. Hase, \textit{Measurements and their Uncertainties}, Oxford University Press, Oxford, United Kingdom, 2010].
+
+For the density of water that was found from average four values of the density, its uncertainty is,
+\begin{equation} 
+\alpha_{\rho} = \rho \sqrt{ \sum_{i=1}^{4} \Big( \frac{\alpha_{\rho_i}}{\rho_i} \Big)^2 },
+\label{ea-density}
+\end{equation}
+
+$\rho_i$ represents a value of the density calculated for each of the four initial sets of data. The individual density values $\rho$ were found as follows, 
+
+\begin{equation} 
+\alpha_{\rho_i} = \rho_i \sqrt{ \Bigg( \frac{\alpha_{m_i}}{m_i} \Bigg)^2 + \Bigg( \frac{\alpha_{V_i}}{V_i} \Bigg)^2 },
+\label{ea-rho}
+\end{equation}
+
+The uncertainty in the calculated value of the volume flow rate was calculated with this equation,
+\begin{equation} 
+\alpha_{V'} = \Bigg[ \Bigg( \frac{V+\alpha_{V}}{t} - \frac{V}{t} \Bigg)^2 + \Bigg( \frac{V}{t+\alpha_{t}} - \frac{V}{t} \Bigg)^2 \Bigg]^{0.5} .
+\label{ea-volflow}
+\end{equation}
+
+For the linear model as shown in equation \ref{r-pohagen}, the error was propagated through various terms. This shall be broken down. The uncertainty in the gradient ($\alpha_m$) and the gradient value itself ($m$) was found using the LINEST function on Microsoft Excel. These values were then reduced using Solver on Microsoft Excel when trying to minimise the calculated value for $\chi^2$. The final minimised gradient and its uncertainty are shown below in Table \ref{table:2}.
 
 \begin{table}[h!]
 \centering
@@ -210,17 +229,64 @@ For the linear model as shown in equation \ref{r-pohagen}, the error was propaga
  \hline
  $Blue$ &$0.025$ & $0.001$ \\ 
  $Red$ & $0.012$ & $0.001$ \\
- $Black$ & $0.009$ & $0.001$ \\
- 
- \hline
+ $Black$ & $0.009$ & $0.001$ \\ 
+\hline
 \end{tabular}
 \caption{The minimised values for the gradient of the linear regression model for each tube.}
 \label{table:2}
 \end{table}
 
-value for viscosity 
-residuals
-chi squared
+The uncertainties on the calculated values for the viscosity of water were calculated using the following equation [[with the rearranged equation \ref{r-pohagen} in mind]],
+\small
+\begin{equation} 
+\alpha_{\eta} = \eta \Bigg[ \Bigg( \frac{\alpha_{\rho g}}{\rho g} \Bigg)^2 + \Bigg( \frac{\alpha_{ha^4}}{ha^4} \Bigg)^2 + \Bigg( \frac{\alpha_{L}}{L} \Bigg)^2 + \Bigg( \frac{\alpha_{m}}{m} \Bigg)^2 \Bigg]^{0.5}.
+\label{ea-viscos}
+\end{equation}
+\normalsize
+
+with the uncertainty on $\rho g$ and $ha^4$ being,
+
+\begin{equation} 
+\alpha_{\rho g} = \rho g \sqrt{ \Bigg( \frac{\alpha_{\rho}}{\rho} \Bigg)^2 + \Bigg( \frac{\alpha_{g}}{g} \Bigg)^2 }, 
+\label{ea-rhog}
+\end{equation}
+
+\begin{equation} 
+\alpha_{ha^4} = ha^4 \sqrt{ \Bigg( \frac{\alpha_{h}}{h} \Bigg)^2 + \Bigg( \frac{\alpha_{a^4}}{a^4} \Bigg)^2 }, 
+\label{ea-hafour}
+\end{equation}
+
+respectively. The uncertainty on $a^4$ being, 
+
+\begin{equation} 
+\alpha_{a^4} = a^4 \abs{4 \frac{\alpha_a}{a}}.
+\label{ea-tube}
+\end{equation}
+
+Our $\chi^2$ values were found using this formula, 
+\begin{equation} 
+\chi^2 = \sum_i \frac{(y_i - y(x_i))^2}{\alpha_i^2},
+\label{ea-chisquared}
+\end{equation}
+
+where $y_i$ represents the theoretical linear model of the volume flow rate, $y(x_i)$ is our calculated value for the volume flow rate ($V'$) using the measured $V$ and $t$, and $\alpha_i$ is the uncertainty on the $V'$ as shown above in equation (\ref{ea-volflow}).
+
+$\chi^2$ was then minimised using the Solver function on Microsoft Excel, this value was then reduced using the following formula,
+\begin{equation} 
+\chi^2_{\nu} = \frac{\chi^2_{min}}{\nu},
+\label{ea-redchisquared}
+\end{equation}
+
+$\nu$ being the number of degrees of freedom, in our case 11 for the blue tube, and 6 for the red and black tube.
+
+The normalised residuals plotted in Figure \ref{fig:fig2} are defined as,
+\begin{equation} 
+R_i = \frac{y_i - y(x_i)}{\alpha_i},
+\label{ea-normalisedresid}
+\end{equation}
+
+with $(y_i - y(x_i))$ representing the difference between the theoretical model and the data, and $\alpha_i$ is the uncertainty in the data ($\alpha_{V'}$).
+
 other calculations and their uncertainties!!!!
 
 \clearpage
