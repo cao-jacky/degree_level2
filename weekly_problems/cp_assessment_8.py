@@ -21,9 +21,7 @@ def dfunc(z):
 def random_generator(): # Generate a random number to use each time called
     return numpy.random.uniform(low=-10.0,high=10.0,size=(1,1))
 
-def newton_raphson(x,y):
-    y_im = 1j
-    z = x + y_im*y
+def newton_raphson(z):
     for i in range(MAX_ITER):
         z = z - func(z) / dfunc(z)
     return z
@@ -31,25 +29,14 @@ def newton_raphson(x,y):
 pyplot.figure()
 
 # Generate random numbers to store into test array to find the roots
-steps = 500
+steps = 1000
 root_history = numpy.zeros((steps, 3), dtype=numpy.float32)
-for i in range(steps):
-    x_values = numpy.asscalar(numpy.random.uniform(low=-10.0,high=10.0,size=(1,1)))
-    y_values = numpy.asscalar(numpy.random.uniform(low=-10.0,high=10.0,size=(1,1)))
-    x_point, y_point = x_values, y_values
-    test_data = newton_raphson(x_point,y_point)
-    root_history[i][0] = x_values
-    root_history[i][1] = y_values
-    root_history[i][2] = numpy.angle(test_data)
+x_values = numpy.linspace(-10,10,steps)
+y_values = numpy.linspace(-10,10,steps)
+xx, yy = numpy.meshgrid(x_values, y_values)
 
+pic = numpy.reshape(newton_raphson(numpy.ravel(xx+yy*1j)),[steps,steps])
 
-    # do it like previous weeks, enumerate - banana function thing!
-
-print root_history
-
-pyplot.imshow(root_history, extent=(-5, 5, -5, 5), cmap='cool', norm=matplotlib.colors.LogNorm(vmin=0.2, vmax=200))
-
-xs = numpy.linspace(-5, 5, 100)
-
+pyplot.imshow(numpy.angle(pic))
 
 pyplot.show()
