@@ -198,7 +198,30 @@ For the data that was collected using analogue devices, the precision is half a 
 
 With the capillary tubes while a $30$ cm was used to measure the length of the tube, and that respective error was $0.5$ cm. However, the diameter of the tube was measured using a travelling microscope setup, with the measurements read off a vernier scale. We found that we could not say the uncertainty was $0.0001$ cm as there was uncertainty in the parallax of where we defined the beginning and end of the diameter, and whether or not we could tell which tick marks lined up on the vernier scale. So instead, we took the uncertainty on the diameter, and subsequently the radius [[????]] to be $0.0003$ cm. 
 
-For the measured mass, the uncertainty 
+For the measured mass, the uncertainty was taken to be one in the last digit as this was a digital device. \cite{crc}, so $0.1$ g
+
+For the linear model as shown in equation \ref{r-pohagen}, the error was propagated through various terms. This shall be broken down. The uncertainty in the gradient ($\alpha_m$) and the gradient value itself ($m$) was found using the LINEST function on Microsoft Excel. These values were then reduced using Solver on Microsoft Excel when trying to minimise the original calculated value for $\chi^2$. The final minimised gradient and its uncertainty are shown below in Table \ref{table:2}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ \textbf{Tube} & \textbf{$m$ (cm$^{2}$s$^{-1}$)} & \textbf{$\alpha_m$ (cm$^{2}$s$^{-1}$)} \\ [0.5ex] 
+ \hline
+ $Blue$ &$0.025$ & $0.001$ \\ 
+ $Red$ & $0.012$ & $0.001$ \\
+ $Black$ & $0.009$ & $0.001$ \\
+ 
+ \hline
+\end{tabular}
+\caption{The minimised values for the gradient of the linear regression model for each tube.}
+\label{table:2}
+\end{table}
+
+value for viscosity 
+residuals
+chi squared
+other calculations and their uncertainties!!!!
 
 \clearpage
 \end{document}
