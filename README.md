@@ -15,4 +15,6 @@ python modules solving a given problem/modelling a system to find a solution to 
 
 ## lab_reports
 ### viscosity of water
-lab report on experiment performed on days 111116 and 181116 - began writing 211116, finished writing ????16
+lab report on experiment performed on days 111116 and 181116 - began writing 211116, finished writing 061216
+
+probably fixing it up with minor changes after this date as well
