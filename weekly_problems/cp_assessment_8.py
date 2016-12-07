@@ -14,24 +14,13 @@ def newton_raphson(z):
     return z
 
 def converger(z):
-    #z = newton_raphson(z)
-    arraying = numpy.zeros((steps**2,), dtype=numpy.float32)
-    for i in range(steps):
+    for i in range(20):
+        array = z[:]
         z = z - (z**4 - 1) / (4*z**3)
+        test = numpy.isclose(z, array, atol=1e-6)
 
-        for lx, l in enumerate(z):
-            #print l
-            #arraying[lx] = i
-            valueing = (l**4 - 1)
-
-            #arraying[lx] = valueing
-            print valueing
-
-            if numpy.angle(valueing) == 0:
-                arraying[lx] = i
-                #break
-    print arraying
-    return arraying
+        #if test.all() == True:
+    return test
 
 
 x_values = numpy.linspace(-10,10,steps)
