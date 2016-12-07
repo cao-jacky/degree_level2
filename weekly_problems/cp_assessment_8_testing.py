@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-f = np.poly1d([1,0,0,-1]) # x^3 - 1
+f = np.poly1d([1,0,-1]) # x^3 - 1
 fp = np.polyder(f)
 def newton(i, guess):
     a = np.empty(guess.shape,dtype=int)
