@@ -48,7 +48,7 @@ for i in range(steps):
         zs[i,j] = nr_convergence(z)
 
 pyplot.figure()
-pyplot.suptitle('The chaotic nature of Newton-Raphson')
+pyplot.suptitle('The chaotic nature of the Newton-Raphson method')
 ax1 = pyplot.subplot(221)
 ax1.set_title('Root x1 Zoom', fontsize=10); pyplot.tick_params(labelsize=9)
 pyplot.imshow(numpy.angle(image), origin='lower', extent=[-2,2,-2,2])
