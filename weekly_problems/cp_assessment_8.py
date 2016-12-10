@@ -66,4 +66,8 @@ ax4.set_title('Root x10 Zoom', fontsize=10); pyplot.tick_params(labelsize=9)
 pyplot.imshow(numpy.angle(image3), origin='lower', extent=[-2,2,-2,2])
 pyplot.show()
 
-ANSWER1 = """  """
+ANSWER1 = """ The diagrams demonstrate the fractal nature of the function as
+when you keep zooming in, the same pattern seen at larger scales repeats itself
+on the smaller scales - it is infinite. The NR method is chaotic as if you
+change the initial conditions - for example, the number of steps that the method
+is allowed to cycle through, the output diagram changes accordingly."""
