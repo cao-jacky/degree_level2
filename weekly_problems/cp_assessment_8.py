@@ -51,19 +51,23 @@ pyplot.figure()
 pyplot.suptitle('The chaotic nature of the Newton-Raphson method')
 ax1 = pyplot.subplot(221)
 ax1.set_title('Root x1 Zoom', fontsize=10); pyplot.tick_params(labelsize=9)
+pyplot.xlabel('Real'); pyplot.ylabel('Imaginary')
 pyplot.imshow(numpy.angle(image), origin='lower', extent=[-2,2,-2,2])
 
 ax2 = pyplot.subplot(222)
 ax2.set_title('Convergence Time', fontsize=10); pyplot.tick_params(labelsize=9)
+pyplot.xlabel('Real'); pyplot.ylabel('Imaginary')
 pyplot.imshow(zs, origin='lower', extent=[-2,2,-2,2])
 
 ax3 = pyplot.subplot(223)
 ax3.set_title('Root x2 Zoom', fontsize=10); pyplot.tick_params(labelsize=9)
-pyplot.imshow(numpy.angle(image2), origin='lower', extent=[-2,2,-2,2])
+pyplot.xlabel('Real'); pyplot.ylabel('Imaginary')
+pyplot.imshow(numpy.angle(image2), origin='lower', extent=[-1,1,-1,1])
 
 ax4 = pyplot.subplot(224)
 ax4.set_title('Root x10 Zoom', fontsize=10); pyplot.tick_params(labelsize=9)
-pyplot.imshow(numpy.angle(image3), origin='lower', extent=[-2,2,-2,2])
+pyplot.xlabel('Real'); pyplot.ylabel('Imaginary')
+pyplot.imshow(numpy.angle(image3), origin='lower', extent=[-0.5,0.5,-0.5,0.5])
 pyplot.show()
 
 ANSWER1 = """ The diagrams demonstrate the fractal nature of the function as
