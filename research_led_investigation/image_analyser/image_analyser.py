@@ -26,49 +26,20 @@ def processor(x):
 
     for i in range(size[0]):
         for j in range(size[1]):
-            image_array[i,j] = pix[i,j] # Stores RGBA into matching coord in array
+            pixel = pix[i,j] # Pulling the RGBA data from the image
+            # Converting 'sRGB' to greyscale using CIE 1931 Linear Luminance
+            luminance = (0.2126 * pixel[0]) + (0.7152 * pixel[1]) + (0.0722 * pixel[2])
+            image_array[i,j] = luminance # Stores value into matching coord in array
 
-    # R
-    for i in range(size[0]):
-        for j in range(size[1]):
-            pixel_data = pix[i,j]
-            image_r[i,j] = pixel_data[0]
+    #print image_array
 
-            if pixel_data[0] <= 12:
-                image_r[i,j] = 0
-                pixel_data[0] = 0
+    # 12 is the value we should use to 'block' out any excess light
 
-    # G
-    for i in range(size[0]):
-        for j in range(size[1]):
-            pixel_data = pix[i,j]
-            image_g[i,j] = pixel_data[1]
+    unique = numpy.size(image_array)
 
-            if pixel_data[1] <= 12:
-                image_g[i,j] = 0
-                image_array[i,j][1] = 0
+    print unique
 
-    # B
-    for i in range(size[0]):
-        for j in range(size[1]):
-            pixel_data = pix[i,j]
-            image_b[i,j] = pixel_data[2]
-
-            if pixel_data[2] <= 12:
-                image_b[i,j] = 0
-                image_array[i,j][2] = 0
-
-    # Min and max values for the RGB values
-    min_r, max_r = numpy.amin(image_r), numpy.amax(image_r)
-    min_g, max_g = numpy.amin(image_g), numpy.amax(image_g)
-    min_b, max_b = numpy.amin(image_b), numpy.amax(image_b)
-
-    # Finds all the values within the array
-    unique = numpy.unique(image_r)
-
-    print image_array
-
-    numpy.savetxt('red.txt', image_r, delimiter=',')
+    numpy.savetxt('image_array.txt', image_array, delimiter=',')
 
     return image_array
 
@@ -77,14 +48,19 @@ def histogram(x):
     im = Image.open(x)
     size = im.size # Gets the width and height of the image to iterate over
 
-    # Creating the a pyplot figure to plot the 'histogram'
-    #pyplot.figure(?,size[0])
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
+    # Do we want horizontal or vertical intensity? The software has both - how
+    # about I try and incorporate both somehow??
 
-    #pyplot.plot()
+    for i in range?
+    # Creating the a pyplot figure to plot the 'histogram'
+    pyplot.figure()
+    #fig = plt.figure()
+    #ax = fig.add_subplot(111, projection='3d')
+
+    pyplot.plot()
 
 # Function to process image and measure the distances between intensity points
+# Maybe using the values for the greyscale?
 
 #Testing and running the code
 if __name__ == '__main__':
