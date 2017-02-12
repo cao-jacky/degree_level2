@@ -46,13 +46,10 @@ def histogram(x):
     # about I try and incorporate both somehow??
 
     # Creating the a pyplot figure to plot the 'histogram'
-    pyplot.figure()
+    ax = pyplot.figure()
 
     for i in range(size[1]):
         row_sliced = processed[:,i]
-        print row_sliced
-        print numpy.size(numpy.arange(size[0]))
-        print numpy.size(row_sliced)
         pyplot.plot(numpy.arange(size[0]), row_sliced)
     #fig = plt.figure()
     #ax = fig.add_subplot(111, projection='3d')
