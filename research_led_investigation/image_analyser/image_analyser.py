@@ -19,11 +19,6 @@ def processor(x):
     # Creating an array to store the RGBA values from the image and their coord
     image_array = numpy.zeros((size[0],size[1]), dtype=object)
 
-    # Arrays to store the individual RGB values
-    image_r = numpy.zeros((size[0],size[1]), dtype=object)
-    image_g = numpy.zeros((size[0],size[1]), dtype=object)
-    image_b = numpy.zeros((size[0],size[1]), dtype=object)
-
     for i in range(size[0]):
         for j in range(size[1]):
             pixel = pix[i,j] # Pulling the RGBA data from the image
@@ -32,8 +27,6 @@ def processor(x):
             image_array[i,j] = luminance # Stores value into matching coord in array
 
     #print image_array
-
-    # 12 is the value we should use to 'block' out any excess light
 
     unique = numpy.size(image_array)
 
@@ -47,17 +40,24 @@ def processor(x):
 def histogram(x):
     im = Image.open(x)
     size = im.size # Gets the width and height of the image to iterate over
+    processed = processor(x)
 
     # Do we want horizontal or vertical intensity? The software has both - how
     # about I try and incorporate both somehow??
 
-    for i in range?
     # Creating the a pyplot figure to plot the 'histogram'
     pyplot.figure()
+
+    for i in range(size[1]):
+        row_sliced = processed[:,i]
+        print row_sliced
+        print numpy.size(numpy.arange(size[0]))
+        print numpy.size(row_sliced)
+        pyplot.plot(numpy.arange(size[0]), row_sliced)
     #fig = plt.figure()
     #ax = fig.add_subplot(111, projection='3d')
 
-    pyplot.plot()
+    pyplot.show()
 
 # Function to process image and measure the distances between intensity points
 # Maybe using the values for the greyscale?
@@ -66,4 +66,4 @@ def histogram(x):
 if __name__ == '__main__':
     import image_analyser
 
-    image_analyser.processor("image_1.tif")
+    image_analyser.histogram("image_1.tif")
