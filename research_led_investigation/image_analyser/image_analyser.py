@@ -36,63 +36,48 @@ def histogram(x, horz, vert):
     size = im.size # Gets the width and height of the image to iterate over
     processed = processor(x)
 
-    first_row = processed[:,0]
-    empty_row = numpy.zeros((1,size[1]))
+    array_unique = numpy.unique(processed) # Finds all unique values in the greyscale array
+    array_unique_max = numpy.amax(array_unique) # Finds the max unique value
+    array_unique_min = numpy.amin(array_unique) # Finds the min unique value
 
-    # Do we want horizontal or vertical intensity? The software has both - how
-    # about I try and incorporate both somehow??
+    # Finds the location of the max unique values in the greyscale array
+    cols, rows = numpy.where(processed == array_unique_max)
 
-    if horz == "yes":
-        # Creating the a pyplot figure to plot the 'histogram'
-        horizontal = pyplot.figure()
+    if horz == "yes": # Only plots horizontal intensity graph if you specify so
+        horizontal = pyplot.figure() # Creating the a pyplot figure to plot the 'histogram'
+
+        unique_rows = numpy.unique(rows) # Finding all unique values of 'rows'
+        max_count_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a row
+
         for i in range(size[1]):
-        #for i in range(0, size[1], 2):
-            row_sliced = processed[:,i] # Horizontal histogram creation
-            if i < range(size[1]-1):
-                newArray = processed[[i,i+1],:]
-            #print newArray
+            row_sliced = processed[:,i] # Slicing ith row out
+            row_sliced = numpy.array(row_sliced.tolist()) # Converting row to list
 
-            row_sum = numpy.sum(row_sliced)
-            #print row_sum
+            if i in unique_rows:
+                # Number of times that the max value appears in the row
+                row_max_count = numpy.sum(row_sliced == array_unique_max)
+                max_count_comparing.append(row_max_count) # Stores value in the 2 item list
+                max_count_comparing = max_count_comparing[-2:] # Limits the list to just 2 items
+                # Calculates the difference between the number of times that max value appears in a row
+                de = max_count_comparing[-1] - max_count_comparing[0]
 
-            ## I want a function which checks consecutive elements for no change in
-            ## it's greyscale value. If there is no value in the whole row, remove
-            ## or ignore that row somehow - don't plot it?
-            ##
-            ## Then with the actual areas of high intensity we can average and
-            ## use some form of 'integration time'?
+                if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
+                    pyplot.plot(numpy.arange(size[0]), row_sliced)
 
-            ## How about a loop which checks for the maximum and minimum value
-            ## within the row? If a greater maximum value is found on the next row,
-            ## dump the previous row? Or do not plot it?
+        #pyplot.plot(numpy.arange(size[0]), row_sliced)
 
 
-            row_values = []
-            average_values = []
-
-            for k in range(size[0]):
-                value = row_sliced[k] # Slicing out individual elements of row
-                row_values.append(value) # Adding to the row_values list
-                #row_average = numpy.average(numpy.asarray(row_values)) # Calculating average of a row
-                #average_values.append(row_average) # Adding average to a list
-
-            pyplot.plot(numpy.arange(size[0]), row_sliced)
-
-        print numpy.unique(average_values)
     else:
-        print "you have specified no for horizontal intensity graph"
+        print "you have specified no for a horizontal intensity graph"
 
-        #fig = plt.figure()
-        #ax = fig.add_subplot(111, projection='3d')
-
-    if vert == "yes":
+    if vert == "yes": # only plots vertical intensity graph if you specify so
         vertical = pyplot.figure()
         for j in range(size[0]):
             column_sliced = processed[j,:] # Horizontal histogram creation
 
             pyplot.plot(column_sliced, numpy.arange(size[1]))
     else:
-        print "you have specified no for vertical intensity graph"
+        print "you have specified no for a vertical intensity graph"
 
     pyplot.show()
 
@@ -103,11 +88,11 @@ def histogram(x, horz, vert):
 if __name__ == '__main__':
     import image_analyser
 
-    image_analyser.histogram("image_1.tif", "yes", "no")
-    #image_analyser.histogram("double circles.tif")
+    #image_analyser.histogram("image_1.tif", "yes", "no")
+    image_analyser.histogram("double circles.tif", "yes", "no")
     #image_analyser.histogram("double circles gain 1.tif")
     #image_analyser.histogram("double circles gain 2.tif")
     #image_analyser.histogram("double circles q.tif")
-    #image_analyser.histogram("single disk gain 1.tif")
+    #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
     #image_analyser.histogram("single disk gain 2.tif")
     #image_analyser.histogram("metal slit in real space.tif")
