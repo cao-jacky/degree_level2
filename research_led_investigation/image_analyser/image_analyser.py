@@ -1,4 +1,4 @@
-# Standard libraries being imported
+ # Standard libraries being imported
 from __future__ import division
 import numpy
 import matplotlib.pyplot as pyplot
@@ -26,33 +26,73 @@ def processor(x):
             luminance = (0.2126 * pixel[0]) + (0.7152 * pixel[1]) + (0.0722 * pixel[2])
             image_array[i,j] = luminance # Stores value into matching coord in array
 
-    #print image_array
-
-    unique = numpy.size(image_array)
-
-    print unique
-
     numpy.savetxt('image_array.txt', image_array, delimiter=',')
 
     return image_array
 
 # Function to turn image into 'graph' histogram
-def histogram(x):
+def histogram(x, horz, vert):
     im = Image.open(x)
     size = im.size # Gets the width and height of the image to iterate over
     processed = processor(x)
 
+    first_row = processed[:,0]
+    empty_row = numpy.zeros((1,size[1]))
+
     # Do we want horizontal or vertical intensity? The software has both - how
     # about I try and incorporate both somehow??
 
-    # Creating the a pyplot figure to plot the 'histogram'
-    ax = pyplot.figure()
+    if horz == "yes":
+        # Creating the a pyplot figure to plot the 'histogram'
+        horizontal = pyplot.figure()
+        for i in range(size[1]):
+        #for i in range(0, size[1], 2):
+            row_sliced = processed[:,i] # Horizontal histogram creation
+            if i < range(size[1]-1):
+                newArray = processed[[i,i+1],:]
+            #print newArray
 
-    for i in range(size[1]):
-        row_sliced = processed[:,i]
-        pyplot.plot(numpy.arange(size[0]), row_sliced)
-    #fig = plt.figure()
-    #ax = fig.add_subplot(111, projection='3d')
+            row_sum = numpy.sum(row_sliced)
+            #print row_sum
+
+            ## I want a function which checks consecutive elements for no change in
+            ## it's greyscale value. If there is no value in the whole row, remove
+            ## or ignore that row somehow - don't plot it?
+            ##
+            ## Then with the actual areas of high intensity we can average and
+            ## use some form of 'integration time'?
+
+            ## How about a loop which checks for the maximum and minimum value
+            ## within the row? If a greater maximum value is found on the next row,
+            ## dump the previous row? Or do not plot it?
+
+
+            row_values = []
+            average_values = []
+
+            for k in range(size[0]):
+                value = row_sliced[k] # Slicing out individual elements of row
+                row_values.append(value) # Adding to the row_values list
+                #row_average = numpy.average(numpy.asarray(row_values)) # Calculating average of a row
+                #average_values.append(row_average) # Adding average to a list
+
+            pyplot.plot(numpy.arange(size[0]), row_sliced)
+
+        print numpy.unique(average_values)
+    else:
+        print "you have specified no for horizontal intensity graph"
+
+        #fig = plt.figure()
+        #ax = fig.add_subplot(111, projection='3d')
+
+    if vert == "yes":
+        vertical = pyplot.figure()
+        for j in range(size[0]):
+            column_sliced = processed[j,:] # Horizontal histogram creation
+
+            pyplot.plot(column_sliced, numpy.arange(size[1]))
+    else:
+        print "you have specified no for vertical intensity graph"
 
     pyplot.show()
 
@@ -63,4 +103,11 @@ def histogram(x):
 if __name__ == '__main__':
     import image_analyser
 
-    image_analyser.histogram("image_1.tif")
+    image_analyser.histogram("image_1.tif", "yes", "no")
+    #image_analyser.histogram("double circles.tif")
+    #image_analyser.histogram("double circles gain 1.tif")
+    #image_analyser.histogram("double circles gain 2.tif")
+    #image_analyser.histogram("double circles q.tif")
+    #image_analyser.histogram("single disk gain 1.tif")
+    #image_analyser.histogram("single disk gain 2.tif")
+    #image_analyser.histogram("metal slit in real space.tif")
