@@ -2,11 +2,10 @@
 from __future__ import division
 import numpy
 import matplotlib.pyplot as pyplot
+import matplotlib.colors
 from mpl_toolkits.mplot3d import Axes3D
 # Importing Python Image Library
 from PIL import Image
-
-# What functions do I want?
 
 # Function to process image and turn into RGB values
 def processor(x):
@@ -26,12 +25,13 @@ def processor(x):
             luminance = (0.2126 * pixel[0]) + (0.7152 * pixel[1]) + (0.0722 * pixel[2])
             image_array[i,j] = luminance # Stores value into matching coord in array
 
-    numpy.savetxt('image_array.txt', image_array, delimiter=',')
-
     return image_array
 
 # Function to turn image into 'graph' histogram
 def histogram(x, horz, vert):
+    """ Function which outputs intensity graphs for images in the horizontal
+    and vertical directions. An average of the intensities should be shown
+    along with the individual intensities which sum them up. """
     im = Image.open(x)
     size = im.size # Gets the width and height of the image to iterate over
     processed = processor(x)
@@ -81,6 +81,23 @@ def histogram(x, horz, vert):
 
     pyplot.show()
 
+# For image plane?
+def intensity_map(x):
+    """ Function to show an intensity map for any image, whether in Fourier or
+    image plane - it should output an image map. Input 'x' should be an image of
+    format TIFF or PNG."""
+    im = Image.open(x)
+    size = im.size # Gets the width and height of the image to iterate over
+    processed = processor(x)
+    processed = numpy.array(processed.tolist())
+
+    xl, xu = 0, size[0] # x-limits
+    yl, yu = 0, size[1] # y-limits
+
+    pyplot.figure()
+    pyplot.imshow(processed.T, extent=(xl, xu, yl, yu)) # imshow function to show a 'heatmap' of any image
+    pyplot.show()
+
 # Function to process image and measure the distances between intensity points
 # Maybe using the values for the greyscale?
 
@@ -89,10 +106,14 @@ if __name__ == '__main__':
     import image_analyser
 
     #image_analyser.histogram("image_1.tif", "yes", "no")
-    image_analyser.histogram("double circles.tif", "yes", "no")
+    #image_analyser.histogram("coarse_grating_long3.tif", "yes", "no")
     #image_analyser.histogram("double circles gain 1.tif")
     #image_analyser.histogram("double circles gain 2.tif")
     #image_analyser.histogram("double circles q.tif")
     #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
     #image_analyser.histogram("single disk gain 2.tif")
     #image_analyser.histogram("metal slit in real space.tif")
+
+    image_analyser.intensity_map("coarse_grating_long3.tif")
+    #image_analyser.intensity_map("image_1.tif")
+    #image_analyser.intensity_map("double circles gain 1.tif")
