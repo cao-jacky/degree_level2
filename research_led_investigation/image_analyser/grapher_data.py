@@ -10,8 +10,6 @@ import scipy.ndimage
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
 
-import grapher_data
-
 """ Made by Jacky Cao for the Fourier Transforms Research Led Investigation 2017 """
 
 # Function to process image and turn into RGB values
@@ -34,49 +32,6 @@ def processor(x):
 
     return image_array
 
-# Function to process image and measure the distances between intensity points
-# Maybe using the values for the greyscale?
-def maxima_locator(x):
-    im = Image.open(x)
-    size = im.size # Gets the width and height of the image to iterate over
-    processed = processor(x)
-
-    graph_data = grapher_data.grapher(x, "yes", "yes")
-    hozn_data = graph_data['hzn_data']
-    vert_data = graph_data['ver_data']
-
-    # I want to calcualte the gradient between points until it changes sign, if there is a sign change - that is where a maxima is at.
-
-    # Initialise initial things
-    i = range(size[0])[0]
-    grad_h = 0
-    grad_h_array = numpy.zeros(size[0])
-
-    # Range to find maxima in - probably don't need if I can figure out a way for the sequence checker
-    hl, hu = 400, 1000 # Horizontal lower and upper
-    vl, vu = 0, size[1]  # Vertical lower and upper
-
-    # For the horizontal intensity graph
-    for i in range(numpy.size(hozn_data)):
-        grad_h = gradient_calculator(i-1, i, hozn_data[i-1], hozn_data[i])
-
-        if grad_h < 0:
-            grad_h_array[i] = 1 # If the gradient is less than 0 (negative), at that location, flag a "1"
-
-    # Looping through the 0 and 1's array within a specified range
-    for i in range(hl, hu):
-        # Checking for the sequence [0,1] - this indicates a maxima - too sensitive, there are multiple cases where this is just not true
-        if grad_h_array[i] == 1 and grad_h_array[i-1] == 0 :
-            print "maybe?", i
-    #grad_h_array
-
-    #numpy.savetxt('grad_h_array.txt', grad_take, delimiter=',')
-    #numpy.savetxt('grad_h_array2.txt', grad_h_array, delimiter=',')
-        # How about an array with 0 and 1's representing the positive and negative values?
-
-        # OH INDEX FROM BOTH X AND Y AXIS THINGS!!!!
-
-# Function to turn image into 'graph' histogram
 def grapher(x, horz, vert):
     """ Function which outputs intensity graphs for images in the horizontal
     and vertical directions, an intensity 'heat map' is also created and plotted
@@ -205,28 +160,4 @@ def grapher(x, horz, vert):
     heat_map.set_xlim([0,size[0]])
     heat_map.set_ylim([0,size[1]])
 
-    #cax = pyplot.subplot(gs[1])
-    #pyplot.colorbar(heat_map_plot, cax=cax, orientation='vertical')
-
-    #pyplot.subplot(gs[2]) # Spare plot
-    #pyplot.plot([0,0],[1,1])
-    pyplot.show()
-
-def gradient_calculator(x1, x2, y1, y2):
-    """ Simple gradient calculator to calcualte gradient between points. """
-    return (y2-y1)/(x2-x1)
-
-#Testing and running the code
-if __name__ == '__main__':
-    import image_analyser
-
-    #image_analyser.grapher("image_1.tif", "yes", "yes")
-    #image_analyser.grapher("coarse_grating_long3.tif", "yes", "yes")
-    #image_analyser.histogram("double circles gain 1.tif")
-    #image_analyser.grapher("double circles gain 2.tif", "yes", "yes")
-    #image_analyser.histogram("double circles q.tif")
-    #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
-    #image_analyser.histogram("single disk gain 2.tif")
-    #image_analyser.histogram("metal slit in real space.tif")
-
-    image_analyser.maxima_locator("double circles gain 2.tif")
+    return {'hzn_data':h_list_1 , 'ver_data':v_list_1}
