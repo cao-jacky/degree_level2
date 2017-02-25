@@ -3,6 +3,7 @@ from __future__ import division
 import numpy
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
+from matplotlib import gridspec
 from mpl_toolkits.mplot3d import Axes3D
 # Importing Python Image Library
 from PIL import Image
@@ -28,7 +29,7 @@ def processor(x):
     return image_array
 
 # Function to turn image into 'graph' histogram
-def histogram(x, horz, vert):
+def grapher(x, horz, vert):
     """ Function which outputs intensity graphs for images in the horizontal
     and vertical directions. An average of the intensities should be shown
     along with the individual intensities which sum them up. """
@@ -43,11 +44,17 @@ def histogram(x, horz, vert):
     # Finds the location of the max unique values in the greyscale array
     cols, rows = numpy.where(processed == array_unique_max)
 
+    pyplot.figure()
+    gs = gridspec.GridSpec(2, 2, width_ratios=[1,4], height_ratios=[4,1])
+
     if horz == "yes": # Only plots horizontal intensity graph if you specify so
-        horizontal = pyplot.figure() # Creating the a pyplot figure to plot the 'histogram'
+        horizontal = pyplot.subplot(gs[3]) # Creating the a subplot figure for horizontal
+        horizontal.set_xlim([0,size[0]])
+        horizontal.set_ylim([0,255])
 
         unique_rows = numpy.unique(rows) # Finding all unique values of 'rows'
-        max_count_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a row
+        # Max count horizontal comparing
+        mc_h_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a row
 
         for i in range(size[1]):
             row_sliced = processed[:,i] # Slicing ith row out
@@ -56,29 +63,53 @@ def histogram(x, horz, vert):
             if i in unique_rows:
                 # Number of times that the max value appears in the row
                 row_max_count = numpy.sum(row_sliced == array_unique_max)
-                max_count_comparing.append(row_max_count) # Stores value in the 2 item list
-                max_count_comparing = max_count_comparing[-2:] # Limits the list to just 2 items
+                mc_h_comparing.append(row_max_count) # Stores value in the 2 item list
+                mc_h_comparing = mc_h_comparing[-2:] # Limits the list to just 2 items
                 # Calculates the difference between the number of times that max value appears in a row
-                de = max_count_comparing[-1] - max_count_comparing[0]
+                de = mc_h_comparing[-1] - mc_h_comparing[0]
 
                 if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
                     pyplot.plot(numpy.arange(size[0]), row_sliced)
-
-        #pyplot.plot(numpy.arange(size[0]), row_sliced)
-
-
     else:
         print "you have specified no for a horizontal intensity graph"
 
     if vert == "yes": # only plots vertical intensity graph if you specify so
-        vertical = pyplot.figure()
-        for j in range(size[0]):
-            column_sliced = processed[j,:] # Horizontal histogram creation
+        vertical = pyplot.subplot(gs[0])
+        vertical.set_ylim([0,size[1]])
+        vertical.set_xlim([0,255])
 
-            pyplot.plot(column_sliced, numpy.arange(size[1]))
+        unique_rows = numpy.unique(cols) # Finding all unique values of 'cols'
+        # Max count vertical comparing
+        mc_v_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a col
+
+        for j in range(size[0]):
+            column_sliced = processed[j,:] # Slicing ith row out
+            column_sliced = numpy.array(column_sliced.tolist()) # Converting row to list
+
+            if j in unique_rows:
+                # Number of times that the max value appears in the row
+                row_max_count = numpy.sum(column_sliced == array_unique_max)
+                mc_v_comparing.append(row_max_count) # Stores value in the 2 item list
+                mc_v_comparing = mc_v_comparing[-2:] # Limits the list to just 2 items
+                # Calculates the difference between the number of times that max value appears in a row
+                de = mc_v_comparing[-1] - mc_v_comparing[0]
+
+                if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
+                    pyplot.plot(numpy.flipud(column_sliced), numpy.arange(size[1]))
     else:
         print "you have specified no for a vertical intensity graph"
 
+    # Plotting intensity map
+    xl, xu = 0, size[0] # x-limits
+    yl, yu = 0, size[1] # y-limits
+
+    processed_data = numpy.array(processed.tolist())
+
+    pyplot.subplot(gs[1])
+    pyplot.imshow(processed_data.T, extent=(xl, xu, yl, yu)) # imshow function to show a 'heatmap' of any image
+
+    #pyplot.subplot(gs[2])
+    #pyplot.plot([0,0],[1,1])
     pyplot.show()
 
 # For image plane?
@@ -105,15 +136,15 @@ def intensity_map(x):
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.histogram("image_1.tif", "yes", "no")
-    #image_analyser.histogram("coarse_grating_long3.tif", "yes", "no")
+    #image_analyser.grapher("image_1.tif", "yes", "yes")
+    #image_analyser.grapher("coarse_grating_long3.tif", "yes", "yes")
     #image_analyser.histogram("double circles gain 1.tif")
-    #image_analyser.histogram("double circles gain 2.tif")
+    image_analyser.grapher("double circles gain 2.tif", "yes", "yes")
     #image_analyser.histogram("double circles q.tif")
     #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
     #image_analyser.histogram("single disk gain 2.tif")
     #image_analyser.histogram("metal slit in real space.tif")
 
-    image_analyser.intensity_map("coarse_grating_long3.tif")
+    #image_analyser.intensity_map("coarse_grating_long3.tif")
     #image_analyser.intensity_map("image_1.tif")
     #image_analyser.intensity_map("double circles gain 1.tif")
