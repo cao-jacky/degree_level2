@@ -3,8 +3,10 @@ from __future__ import division
 from matplotlib import gridspec
 from mpl_toolkits.mplot3d import Axes3D
 from PIL import Image # Importing Python Image Library
+from operator import add
 
 import numpy
+import scipy.ndimage
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
 
@@ -66,14 +68,19 @@ def grapher(x, horz, vert):
         horizontal.set_xlabel("Distance (px)")
         horizontal.set_ylabel("Intensity")
 
-        horizontal.set_xlim([0,size[0]])
-        horizontal.set_ylim([0,255])
+        horizontal.set_xlim([0,size[0]]) # Ensures the figure is same size as heat map
+        horizontal.set_ylim([0,255]) # Ensures the figure is same size as heat map
 
         #horizontal.yaxis.set_visible(False)
 
         unique_rows = numpy.unique(rows) # Finding all unique values of 'rows'
         # Max count horizontal comparing
         mc_h_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a row
+
+        # I want an array out here so that I can average all the rows together
+        # Initial assumption that there will *always* be an intense row
+
+        h_list_1 = numpy.empty(size[0])
 
         for i in range(size[1]):
             row_sliced = processed[:,i] # Slicing ith row out
@@ -87,30 +94,44 @@ def grapher(x, horz, vert):
                 # Calculates the difference between the number of times that max value appears in a row
                 de = mc_h_comparing[-1] - mc_h_comparing[0]
 
-                if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
-                    pyplot.plot(numpy.arange(size[0]), row_sliced)
+                if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be
+                    h_list_2 = row_sliced
+                    h_list_1 = numpy.vstack((h_list_1,h_list_2))
+                    #list1 = map(add, list1, list2)
+                    pyplot.plot(numpy.arange(size[0]), row_sliced, alpha=0.01)
+
+        h_list_1 = numpy.delete(h_list_1, 0, 0) # Removes the initial numpy empty row
+        h_list_1 = h_list_1.T
+        print numpy.shape(h_list_1)
+        h_list_1 = numpy.average(h_list_1, axis=1)
+
+        pyplot.plot(numpy.arange(size[0]), h_list_1)
+
     else:
         print "you have specified no for a horizontal intensity graph"
 
-    if vert == "yes": # only plots vertical intensity graph if you specify so
+    if vert == "yes": # Only plots vertical intensity graph if you specify so
         vertical = pyplot.subplot(gs[0])
         vertical.set_xlabel("Intensity")
         vertical.set_ylabel("Distance (px)")
 
-        vertical.set_ylim([0,size[1]])
-        vertical.set_xlim([0,255])
+        vertical.set_ylim([0,size[1]]) # Ensures the figure is same size as heat map
+        vertical.set_xlim([0,255]) # Ensures the figure is same size as heat map
 
         #vertical.xaxis.set_visible(False)
 
-        unique_rows = numpy.unique(cols) # Finding all unique values of 'cols'
+        unique_cols = numpy.unique(cols) # Finding all unique values of 'cols'
         # Max count vertical comparing
         mc_v_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a col
+
+        v_list_1 = numpy.empty(size[1])
+        v_list_1 = numpy.vstack(v_list_1) # Turning empty array into a vertical one
 
         for j in range(size[0]):
             column_sliced = processed[j,:] # Slicing ith row out
             column_sliced = numpy.array(column_sliced.tolist()) # Converting row to list
 
-            if j in unique_rows:
+            if j in unique_cols:
                 # Number of times that the max value appears in the row
                 row_max_count = numpy.sum(column_sliced == array_unique_max)
                 mc_v_comparing.append(row_max_count) # Stores value in the 2 item list
@@ -119,7 +140,14 @@ def grapher(x, horz, vert):
                 de = mc_v_comparing[-1] - mc_v_comparing[0]
 
                 if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
-                    pyplot.plot(numpy.flipud(column_sliced), numpy.arange(size[1]))
+                    v_list_2 = numpy.vstack(column_sliced)
+                    v_list_1 = numpy.hstack((v_list_1,v_list_2))
+                    pyplot.plot(numpy.flipud(column_sliced), numpy.arange(size[1]), alpha=0.01)
+        v_list_1 = numpy.delete(v_list_1, 0, 1) # Removes the initial numpy empty row
+        v_list_1 = v_list_1.T
+        v_list_1 = numpy.average(v_list_1, axis=0)
+
+        pyplot.plot(numpy.flipud(v_list_1), numpy.arange(size[1]))
     else:
         print "you have specified no for a vertical intensity graph"
 
