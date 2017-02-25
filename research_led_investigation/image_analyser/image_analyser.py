@@ -77,10 +77,7 @@ def grapher(x, horz, vert):
         # Max count horizontal comparing
         mc_h_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a row
 
-        # I want an array out here so that I can average all the rows together
-        # Initial assumption that there will *always* be an intense row
-
-        h_list_1 = numpy.empty(size[0])
+        h_list_1 = numpy.empty(size[0]) # An initial empty row so that additional rows can be added to this
 
         for i in range(size[1]):
             row_sliced = processed[:,i] # Slicing ith row out
@@ -96,19 +93,17 @@ def grapher(x, horz, vert):
 
                 if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be
                     h_list_2 = row_sliced
-                    h_list_1 = numpy.vstack((h_list_1,h_list_2))
-                    #list1 = map(add, list1, list2)
+                    h_list_1 = numpy.vstack((h_list_1,h_list_2)) # Adds rows vertically
                     pyplot.plot(numpy.arange(size[0]), row_sliced, alpha=0.01)
 
         h_list_1 = numpy.delete(h_list_1, 0, 0) # Removes the initial numpy empty row
-        h_list_1 = h_list_1.T
-        print numpy.shape(h_list_1)
-        h_list_1 = numpy.average(h_list_1, axis=1)
+        h_list_1 = h_list_1.T # Transposing the array
+        h_list_1 = numpy.average(h_list_1, axis=1) # Calculates the average for each column
 
         pyplot.plot(numpy.arange(size[0]), h_list_1)
 
     else:
-        print "you have specified no for a horizontal intensity graph"
+        print "you have specified a no for a horizontal intensity graph"
 
     if vert == "yes": # Only plots vertical intensity graph if you specify so
         vertical = pyplot.subplot(gs[0])
@@ -124,32 +119,32 @@ def grapher(x, horz, vert):
         # Max count vertical comparing
         mc_v_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a col
 
-        v_list_1 = numpy.empty(size[1])
-        v_list_1 = numpy.vstack(v_list_1) # Turning empty array into a vertical one
+        v_list_1 = numpy.empty(size[1]) # An initial empty row
+        v_list_1 = numpy.vstack(v_list_1) # Turning an empty row into an empty column
 
         for j in range(size[0]):
-            column_sliced = processed[j,:] # Slicing ith row out
-            column_sliced = numpy.array(column_sliced.tolist()) # Converting row to list
+            column_sliced = processed[j,:] # Slicing jth column out
+            column_sliced = numpy.array(column_sliced.tolist()) # Converting column to list
 
             if j in unique_cols:
-                # Number of times that the max value appears in the row
-                row_max_count = numpy.sum(column_sliced == array_unique_max)
-                mc_v_comparing.append(row_max_count) # Stores value in the 2 item list
+                # Number of times that the max value appears in the column
+                col_max_count = numpy.sum(column_sliced == array_unique_max)
+                mc_v_comparing.append(col_max_count) # Stores value in the 2 item list
                 mc_v_comparing = mc_v_comparing[-2:] # Limits the list to just 2 items
                 # Calculates the difference between the number of times that max value appears in a row
                 de = mc_v_comparing[-1] - mc_v_comparing[0]
 
                 if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
-                    v_list_2 = numpy.vstack(column_sliced)
-                    v_list_1 = numpy.hstack((v_list_1,v_list_2))
+                    v_list_2 = numpy.vstack(column_sliced) # v_list_2 into a column
+                    v_list_1 = numpy.hstack((v_list_1,v_list_2)) # Adds columns horizontally
                     pyplot.plot(numpy.flipud(column_sliced), numpy.arange(size[1]), alpha=0.01)
         v_list_1 = numpy.delete(v_list_1, 0, 1) # Removes the initial numpy empty row
-        v_list_1 = v_list_1.T
-        v_list_1 = numpy.average(v_list_1, axis=0)
+        v_list_1 = v_list_1.T # Transposes the array
+        v_list_1 = numpy.average(v_list_1, axis=0) # Calculates the average for each row
 
         pyplot.plot(numpy.flipud(v_list_1), numpy.arange(size[1]))
     else:
-        print "you have specified no for a vertical intensity graph"
+        print "you have specified a no for a vertical intensity graph"
 
     # Plotting intensity map
     xl, xu = 0, size[0] # x-limits
