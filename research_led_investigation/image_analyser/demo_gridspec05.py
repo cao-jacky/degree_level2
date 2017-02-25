@@ -13,7 +13,7 @@ f = plt.figure()
 
 gs = gridspec.GridSpec(2, 2,
                        width_ratios=[1,4],
-                       height_ratios=[4,1]
+                       height_ratios=[4,1], wspace=0.0, hspace=0.0
                        )
 
 ax1 = plt.subplot(gs[0])

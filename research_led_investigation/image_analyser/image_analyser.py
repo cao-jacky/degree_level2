@@ -1,12 +1,14 @@
  # Standard libraries being imported
 from __future__ import division
+from matplotlib import gridspec
+from mpl_toolkits.mplot3d import Axes3D
+from PIL import Image # Importing Python Image Library
+
 import numpy
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
-from matplotlib import gridspec
-from mpl_toolkits.mplot3d import Axes3D
-# Importing Python Image Library
-from PIL import Image
+
+""" Made by Jacky Cao for the Fourier Transforms Research Led Investigation 2017 """
 
 # Function to process image and turn into RGB values
 def processor(x):
@@ -31,8 +33,19 @@ def processor(x):
 # Function to turn image into 'graph' histogram
 def grapher(x, horz, vert):
     """ Function which outputs intensity graphs for images in the horizontal
-    and vertical directions. An average of the intensities should be shown
-    along with the individual intensities which sum them up. """
+    and vertical directions, an intensity 'heat map' is also created and plotted
+    on the same figure.
+
+    This does not generally work for images created than 1280x1024px's - it
+    creates quite an 'interesting' figure.
+
+    An average of the intensities should be shown along with the individual
+    intensities which sum them up.
+
+    Input 'x' should be an image of format TIFF or PNG. 'horz' and 'vert'
+    specifies if you want the horizontal and vertical intensity graphs or not -
+    the inputs should be 'yes' or 'no'. """
+
     im = Image.open(x)
     size = im.size # Gets the width and height of the image to iterate over
     processed = processor(x)
@@ -44,13 +57,19 @@ def grapher(x, horz, vert):
     # Finds the location of the max unique values in the greyscale array
     cols, rows = numpy.where(processed == array_unique_max)
 
-    pyplot.figure()
-    gs = gridspec.GridSpec(2, 2, width_ratios=[1,4], height_ratios=[4,1])
+    fig = pyplot.figure()
+    # Creating gridspec grid for the plots
+    gs = gridspec.GridSpec(2, 2, width_ratios=[1,4], height_ratios=[4,1], wspace=0.0, hspace=0.0)
 
     if horz == "yes": # Only plots horizontal intensity graph if you specify so
         horizontal = pyplot.subplot(gs[3]) # Creating the a subplot figure for horizontal
+        horizontal.set_xlabel("Distance (px)")
+        horizontal.set_ylabel("Intensity")
+
         horizontal.set_xlim([0,size[0]])
         horizontal.set_ylim([0,255])
+
+        #horizontal.yaxis.set_visible(False)
 
         unique_rows = numpy.unique(rows) # Finding all unique values of 'rows'
         # Max count horizontal comparing
@@ -75,8 +94,13 @@ def grapher(x, horz, vert):
 
     if vert == "yes": # only plots vertical intensity graph if you specify so
         vertical = pyplot.subplot(gs[0])
+        vertical.set_xlabel("Intensity")
+        vertical.set_ylabel("Distance (px)")
+
         vertical.set_ylim([0,size[1]])
         vertical.set_xlim([0,255])
+
+        #vertical.xaxis.set_visible(False)
 
         unique_rows = numpy.unique(cols) # Finding all unique values of 'cols'
         # Max count vertical comparing
@@ -103,31 +127,24 @@ def grapher(x, horz, vert):
     xl, xu = 0, size[0] # x-limits
     yl, yu = 0, size[1] # y-limits
 
-    processed_data = numpy.array(processed.tolist())
+    processed_data = numpy.array(processed.tolist()).T # Create separate array for heat map, convert into list
 
-    pyplot.subplot(gs[1])
-    pyplot.imshow(processed_data.T, extent=(xl, xu, yl, yu)) # imshow function to show a 'heatmap' of any image
+    heat_map = pyplot.subplot(gs[1])
+    heat_map_plot = pyplot.imshow(processed_data, extent=(xl, xu, yl, yu), aspect='auto') # imshow function to show a 'heatmap' of any image
 
-    #pyplot.subplot(gs[2])
+    heat_map.xaxis.set_visible(False)
+    heat_map.yaxis.set_visible(False)
+
+    heat_map.set_xlim([0,size[0]])
+    heat_map.set_ylim([0,size[1]])
+
+    #cax = pyplot.subplot(gs[1])
+    #pyplot.colorbar(heat_map_plot, cax=cax, orientation='vertical')
+
+    #pyplot.subplot(gs[2]) # Spare plot
     #pyplot.plot([0,0],[1,1])
     pyplot.show()
 
-# For image plane?
-def intensity_map(x):
-    """ Function to show an intensity map for any image, whether in Fourier or
-    image plane - it should output an image map. Input 'x' should be an image of
-    format TIFF or PNG."""
-    im = Image.open(x)
-    size = im.size # Gets the width and height of the image to iterate over
-    processed = processor(x)
-    processed = numpy.array(processed.tolist())
-
-    xl, xu = 0, size[0] # x-limits
-    yl, yu = 0, size[1] # y-limits
-
-    pyplot.figure()
-    pyplot.imshow(processed.T, extent=(xl, xu, yl, yu)) # imshow function to show a 'heatmap' of any image
-    pyplot.show()
 
 # Function to process image and measure the distances between intensity points
 # Maybe using the values for the greyscale?
@@ -144,7 +161,3 @@ if __name__ == '__main__':
     #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
     #image_analyser.histogram("single disk gain 2.tif")
     #image_analyser.histogram("metal slit in real space.tif")
-
-    #image_analyser.intensity_map("coarse_grating_long3.tif")
-    #image_analyser.intensity_map("image_1.tif")
-    #image_analyser.intensity_map("double circles gain 1.tif")
