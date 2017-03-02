@@ -60,8 +60,8 @@ def maxima_locator(x):
     v_maximas = [] # List for vertical maximas
 
     # Setting the boundary limits to find maxima in
-    #hl, hu = 400, 1000 # Horizontal lower and upper
-    hl, hu = 0, size[0]
+    hl, hu = 400, 1000 # Horizontal lower and upper
+    #hl, hu = 0, size[0]
     vl, vu = 0, size[1]  # Vertical lower and upper
 
     # For the horizontal intensity graph
@@ -80,7 +80,7 @@ def maxima_locator(x):
     for i in range(hl, hu): # Within the horizontal specified range
         # Checking for the sequence [0,1] - this indicates a maxima - too sensitive, there are multiple cases where this is just not true
         if grad_h_array[i] == 1 and grad_h_array[i-1] == 0: # Checks if current value is 1 and if the one before that is 0
-            if numpy.sum(grad_h_array[i:i+10]) == 5: # Looks ahead and checks if there are 1's within the next how many elements
+            if numpy.sum(grad_h_array[i:i+10]) == 10: # Looks ahead and checks if there are 1's within the next how many elements
                 h_maximas.append(i) # Stores the location of the maxima
 
     # For the vertical direction, same idea as above for horizontal
@@ -253,5 +253,5 @@ if __name__ == '__main__':
     #image_analyser.histogram("single disk gain 2.tif")
     #image_analyser.histogram("metal slit in real space.tif")
 
-    #image_analyser.grapher("double circles gain 2.tif")
-    image_analyser.grapher("Grating 1 last but 2.tif")
+    image_analyser.grapher("double circles gain 2.tif")
+    #image_analyser.grapher("Grating 1 last but 2.tif")
