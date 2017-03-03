@@ -279,15 +279,6 @@ def grapher(x):
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.grapher("image_1.tif", "yes", "yes")
-    #image_analyser.grapher("coarse_grating_long3.tif", "yes", "yes")
-    #image_analyser.histogram("double circles gain 1.tif")
-    #image_analyser.grapher("double circles gain 2.tif", "yes", "yes")
-    #image_analyser.histogram("double circles q.tif")
-    #image_analyser.histogram("single disk gain 1.tif", "yes", "no")
-    #image_analyser.histogram("single disk gain 2.tif")
-    #image_analyser.histogram("metal slit in real space.tif")
-
     #image_analyser.grapher("double circles gain 2.tif")
-    image_analyser.maxima_calculator("double circles gain 2.tif")
+    image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
     #image_analyser.grapher("Grating 1 last but 2.tif")
