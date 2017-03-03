@@ -1,13 +1,13 @@
  # Standard libraries being imported
 from __future__ import division
-from mpl_toolkits.mplot3d import Axes3D
 from PIL import Image # Importing Python Image Library
 from operator import add
 
 import numpy
 import image_analyser
 
-""" Made by Jacky Cao for the Fourier Transforms Research Led Investigation 2017 """
+""" Made by Jacky Cao for the Optical Fourier Transforms Level 2 Research Led
+Investigation 2017 at Durham University """
 
 def data(x):
     """ Function which outputs intensity averages for the horizontal and vertical

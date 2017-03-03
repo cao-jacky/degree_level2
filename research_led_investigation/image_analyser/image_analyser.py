@@ -10,9 +10,10 @@ import scipy.ndimage
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
 
-import grapher_data # The grapher function has been separated out into a separate module
+import grapher_data # The grapher function has been separated out into a separate module to output the raw data
 
-""" Made by Jacky Cao for the Fourier Transforms Research Led Investigation 2017 """
+""" Made by Jacky Cao for the Optical Fourier Transforms Level 2 Research Led
+Investigation 2017 at Durham University """
 
 # Function to process image and turn into RGB values
 def processor(x):
@@ -38,7 +39,7 @@ def processor(x):
     return image_array
 
 def gradient_calculator(x1, x2, y1, y2):
-    """ Simple gradient calculator to calcualte gradient between points.
+    """ Simple gradient calculator to calculate gradient between points.
 
     Input is the coordinates for the two points you want to calculate gradient
     between.
@@ -64,7 +65,7 @@ def maxima_locator(x):
     hozn_data = graph_data['hzn_data']
     vert_data = graph_data['ver_data']
 
-    # I want to calcualte the gradient between points until it changes sign, if there is a sign change - that is where a maxima is at.
+    # I want to calculate the gradient between points until it changes sign, if there is a sign change - that is where a maxima is at.
 
     # Initialise required lists, variables
     i, j = range(size[0])[0], range(size[1])[0]
@@ -112,11 +113,13 @@ def maxima_locator(x):
 
     # Removing any points that are not maximas
     # Horizontally
-    del h_maximas[9]
+    #del h_maximas[9]
     print "cleaned up horizontal maxima points:", h_maximas
     # Vertically
     #del v_maximas[]
     print "cleaned up vertical maxima points:", v_maximas
+
+    print "BREAK"
 
     return {'h_maximas':h_maximas, 'v_maximas':v_maximas}
 
@@ -186,7 +189,7 @@ def grapher(x):
 
     for i in range(size[1]):
         row_sliced = processed[:,i]                         # Slicing ith row out
-        row_sliced = numpy.array(row_sliced.tolist())       # Converting row to list
+        row_sliced = numpy.array(row_sliced.tolist())       # Converting row to a list
 
         if i in unique_rows:
             # Number of times that the max value appears in the row
@@ -196,7 +199,7 @@ def grapher(x):
             # Calculates the difference between the number of times that max value appears in a row
             de = mc_h_comparing[-1] - mc_h_comparing[0]
 
-            if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be
+            if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
                 h_list_2 = row_sliced
                 h_list_1 = numpy.vstack((h_list_1,h_list_2)) # Adds rows vertically
                 pyplot.plot(numpy.arange(size[0]), row_sliced, alpha=0.01, color = '0.1')
@@ -273,12 +276,36 @@ def grapher(x):
 
     #pyplot.subplot(gs[2]) # Spare plot
     #pyplot.plot([0,0],[1,1])
+
+    """ For double circular apertures """
+    # Superimposing both horizontal and vertical intensity graphs
+    v_zeros = numpy.zeros(size[0]-size[1]+16) # Adding extra zeros to align both graphs
+    v_list_1 = numpy.hstack((v_zeros, v_list_1))
+
+    superimpose = pyplot.figure()
+    pyplot.plot(numpy.arange(size[0]), h_list_1, '-r')
+    pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b')
+
+    x = numpy.linspace(0,size[0])
+    function = (2 * numpy.cos(2))
+
+    pyplot.xlabel("Distance (px)")
+    pyplot.ylabel("Intensity")
+
     pyplot.show()
 
 #Testing and running the code
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.grapher("double circles gain 2.tif")
-    image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
-    #image_analyser.grapher("Grating 1 last but 2.tif")
+    #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
+    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
+
+    #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
+    #image_analyser.grapher("images/week_2/single disk gain 2.tif")
+
+    #image_analyser.maxima_calculator("images/week_3/Grating 1 last but 2.tif")
+    #image_analyser.grapher("images/week_3/Grating 1 last but 2.tif")
+
+    image_analyser.maxima_calculator("images/week_4/5 slit.tif")
+    image_analyser.grapher("images/week_4/5 slit.tif")
