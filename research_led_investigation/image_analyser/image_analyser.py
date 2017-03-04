@@ -10,7 +10,9 @@ import scipy.ndimage
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
 
-import grapher_data # The grapher function has been separated out into a separate module to output the raw data
+import grapher_data         # Module output the raw data for graphing
+import fourier_transforms   # Module which has the Fourier transform/intensity functions
+import maxima_locator       # Module to locate maximas
 
 """ Made by Jacky Cao for the Optical Fourier Transforms Level 2 Research Led
 Investigation 2017 at Durham University """
@@ -38,96 +40,11 @@ def processor(x):
 
     return image_array
 
-def gradient_calculator(x1, x2, y1, y2):
-    """ Simple gradient calculator to calculate gradient between points.
-
-    Input is the coordinates for the two points you want to calculate gradient
-    between.
-
-    Output is the value of the gradient between those two points. """
-    return (y2-y1)/(x2-x1)
-
-# Function to process image and measure the distances between intensity points
-def maxima_locator(x):
-    """ Processes image and attempts to locate the positions of the intensity
-    points on both horizontal and vertical intensity graphs.
-
-    Input 'x' should be a string name for the image of format TIFF or PNG -
-    not JPEG.
-
-    Output is two arrays listing the locations of the supposed positions of
-    maximas. """
-    im = Image.open(x)
-    size = im.size # Gets the width and height of the image to iterate over
-    processed = processor(x)
-
-    graph_data = grapher_data.data(x)
-    hozn_data = graph_data['hzn_data']
-    vert_data = graph_data['ver_data']
-
-    # I want to calculate the gradient between points until it changes sign, if there is a sign change - that is where a maxima is at.
-
-    # Initialise required lists, variables
-    i, j = range(size[0])[0], range(size[1])[0]
-    grad_h = 0
-    grad_v = 0
-    grad_h_array, grad_v_array = numpy.zeros(size[0]), numpy.zeros(size[1])
-
-    h_maximas = [] # List for horizontal maximas
-    v_maximas = [] # List for vertical maximas
-
-    # Setting the boundary limits to find maxima in
-    hl, hu = 400, 1000      # Horizontal lower and upper
-    #hl, hu = 0, size[0]
-    vl, vu = 0, size[1]     # Vertical lower and upper
-
-    # For the horizontal intensity graph
-    for i in range(numpy.size(hozn_data)):
-        grad_h = gradient_calculator(i-1, i, hozn_data[i-1], hozn_data[i])
-        if grad_h < 0:
-            grad_h_array[i] = 1 # If the gradient is less than 0 (grad = negative), at that location, flag a "1"
-
-    # For the vertical intensity graph
-    for j in range(numpy.size(vert_data)):
-        grad_v = gradient_calculator(j-1, j, vert_data[j-1], vert_data[j])
-        if grad_v < 0:
-            grad_v_array[j] = 1 # If the gradient is less than 0 (grad = negative), at that location, flag a "1"
-
-    # Looping through the 0 and 1's array within a specified range
-    for i in range(hl, hu): # Specified within the horizontal range
-        # Checking for the sequence [0,1] - this indicates a maxima - too sensitive, there are multiple cases where this is just not true
-        if grad_h_array[i] == 1 and grad_h_array[i-1] == 0:     # Checks if current value is 1 and if the one before that is 0
-            if numpy.sum(grad_h_array[i:i+10]) == 10:           # Looks ahead and checks if there are 1's within the next how many elements
-                h_maximas.append(i)                             # Stores the location of the maxima
-
-    # For the vertical direction, same idea as above for horizontal
-    for j in range(vl, vu):
-        #print j
-        if grad_v_array[j] == 0 and grad_v_array[j-1] == 1:     # Checks if current value is 0 and if the one before that is 1
-            if numpy.sum(grad_v_array[j:j+10]) == 5:
-                v_maximas.append(j)
-
-    # Printing both maxima lists
-    print "supposed vertical maxima points:", v_maximas
-    print "supposed horizontal maxima points:", h_maximas
-
-    # Removing any points that are not maximas
-    # Horizontally
-    #del h_maximas[9]
-    print "cleaned up horizontal maxima points:", h_maximas
-    # Vertically
-    #del v_maximas[]
-    print "cleaned up vertical maxima points:", v_maximas
-
-    print "BREAK"
-
-    return {'h_maximas':h_maximas, 'v_maximas':v_maximas}
-
 def maxima_calculator(x):
     """ Calculates the distances between maxima"""
 
     # Import the data from maxima_locator function
-    maxima_located = maxima_locator(x)
+    maxima_located = maxima_locator.maxima_locator(x, 'no')
     h_located = maxima_located['h_maximas'] # Calling definition for h_maximas
     v_located = maxima_located['v_maximas'] # Calling definition for v_maximas
 
@@ -156,9 +73,9 @@ def grapher(x):
     size = im.size # Gets the width and height of the image to iterate over
     processed = processor(x)
 
-    maxima_locator_s = maxima_locator(x)            # maxima_locator function summoned
-    h_maxima_points = maxima_locator_s['h_maximas'] # Selecting h_maximas definition
-    v_maxima_points = maxima_locator_s['v_maximas'] # Selecting v_maximas definition
+    maxima_locator_s = maxima_locator.maxima_locator(x,'no')    # maxima_locator function summoned
+    h_maxima_points = maxima_locator_s['h_maximas']             # Selecting h_maximas definition
+    v_maxima_points = maxima_locator_s['v_maximas']             # Selecting v_maximas definition
 
     array_unique = numpy.unique(processed)          # Finds all unique values in the greyscale array
     array_unique_max = numpy.amax(array_unique)     # Finds the max unique value
@@ -168,6 +85,7 @@ def grapher(x):
     cols, rows = numpy.where(processed == array_unique_max)
 
     fig = pyplot.figure()
+    fig.canvas.set_window_title('Image Analyser')
     # Creating gridspec grid for the plots
     gs = gridspec.GridSpec(2, 2, width_ratios=[1,4], height_ratios=[4,1], wspace=0.0, hspace=0.0)
 
@@ -207,6 +125,11 @@ def grapher(x):
     h_list_1 = numpy.delete(h_list_1, 0, 0)         # Removes the initial numpy empty row
     h_list_1 = h_list_1.T                           # Transposing the array
     h_list_1 = numpy.average(h_list_1, axis=1)      # Calculates the average for each column
+
+    # Plotting theoretical intensity
+    x = numpy.linspace(0,size[0],200)
+    five_slits = 20 * fourier_transforms.five_slit(x)
+    pyplot.plot(x, five_slits)
 
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r')
 
@@ -283,11 +206,15 @@ def grapher(x):
     v_list_1 = numpy.hstack((v_zeros, v_list_1))
 
     superimpose = pyplot.figure()
-    pyplot.plot(numpy.arange(size[0]), h_list_1, '-r')
-    pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b')
+    superimpose.canvas.set_window_title('Overlapped Intensity Graphs')
+    pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label='Horizontal Intensity')
+    pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
+    pyplot.legend(loc='upper right')
 
-    x = numpy.linspace(0,size[0])
-    function = (2 * numpy.cos(2))
+    # Plotting theoretical intensity
+    x = numpy.linspace(0,size[0],200)
+    five_slits = (20 * fourier_transforms.five_slit(x)) + 10
+    pyplot.plot(x, five_slits, '-g')
 
     pyplot.xlabel("Distance (px)")
     pyplot.ylabel("Intensity")

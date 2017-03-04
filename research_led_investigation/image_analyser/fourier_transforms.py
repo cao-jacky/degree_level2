@@ -7,30 +7,16 @@ from scipy.integrate import quad
 
 import numpy
 
-# Defining initial variables
-D = ?
-u, v =
-omega = numpy.sqrt(u**2 + v**2)
+# Intensity Functions
+def five_slit(x):
+    """ Function which outputs the Fourier transform squared for the five slit
+    diffraction grating scenario """
 
-def j(rho):
-    return (1/(2*numpy.pi)) *
+    lmda = 700 * 10 ** (-9) # Wavelength of laser light, 700nm
+    k = (2 * numpy.pi) / lmda
+    d = 0.016 * 10 ** (-2)
 
-def fourier_transform(x, y):
-    ft_fn = j(2*numpy.pi*j(rho))
+    t1 = 2 * numpy.cos((2*k*d*x)/5)
+    t2 = 2 * numpy.cos((k*d*x)/5)
 
-def jinc(x):
-    if x == 0.0:
-        return 0.5
-    return j1(x) / x
-
-def cos(x):
-    return numpy.cos(x)
-
-def double_aperture(x1, x2):
-    jinc = np.vectorize(jinc)
-    return 2 * cos(x1) * ((numpy.pi * (D ** 2))/4) * jinc(x)
-
-def intensity(x):
-    x1 = numpy.pi *
-    intensity_called = double_aperture(x1, x2) ** 2
-    return intensity_called
+    return (t1 + t2 + 1)
