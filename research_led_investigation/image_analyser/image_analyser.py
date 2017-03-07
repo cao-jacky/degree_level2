@@ -91,6 +91,9 @@ def grapher(x):
 
     """ For the horizontal direction """
     horizontal = pyplot.subplot(gs[3])  # Creating the a subplot figure for horizontal
+
+    horizontal.tick_params(axis='y', which='major', labelsize=9)
+
     horizontal.set_xlabel("Distance (px)")
     horizontal.set_ylabel("Intensity")
 
@@ -128,8 +131,8 @@ def grapher(x):
 
     # Plotting theoretical intensity
     x = numpy.linspace(0,size[0],200)
-    five_slits = 20 * fourier_transforms.five_slit(x)
-    pyplot.plot(x, five_slits)
+    five_slits = (20 * fourier_transforms.five_slit(x)) + 10
+    #pyplot.plot(x, five_slits)
 
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r')
 
@@ -139,6 +142,11 @@ def grapher(x):
 
     """ For the vertical direction """
     vertical = pyplot.subplot(gs[0])
+
+    vertical.xaxis.tick_top()
+    vertical.xaxis.set_label_position('top')
+    vertical.tick_params(axis='x', which='major', labelsize=9)
+
     vertical.set_xlabel("Intensity")
     vertical.set_ylabel("Distance (px)")
 
@@ -209,15 +217,16 @@ def grapher(x):
     superimpose.canvas.set_window_title('Overlapped Intensity Graphs')
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label='Horizontal Intensity')
     pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
-    pyplot.legend(loc='upper right')
 
     # Plotting theoretical intensity
     x = numpy.linspace(0,size[0],200)
-    five_slits = (20 * fourier_transforms.five_slit(x)) + 10
-    pyplot.plot(x, five_slits, '-g')
+    five_slits = (20 * fourier_transforms.five_slit(x))
+    #pyplot.plot(x, five_slits, '-g', label='Theoretical Model')
 
     pyplot.xlabel("Distance (px)")
     pyplot.ylabel("Intensity")
+
+    pyplot.legend(loc='upper right')
 
     pyplot.show()
 
@@ -225,8 +234,8 @@ def grapher(x):
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
-    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
+    image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
+    image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
@@ -234,5 +243,5 @@ if __name__ == '__main__':
     #image_analyser.maxima_calculator("images/week_3/Grating 1 last but 2.tif")
     #image_analyser.grapher("images/week_3/Grating 1 last but 2.tif")
 
-    image_analyser.maxima_calculator("images/week_4/5 slit.tif")
-    image_analyser.grapher("images/week_4/5 slit.tif")
+    #image_analyser.maxima_calculator("images/week_4/5 slit.tif")
+    #image_analyser.grapher("images/week_4/5 slit.tif")
