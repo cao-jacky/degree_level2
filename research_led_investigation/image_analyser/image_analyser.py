@@ -216,12 +216,23 @@ def grapher(x):
     superimpose = pyplot.figure()
     superimpose.canvas.set_window_title('Overlapped Intensity Graphs')
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label='Horizontal Intensity')
-    pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
+    #pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
 
     # Plotting theoretical intensity
     x = numpy.linspace(0,size[0],200)
-    five_slits = (20 * fourier_transforms.five_slit(x))
+    #x = numpy.linspace(-1, 2, 25)
+    #x = numpy.arange(0,size[0],1)
+    five_slits = fourier_transforms.five_slit(x)
+    #jinc = fourier_transforms.jinc(x)
+    #jinc = numpy.vectorize(jinc)
+
+    sinc = (1/20) * fourier_transforms.sinc(x)
+
     #pyplot.plot(x, five_slits, '-g', label='Theoretical Model')
+    #pyplot.plot(x, jinc, '-g', label='Theoretical Model')
+    pyplot.plot(x, sinc, '-g', label='Theoretical Model')
+
+    pyplot.ylim(0,256) # Limits the size of the y-axis
 
     pyplot.xlabel("Distance (px)")
     pyplot.ylabel("Intensity")
@@ -234,8 +245,8 @@ def grapher(x):
 if __name__ == '__main__':
     import image_analyser
 
-    image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
-    image_analyser.grapher("images/week_2/double circles gain 2.tif")
+    #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
+    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
@@ -245,3 +256,7 @@ if __name__ == '__main__':
 
     #image_analyser.maxima_calculator("images/week_4/5 slit.tif")
     #image_analyser.grapher("images/week_4/5 slit.tif")
+
+    #image_analyser.maxima_calculator("images/week_5/Sungle metal slit.tif")
+    image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
+    #image_analyser.grapher("images/week_5/5 slit focused.tif")
