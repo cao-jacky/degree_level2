@@ -21,3 +21,6 @@ probably fixing it up with minor changes after this date as well
 
 ### optical fourier transforms
 experimentation begins/began on 100216
+
+## matlab
+having acquired a license from the IT department at my university i can now perform mathematical operations in matlab! woo! 
