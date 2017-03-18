@@ -129,6 +129,9 @@ def grapher(x):
     h_list_1 = h_list_1.T                           # Transposing the array
     h_list_1 = numpy.average(h_list_1, axis=1)      # Calculates the average for each column
 
+    # Saving h_list_1 so that it can be used in MATLAB
+    numpy.savetxt('saved_data/h_list_1.txt', h_list_1, delimiter=',')
+
     # Plotting theoretical intensity
     x = numpy.linspace(0,size[0],200)
     five_slits = (20 * fourier_transforms.five_slit(x)) + 10
@@ -208,7 +211,8 @@ def grapher(x):
     #pyplot.subplot(gs[2]) # Spare plot
     #pyplot.plot([0,0],[1,1])
 
-    """ For double circular apertures """
+    """ Superimposing graphs ontop of each other, i.e. horizontal and vertical,
+    or any of them with theory """
     # Superimposing both horizontal and vertical intensity graphs
     v_zeros = numpy.zeros(size[0]-size[1]+16) # Adding extra zeros to align both graphs
     v_list_1 = numpy.hstack((v_zeros, v_list_1))
@@ -246,7 +250,7 @@ if __name__ == '__main__':
     import image_analyser
 
     #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
-    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
+    image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
@@ -258,5 +262,5 @@ if __name__ == '__main__':
     #image_analyser.grapher("images/week_4/5 slit.tif")
 
     #image_analyser.maxima_calculator("images/week_5/Sungle metal slit.tif")
-    image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
+    #image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
     #image_analyser.grapher("images/week_5/5 slit focused.tif")
