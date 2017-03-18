@@ -1,23 +1,10 @@
-%% Testing of addition
-x = 1
-y = 2
-z = x + y
-disp(z)
+%% Import data from text files
+h_data = importdata('saved_data/h_list_1.txt')
 
-%% Testing of pi
-a1 = pi
-disp(a1)
-
-x1 = linspace(0,10*pi)
-% y1 = [1,2,3,4,5,6,7,8,9,10]
-
-% plot(x1,y1)
-
-%% Plotting sine
-plot(sin(x1))
-
-%% Plotting cosine
-plot(cos(x1))
+%% Plotting horizontal data into MATLAB's graphing function
+h_domain = 0:1:1279;    % Defined domain as from 0 to 1279 in steps of 1
+figure(1)               % Figure value of 1 for the horizontal data
+plot(h_domain,h_data)   % Plotting the imported horizontla data
 
 
 %% Plot Bessel function - need to adapt this for my own image analyser

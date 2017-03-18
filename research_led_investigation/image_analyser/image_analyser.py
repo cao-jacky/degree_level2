@@ -187,6 +187,9 @@ def grapher(x):
     v_list_1 = numpy.average(v_list_1, axis=0)      # Calculates the average for each row
     v_list_1 = numpy.flipud(v_list_1)               # Flip list upside down
 
+    # Saving v_list_1 so that it can be used in MATLAB
+    numpy.savetxt('saved_data/v_list_1.txt', v_list_1, delimiter=',')
+
     pyplot.plot(v_list_1, numpy.arange(size[1]), '-r')
 
     # Plotting vertical maxima points for reference
