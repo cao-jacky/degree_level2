@@ -3,24 +3,32 @@ h_data = importdata('saved_data/h_list_1.txt')
 
 %% Plotting horizontal data into MATLAB's graphing function
 h_domain = 0:1:1279;    % Defined domain as from 0 to 1279 in steps of 1
-figure(1)               % Figure value of 1 for the horizontal data
-plot(h_domain,h_data)   % Plotting the imported horizontla data
+
+%figure(1)               % Figure value of 1 for the horizontal data
+plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
+
 
 
 %% Plot Bessel function - need to adapt this for my own image analyser
-% Defining the domain
-X = 0:0.1:20;
+% Defining the domain for the theoretical function
+lmda = 700 * 10^(-9)
+theo_domain = sqrt(linspace(0,1279,100).^2 + linspace(0,1023,100).^2)
+
+size(main_domain)
+size(theo_domain)
 
 % Calculating the first five Bessel functions of the first kind.
-J = zeros(5,201);
-for i = 0
-    J(i+1,:) = besselj(i,X);
-end
+J = (besselj(0,theo_domain-690) * cos(pi) * 190).^2
 
-plot(X,J,'LineWidth',1.5)
-axis([0 20 -.5 1])
+%figure(2)               % Figure value of 2 for the theoretical data
+hold on
+plot(theo_domain,J,'LineWidth',1)
+xlim([0 1280])           % Setting axis limits
+ylim([0 255])
+hold off
+%axis([0 20 -.5 1])
 grid off
-legend('J_0','Location','Best')
-title('Bessel Functions of the First Kind for v = 0')
-xlabel('X')
-ylabel('J_v(X)')
+legend('Horizontal Intensity','Theoretical Model','Location','Best')
+%title('Bessel Functions of the First Kind for v = 0')
+xlabel('Distance (px)')
+ylabel('Intensity')
