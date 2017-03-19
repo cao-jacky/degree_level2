@@ -1,34 +1,39 @@
 %% Import data from text files
 h_data = importdata('saved_data/h_list_1.txt')
 
+% Defining initial constants for the Fourier Transformed function
+lmda = 700 * 10^(-9) % Wavelength of laser in m
+fl = 0.51 % Focal length of lens used in m
+d = 0.001745 % Distance between circular apertures in m
+D = 0.000485 % Averaged diameter of the size of one circular aperture in m
+
 %% Plotting horizontal data into MATLAB's graphing function
 h_domain = 0:1:1279;    % Defined domain as from 0 to 1279 in steps of 1
 
 %figure(1)               % Figure value of 1 for the horizontal data
 %plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
 
-%% Single ircle aperture
+
+%% Single circle aperture
 n = 51 ; % size of matrix, odd
 R = 0.000485/2 ; % radius
+R = 19
 n2 = floor(n/2) ;
 [x,y] = meshgrid(-n2:n2) ;
 circ = sqrt(x.^2 + y.^2) < R ;
 
-%M = double(M) ; % convert from logical to double
+circ = double(circ) ; % convert from logical to double
 %imshow(M)
+
+ft_circ = fft(circ)
+imshow(ft_circ)
+
+%plot(x,ft_circ)
 
 %% Plot Bessel function - need to adapt this for my own image analyser
 % Defining the domain for the theoretical function
 theo_domain = sqrt(linspace(0,1279,100).^2 + linspace(0,1023,100).^2)
 
-x = linspace(0,1279,100)
-y = linspace(0,1023,100)
-
-% Defining constants for the Fourier Transformed function
-lmda = 700 * 10^(-9) % Wavelength of laser in m
-fl = 0.51 % Focal length of lens used in m
-d = 0.001745 % Distance between circular apertures in m
-D = 0.000485 % Averaged diameter of the size of one circular aperture in m
 
 u = 1/(lmda*fl)
 v = 1/(lmda*fl)
