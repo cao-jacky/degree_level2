@@ -53,17 +53,18 @@ def data(x):
                 h_list_2 = row_sliced
                 h_list_1 = numpy.vstack((h_list_1,h_list_2)) # Adds rows vertically
 
-    h_list_1 = numpy.delete(h_list_1, 0, 0) # Removes the initial numpy empty row
-    h_list_1 = h_list_1.T # Transposing the array
-    h_list_1 = numpy.average(h_list_1, axis=1) # Calculates the average for each column
+    h_list_1 = numpy.delete(h_list_1, 0, 0)     # Removes the initial numpy empty row
+    h_list_1 = h_list_1.T                       # Transposing the array
+    h_list_no = numpy.size(h_list_1)            # Counting number of intense rows before averaging
+    h_list_1 = numpy.average(h_list_1, axis=1)  # Calculates the average for each column
 
     """ For the vertical direction """
     unique_cols = numpy.unique(cols) # Finding all unique values of 'cols'
     # Max count vertical comparing
     mc_v_comparing = [0,0] # List to store the counts of how many times the maximum value appears in a col
 
-    v_list_1 = numpy.empty(size[1]) # An initial empty row
-    v_list_1 = numpy.vstack(v_list_1) # Turning an empty row into an empty column
+    v_list_1 = numpy.empty(size[1])     # An initial empty row
+    v_list_1 = numpy.vstack(v_list_1)   # Turning an empty row into an empty column
 
     for j in range(size[0]):
         column_sliced = processed[j,:] # Slicing jth column out
@@ -80,9 +81,10 @@ def data(x):
             if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
                 v_list_2 = numpy.vstack(column_sliced) # v_list_2 into a column
                 v_list_1 = numpy.hstack((v_list_1,v_list_2)) # Adds columns horizontally
-    v_list_1 = numpy.delete(v_list_1, 0, 1) # Removes the initial numpy empty row
-    v_list_1 = v_list_1.T # Transposes the array
-    v_list_1 = numpy.average(v_list_1, axis=0) # Calculates the average for each row
-    v_list_1 = numpy.flipud(v_list_1) # Flip list upside down
+    v_list_1 = numpy.delete(v_list_1, 0, 1)     # Removes the initial numpy empty row
+    v_list_1 = v_list_1.T                       # Transposes the array
+    v_list_no = numpy.size(v_list_1)            # Counting number of intense rows before averaging
+    v_list_1 = numpy.average(v_list_1, axis=0)  # Calculates the average for each row
+    v_list_1 = numpy.flipud(v_list_1)           # Flip list upside down
 
-    return {'hzn_data':h_list_1 , 'ver_data':v_list_1}
+    return {'hzn_data':h_list_1 , 'ver_data':v_list_1, 'h_no':h_list_no,'v_no':v_list_no}

@@ -8,6 +8,8 @@ from scipy.special import jv
 
 import numpy
 
+""" This module returns the intensity for each function/Fourier Transform """
+
 # Intensity Functions
 def five_slit(x):
     """ Function which outputs the Fourier transform squared for the five slit
@@ -50,6 +52,7 @@ def five_slit_3(x):
     return (t1 + t2 + 1)**2
 
 def jinc(x):
+    """ Deprecated function, new attempt in jinc.m file within this directory """
     return (j1(x) / x) ** 2
 
 #jinc = numpy.vectorize(jinc)

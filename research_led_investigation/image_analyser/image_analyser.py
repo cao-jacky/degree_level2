@@ -10,9 +10,10 @@ import scipy.ndimage
 import matplotlib.pyplot as pyplot
 import matplotlib.colors
 
-import grapher_data         # Module output the raw data for graphing
-import fourier_transforms   # Module which has the Fourier transform/intensity functions
-import maxima_locator       # Module to locate maximas
+import grapher_data             # Module output the raw data for graphing
+import fourier_transforms       # Module which has the Fourier transform/intensity functions
+import maxima_locator           # Module to locate maximas
+import chi_squared_calculator   # Module to calculate chi-squared
 
 """ Made by Jacky Cao for the Optical Fourier Transforms Level 2 Research Led
 Investigation 2017 at Durham University """
@@ -127,6 +128,8 @@ def grapher(x):
 
     h_list_1 = numpy.delete(h_list_1, 0, 0)         # Removes the initial numpy empty row
     h_list_1 = h_list_1.T                           # Transposing the array
+    h_list_no = numpy.shape(h_list_1)                # Counting number of intense rows before averaging
+    h_list_std = numpy.std(h_list_1, axis=1)        # Calculates standard deviation for each column
     h_list_1 = numpy.average(h_list_1, axis=1)      # Calculates the average for each column
 
     # Saving h_list_1 so that it can be used in MATLAB
@@ -184,6 +187,8 @@ def grapher(x):
 
     v_list_1 = numpy.delete(v_list_1, 0, 1)         # Removes the initial numpy empty row
     v_list_1 = v_list_1.T                           # Transposes the array
+    v_list_no = numpy.shape(v_list_1)                # Counting number of intense rows before averaging
+    v_list_std = numpy.std(v_list_1, axis=0)        # Calculates standard deviation for each row
     v_list_1 = numpy.average(v_list_1, axis=0)      # Calculates the average for each row
     v_list_1 = numpy.flipud(v_list_1)               # Flip list upside down
 
@@ -226,14 +231,23 @@ def grapher(x):
     #pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
 
     # Plotting theoretical intensity
-    x = numpy.linspace(0,size[0],200)
-    #x = numpy.linspace(-1, 2, 25)
-    #x = numpy.arange(0,size[0],1)
+    x = numpy.linspace(0,size[0],size[0]) # Generates points
     five_slits = fourier_transforms.five_slit(x)
     #jinc = fourier_transforms.jinc(x)
     #jinc = numpy.vectorize(jinc)
 
     sinc = (1/20) * fourier_transforms.sinc(x)
+
+    """ Chi-squared calculations """
+    # sinc
+    sinc_std_error = h_list_std/numpy.sqrt(h_list_no[1])
+    for i in range(numpy.size(sinc_std_error)):
+        if sinc_std_error[i] == 0:
+            sinc_std_error[i] = 1
+    numpy.savetxt('saved_data/sinc_std_error.txt', sinc_std_error, delimiter='-')
+    sinc_cs = chi_squared_calculator.sinc(x,h_list_1,sinc_std_error)
+
+    print sinc_cs
 
     #pyplot.plot(x, five_slits, '-g', label='Theoretical Model')
     #pyplot.plot(x, jinc, '-g', label='Theoretical Model')
@@ -253,7 +267,7 @@ if __name__ == '__main__':
     import image_analyser
 
     #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
-    image_analyser.grapher("images/week_2/double circles gain 2.tif")
+    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
@@ -265,5 +279,5 @@ if __name__ == '__main__':
     #image_analyser.grapher("images/week_4/5 slit.tif")
 
     #image_analyser.maxima_calculator("images/week_5/Sungle metal slit.tif")
-    #image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
+    image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
     #image_analyser.grapher("images/week_5/5 slit focused.tif")
