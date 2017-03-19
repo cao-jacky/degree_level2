@@ -5,7 +5,7 @@ h_data = importdata('saved_data/h_list_1.txt')
 h_domain = 0:1:1279;    % Defined domain as from 0 to 1279 in steps of 1
 
 %figure(1)               % Figure value of 1 for the horizontal data
-plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
+%plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
 
 
 
@@ -14,7 +14,6 @@ plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
 lmda = 700 * 10^(-9)
 theo_domain = sqrt(linspace(0,1279,100).^2 + linspace(0,1023,100).^2)
 
-size(main_domain)
 size(theo_domain)
 
 % Calculating the first five Bessel functions of the first kind.
