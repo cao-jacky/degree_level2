@@ -1,5 +1,5 @@
 \documentclass[twocolumn]{revtex4}
-\usepackage{graphics,graphicx,epsfig,ulem,amsmath,multirow,gensymb,commath,textcomp}
+\usepackage{graphics,graphicx,epsfig,ulem,amsmath,multirow,gensymb,commath,textcomp,natbib}
 \newcommand{\squeezeup}{\vspace{-2.5mm}}
 
 \begin{document}
@@ -7,9 +7,9 @@
 \textheight=26.385cm
 %Change textheight as the last resort...
 
-\title{Optical Fourier Transforms}
+\title{Investigating and understanding Fraunhofer diffraction patterns using Fourier analysis with variations of the 4f Optical System}
  
-\author{Jacky Cao, Room 205, Friday, Lab Partners: Thomas Spriggs \\ Date of experiment: 10/02/2017 to , Date of report: 20/11/2016}
+\author{Jacky Cao, Room 205, Friday, Lab Partners: Thomas Spriggs \\ Date of experiment: 10/02/2017 to 17/03/2017, Date of report: 19/03/2017}
 
 \begin{abstract}              
 Through the study of the Fourier Transforms of blah blah blah. \cite{crc}. 
@@ -20,11 +20,32 @@ Through the study of the Fourier Transforms of blah blah blah. \cite{crc}.
 \section{Introduction} 
 \vspace{-2ex} 
 
-Intro
+A Fraunhofer diffraction pattern can be produced when a coherent beam of radiation falls onto a partially opaque object \cite{mathmethods}. The pattern can then be viewed at a ``far-field'' distance, this length being larger than the initial size of the object, allowing for the spreading of light due to diffraction to dominate in the observation plane \cite{of2f}. 
 
+The usage of diffraction patterns includes the studying of crystalline structures. Through X-ray and electron diffraction it is possible to obtain accurate information about the identity of phases present, atomic ordering, and for recognising different metallurgical constituents within a specimen. This allows for potential applications within the pharmaceutical industry for example, where early analysis of different mixtures and compounds can be cost and time saving. \cite{elecdiffraction, xraypharma}
+
+Another application could potentially involve using the diffraction pattern within an illumination system so that x-ray phase contrast microscopy and interferometry can be performed \cite{singleslit}. This could be used to enhance the visibility of fine scale structures, this being especially useful in biology as quantitative information can be obtained about a sample from just phase-contrast images \cite{xrayphase}.
+
+With these varying applications we find that in order to fully understand diffraction patterns and how they form, we must look at the mathematics behind them. 
+
+The main mathematical tool that we must use is Fourier analysis, more specifically, Fourier transforms. A Fourier transform is a way to represent a function in terms of a superposition of sinusoidal functions, with the explicit conditions of the function being defined over an infinite interval and having no particular periodicity \cite{mathmethods}.
+
+The Fourier transform $F(u)$ of a single dimensionless function $f(x)$ can be stated as,
 \begin{equation}
-35000 \times [\frac{sin[\frac{1}{47} \times (x-690)]}{\frac{1}{47} \times (x-690)}]^2
+F(u) = \mathcal{F}[f(x)](u) = \int_{-\infty}^\infty f(x) e^{-i2\pi ux}dx,
 \end{equation}
+
+where $u$ is the spatial frequency in the $x$ direction, and $(u)$ is the dependent Fourier variable. This expression for tells us the spectrum of frequencies required to form the function $f(x)$ \cite{of2f}.
+
+The spatial frequency, $u$, can be defined as the \textsl{number of waves per unit length} - it is the real space analogue of frequency. It can be rewritten differently depending on which setup you are using, but for the far-field case, it is written as,
+\begin{equation}
+u=\frac{x}{\lambda z},
+\end{equation}
+
+where $\lambda$ is the wavelength of radiation being used to illuminate the object, and $z$ is the distance 'downstream' from the object \cite{of2f}.
+
+his is especially the case when the cross-section of the object is small when compared with the  For example a laser shining upon a diffraction grating can produce
+
 
 \vspace{-3ex}
 \section{Method} 
@@ -76,33 +97,44 @@ Discussion
 Conclusion
 
 \begin{thebibliography}{5}
-\bibitem{poiseuillehagen}
-	Salvatore P. Sutera and Richard Skalak
-	\textit{The History of Poiseuille's Law}.
-	Annu. Rev. Fluid Mech., 1993.
+\bibitem{mathmethods}
+	K. F. Riley, M. P. Hobson, and S. J. Bence.
+	\textit{Mathematical Methods for Physics and Engineering}.
+	Cambridge University Press, Cambridge, UK, 2010.
 	
-\bibitem{collegephysics}
-	Raymond A. Serway, Chris Vuille, and Jerry S. Faughin
-	\textit{College Physics, 8th Edition}.
-	Brooks/Cole, Belmont, CA, USA, 2009.
+\bibitem{of2f}
+	C. S. Adams and I. G. Hughes.
+	\textit{Optics f2f, from Fourier to Fresnel}.
+	Clarendon Press, Oxford, UK, 2017.
+
+\bibitem{elecdiffraction}
+	K. W. Andrews, D. J. Dyson, and S. R. Keown.
+	\textit{Interpretation of Electron Diffraction Patterns}.
+	Hilger \& Watts Ltd, London, UK, 1967.
+	
+\bibitem{xraypharma}
+	J. P. Smit, R. B. McClurg.	
+	\textit{X-ray Powder Diffraction Pattern Indexing for Pharmaceutical Applications}.
+	Pharmaceutical Technology, January 2013, Vol. 37, No. 1.
+	
+\bibitem{singleslit}
+	A. R. Lang, et al.
+	\textit{Single-slit diffraction patterns of sub-nanometre-wavelength synchrotron radiation}.
+	Journal of Physics D: Applied Physics, 1987, Vol. 20, No. 4, pp. 541-544.
+	
+\bibitem{xrayphase}
+	S. C. Mayo, et al.
+	\textit{X-ray phase-contrast microscopy and microtomography}.
+	Optical Express, 2003, Vol. 11, No. 19, pp. 2289-2302.
 
 \bibitem{youngandfreedman} 
 	Hugh D. Young and Roger A. Freedman.
 	\textit{University Physics with Modern Physics, 13th Edition}. 
 	Pearson Education Limited, Essex, UK, 2015.
 	
-\bibitem{crc} 
-	W. M. Haynes.
-	\textit{CRC Handbook of Chemistry and Physics, 92nd Edition}. 
-	CRC Press, Florida, USA, 2011.
-	
-\bibitem{dentemp} 
-	J. L. Martin and S. C. McCutcheon
-	\textit{Hydrodynamics and Transport for Water Quality Modelling}. 
-	CRC Press, Florida, USA, 1999.
 	
 \bibitem{hughesandhayes} 
-	I. G. Hughes and T. P. A. Hase
+	I. G. Hughes and T. P. A. Hase.
 	\textit{Measurements and their Uncertainties}. 
 	Oxford University Press, Oxford, UK, 2010.
 	
