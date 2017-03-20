@@ -20,7 +20,7 @@ Through the study of the Fourier Transforms of blah blah blah. \cite{crc}.
 \section{Introduction} 
 \vspace{-2ex} 
 
-A Fraunhofer diffraction pattern can be produced when a coherent beam of radiation falls onto a partially opaque object \cite{mathmethods}. The pattern can then be viewed at a ``far-field'' distance, this length being larger than the initial size of the object, allowing for the spreading of light due to diffraction to dominate in the observation plane \cite{of2f}. 
+In the field of optics, a Fraunhofer diffraction pattern can be produced when a coherent beam of radiation falls onto a partially opaque object \cite{mathmethods}. The pattern can then be viewed at a ``far-field'' distance, this length being larger than the initial size of the object, allowing for the spreading of light due to diffraction to dominate in the observation plane \cite{of2f}. 
 
 The usage of diffraction patterns includes the studying of crystalline structures. Through X-ray and electron diffraction it is possible to obtain accurate information about the identity of phases present, atomic ordering, and for recognising different metallurgical constituents within a specimen. This allows for potential applications within the pharmaceutical industry for example, where early analysis of different mixtures and compounds can be cost and time saving. \cite{elecdiffraction, xraypharma}
 
@@ -28,21 +28,23 @@ Another application could potentially involve using the diffraction pattern with
 
 With these varying applications we find that in order to fully understand diffraction patterns and how they form, we must look at the mathematics behind them. 
 
-The main mathematical tool that we must use is Fourier analysis, more specifically, Fourier transforms. A Fourier transform is a way to represent a function in terms of a superposition of sinusoidal functions, with the explicit conditions of the function being defined over an infinite interval and having no particular periodicity \cite{mathmethods}.
+The main mathematical tool that we must use in building our understanding is Fourier analysis, more specifically, Fourier transforms. A Fourier transform is a way to represent a function in terms of a superposition of sinusoidal functions, with the explicit conditions of the function being defined over an infinite interval and having no particular periodicity \cite{mathmethods}.
 
-The Fourier transform $F(u)$ of a single dimensionless function $f(x)$ can be stated as,
+The Fourier transform $F(u)$ of a single function $f(x)$ can be stated as,
 \begin{equation}
 F(u) = \mathcal{F}[f(x)](u) = \int_{-\infty}^\infty f(x) e^{-i2\pi ux}dx,
 \end{equation}
 
-where $u$ is the spatial frequency in the $x$ direction, and $(u)$ is the dependent Fourier variable. This expression for tells us the spectrum of frequencies required to form the function $f(x)$ \cite{of2f}.
+where $(u)$ is the dependent Fourier variable. This expression tells us the spectrum of frequencies required to form the function $f(x)$ \cite{of2f}.
 
-The spatial frequency, $u$, can be defined as the \textsl{number of waves per unit length} - it is the real space analogue of frequency. It can be rewritten differently depending on which setup you are using, but for the far-field case, it is written as,
+In optics, the Fourier variable used above is called the spatial frequency, $u$. It is defined as the \textsl{number of waves per unit length} - the real space analogue of frequency. It's mathematical form for the far-field case can be written as a mapping between the Fourier variable and real space position,
 \begin{equation}
 u=\frac{x}{\lambda z},
 \end{equation}
 
-where $\lambda$ is the wavelength of radiation being used to illuminate the object, and $z$ is the distance 'downstream' from the object \cite{of2f}.
+where $x$ is the position in real space, $\lambda$ is the wavelength of radiation being used to illuminate the object, and $z$ is the distance 'downstream' from the object \cite{of2f}.
+
+There are also extensions of this for 
 
 his is especially the case when the cross-section of the object is small when compared with the  For example a laser shining upon a diffraction grating can produce
 
@@ -55,7 +57,7 @@ Method
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=5.7cm]{fig1}
+\includegraphics[width=5.7cm]{results/fig1}
 \caption[]{A schematic of the experimental set-up used to collect data. }
 \label{fig:fig1}
 \end{center}

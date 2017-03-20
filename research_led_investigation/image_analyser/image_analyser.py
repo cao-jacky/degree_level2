@@ -18,6 +18,12 @@ import chi_squared_calculator   # Module to calculate chi-squared
 """ Made by Jacky Cao for the Optical Fourier Transforms Level 2 Research Led
 Investigation 2017 at Durham University """
 
+# Optionally set font to Computer Modern to avoid common missing font errors
+matplotlib.rc('font', family='serif', serif='cm10')
+
+matplotlib.rc('text', usetex=True)
+matplotlib.rcParams['text.latex.preamble'] = [r'\boldmath']
+
 # Function to process image and turn into RGB values
 def processor(x):
     """ Input 'x' should be a string name for the image of format TIFF or PNG -
@@ -93,13 +99,21 @@ def grapher(x):
     """ For the horizontal direction """
     horizontal = pyplot.subplot(gs[3])  # Creating the a subplot figure for horizontal
 
-    horizontal.tick_params(axis='y', which='major', labelsize=9)
+    horizontal.yaxis.tick_right()
+    horizontal.yaxis.set_label_position('right')
 
-    horizontal.set_xlabel("Distance (px)")
-    horizontal.set_ylabel("Intensity")
+    horizontal.tick_params(axis='y', which='major', labelsize=17)
+    horizontal.tick_params(axis='x', labelsize=17)
+
+    horizontal.set_xlabel(r'\textbf{Distance} $(px)$', fontsize=17)
+    horizontal.set_ylabel(r'\textbf{Intensity}', fontsize=17)
 
     horizontal.set_xlim([0,size[0]])    # Ensures the figure is same size as heat map
     horizontal.set_ylim([0,255])        # Ensures the figure is same size as heat map
+
+    y_ticks = numpy.array((0, 200))     # Setting custom tick values
+    custom_y_ticks = ['$0$','$200$']
+    pyplot.yticks(y_ticks, custom_y_ticks)
 
     #horizontal.yaxis.set_visible(False)
 
@@ -128,7 +142,7 @@ def grapher(x):
 
     h_list_1 = numpy.delete(h_list_1, 0, 0)         # Removes the initial numpy empty row
     h_list_1 = h_list_1.T                           # Transposing the array
-    h_list_no = numpy.shape(h_list_1)                # Counting number of intense rows before averaging
+    h_list_no = numpy.shape(h_list_1)               # Counting number of intense rows before averaging
     h_list_std = numpy.std(h_list_1, axis=1)        # Calculates standard deviation for each column
     h_list_1 = numpy.average(h_list_1, axis=1)      # Calculates the average for each column
 
@@ -143,21 +157,27 @@ def grapher(x):
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r')
 
     # Plotting horizontal maxima points for reference
-    for i in range(numpy.size(h_maxima_points)):
-        pyplot.scatter(h_maxima_points[i], h_list_1[h_maxima_points[i]])
+    #for i in range(numpy.size(h_maxima_points)):
+        #pyplot.scatter(h_maxima_points[i], h_list_1[h_maxima_points[i]])
 
     """ For the vertical direction """
     vertical = pyplot.subplot(gs[0])
 
     vertical.xaxis.tick_top()
     vertical.xaxis.set_label_position('top')
-    vertical.tick_params(axis='x', which='major', labelsize=9)
 
-    vertical.set_xlabel("Intensity")
-    vertical.set_ylabel("Distance (px)")
+    vertical.tick_params(axis='x', which='major', labelsize=17)
+    vertical.tick_params(axis='y', labelsize=17)
+
+    vertical.set_xlabel(r'\textbf{Intensity}', fontsize=17)
+    vertical.set_ylabel(r'\textbf{Distance} $(px)$', fontsize=17)
 
     vertical.set_ylim([0,size[1]])  # Ensures the figure is same size as heat map
     vertical.set_xlim([0,255])      # Ensures the figure is same size as heat map
+
+    x_ticks = numpy.array((0, 200))     # Setting custom tick values
+    custom_x_ticks = ['$0$','$200$']
+    pyplot.xticks(x_ticks, custom_x_ticks)
 
     #vertical.xaxis.set_visible(False)
 
@@ -198,8 +218,8 @@ def grapher(x):
     pyplot.plot(v_list_1, numpy.arange(size[1]), '-r')
 
     # Plotting vertical maxima points for reference
-    for j in range(numpy.size(v_maxima_points)):
-        pyplot.scatter(v_list_1[v_maxima_points[j]], v_maxima_points[j])
+    #for j in range(numpy.size(v_maxima_points)):
+        #pyplot.scatter(v_list_1[v_maxima_points[j]], v_maxima_points[j])
 
     # Plotting intensity map
     xl, xu = 0, size[0] # x-limits
@@ -213,22 +233,28 @@ def grapher(x):
     heat_map.xaxis.set_visible(False), heat_map.yaxis.set_visible(False)
     heat_map.set_xlim([0,size[0]]), heat_map.set_ylim([0,size[1]])
 
-    #cax = pyplot.subplot(gs[1])
-    #pyplot.colorbar(heat_map_plot, cax=cax, orientation='vertical')
+    position=fig.add_axes([0.9,0.26,0.02,0.64])
+    colourbar = pyplot.colorbar(heat_map_plot, orientation='vertical',cax=position)
+    colourbar.ax.tick_params(labelsize=17)
 
     #pyplot.subplot(gs[2]) # Spare plot
     #pyplot.plot([0,0],[1,1])
 
+    pyplot.savefig('analysed_image.pdf', bbox_inches='tight')
+
     """ Superimposing graphs ontop of each other, i.e. horizontal and vertical,
     or any of them with theory """
     # Superimposing both horizontal and vertical intensity graphs
-    v_zeros = numpy.zeros(size[0]-size[1]+16) # Adding extra zeros to align both graphs
+    v_zeros = numpy.empty(size[0]-size[1]+16) # Adding extra zeros to align both graphs
+    v_zeros[:] = numpy.NAN
     v_list_1 = numpy.hstack((v_zeros, v_list_1))
 
     superimpose = pyplot.figure()
     superimpose.canvas.set_window_title('Overlapped Intensity Graphs')
-    pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label='Horizontal Intensity')
-    #pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label='Vertical Intensity')
+    pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label=r'\textbf{Horizontal Intensity}')
+    #pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label=r'\textbf{Vertical Intensity}')
+
+    #pyplot.axvspan(270, 1100, color='grey', alpha=0.05) # For the double airy disks, highlights area to compare
 
     # Plotting theoretical intensity
     x = numpy.linspace(0,size[0],size[0]) # Generates points
@@ -249,35 +275,36 @@ def grapher(x):
 
     print sinc_cs
 
-    #pyplot.plot(x, five_slits, '-g', label='Theoretical Model')
-    #pyplot.plot(x, jinc, '-g', label='Theoretical Model')
-    pyplot.plot(x, sinc, '-g', label='Theoretical Model')
+    #pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
+    #pyplot.plot(x, jinc, '-g', label=r'\textbf{Theoretical Model}')
+    #pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
 
     pyplot.ylim(0,256) # Limits the size of the y-axis
 
-    pyplot.xlabel("Distance (px)")
-    pyplot.ylabel("Intensity")
+    pyplot.tick_params(axis='y', labelsize=17)
+    pyplot.tick_params(axis='x', labelsize=17)
+
+    pyplot.xlabel(r'\textbf{Distance} $(px)$', fontsize=17)
+    pyplot.ylabel(r'\textbf{Intensity}', fontsize=17)
 
     pyplot.legend(loc='upper right')
 
-    pyplot.show()
+    pyplot.savefig('overlapped_intensity.pdf', bbox_inches='tight')
+
+    #pyplot.show()
 
 #Testing and running the code
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.maxima_calculator("images/week_2/double circles gain 2.tif")
     #image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
-    #image_analyser.maxima_calculator("images/week_2/single disk gain 2.tif")
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
 
-    #image_analyser.maxima_calculator("images/week_3/Grating 1 last but 2.tif")
-    #image_analyser.grapher("images/week_3/Grating 1 last but 2.tif")
+    #image_analyser.grapher("images/week_3/Grating 1 #1.tif")
+    #image_analyser.grapher("images/week_3/Grating 2 #1.tif")
+    image_analyser.grapher("images/week_3/Grating 3 #1.tif")
 
-    #image_analyser.maxima_calculator("images/week_4/5 slit.tif")
     #image_analyser.grapher("images/week_4/5 slit.tif")
 
-    #image_analyser.maxima_calculator("images/week_5/Sungle metal slit.tif")
-    image_analyser.grapher("images/week_5/Sungle metal slit 2.tif")
-    #image_analyser.grapher("images/week_5/5 slit focused.tif")
+    #image_analyser.grapher("images/week_5/single metal slit 2.tif")
