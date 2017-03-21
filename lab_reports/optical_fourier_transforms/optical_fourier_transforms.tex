@@ -33,33 +33,81 @@ The main mathematical tool that we must use in building our understanding is Fou
 The Fourier transform $F(u)$ of a single function $f(x)$ can be stated as,
 \begin{equation}
 F(u) = \mathcal{F}[f(x)](u) = \int_{-\infty}^\infty f(x) e^{-i2\pi ux}dx,
+\label{fourierdefinition}
 \end{equation}
 
 where $(u)$ is the dependent Fourier variable. This expression tells us the spectrum of frequencies required to form the function $f(x)$ \cite{of2f}.
 
-In optics, the Fourier variable used above is called the spatial frequency, $u$. It is defined as the \textsl{number of waves per unit length} - the real space analogue of frequency. It's mathematical form for the far-field case can be written as a mapping between the Fourier variable and real space position,
+We can also operate on the initial function then Fourier transform it. In Table \ref{fourierproperties} we find the group of functions known as the Fourier transform properties.
+\begin{table}[h!]
+\centering
+\begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
+ \hline
+ \textbf{Property} & \textbf{$\boldsymbol{f}$} & \textbf{$\boldsymbol{F}$} \\ [0.5ex] 
+ Linearity				& $g(x)+h(x)$ & $G(u) + H(u)$ \\
+ Translation 			& $f(x-a)$ 	& $F(u)e^{-i2\pi ua}$ \\ 
+ Scaling 				& $f({x/a})$ & $aF(ua)$ \\
+ Convolution			& $(g*h)(x)$ & $GH$ \\
+ Inverse Convolution		& $gh$ & $ (G*H)(u)$ \\
+ \hline
+\end{tabular}
+\caption{The Fourier transform properties - different functions $\boldsymbol{f}$ and their output $\textbf{$\boldsymbol{F}$}$ when they have been Fourier transformed using equation \ref{fourierdefinition}.}
+\label{fourierproperties}
+\end{table}
+
+The convolution property can be better understood as follows - if we convolve two functions of $x$, $g(x)$ and $h(x)$, then that is defined as,
+\begin{equation}
+(g*h)(x) = \int_{-\infty}^\infty g(x')h(x-x') dx'.
+\end{equation}
+
+In words, a convolution can be stated as \textit{sliding one function through the other and summing the area which overlaps}. This can be especially useful if we are translating a function and making multiple copies of it \cite{of2f}.
+
+In the application of optics, the Fourier variable that has been repeatedly used is called the spatial frequency, $u$. It is defined as the \textsl{number of waves per unit length}, and is the real space analogue of frequency. It's mathematical form for the far-field case can be written as a mapping between the Fourier variable and real space position,
 \begin{equation}
 u=\frac{x}{\lambda z},
 \end{equation}
 
 where $x$ is the position in real space, $\lambda$ is the wavelength of radiation being used to illuminate the object, and $z$ is the distance 'downstream' from the object \cite{of2f}.
 
-There are also extensions of this for 
+When considering diffraction gratings, we can describe the physical makeup of one using a mathematical function. This function could then be manipulated using the different Fourier transform properties as found in Table \ref{fourierproperties}. The result of which is an expression which can describe the diffraction pattern observed. 
 
-his is especially the case when the cross-section of the object is small when compared with the  For example a laser shining upon a diffraction grating can produce
+There are some basic shapes which can be used as the object which is being illuminated by radiation: a rectangular slit, and a circular aperture. However to consider these cases we must move into 2 dimensions and consider a 2D Fourier transform. 
+
+A 2D Fourier transform has the form of a double integral, so equation \ref{fourierdefinition} becomes,
+\begin{equation}
+F(u,v) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}f(x,y)e^{-i2\pi(ux+vy)}dxdy,
+\end{equation}
+where $u$ and $v$ are the spatial frequencies corresponding to the $x$ and $y$ directions respectively \cite{of2f}.
+
+The mathematics can still be used as a tool, but now an extra set of terms must be considered.
+
+In Table \ref{fshapes} we find the functional form of the shapes and their output when they are Fourier transformed, the derivations can be found on pp. 63-64 of \textit{Optics f2f} \cite{of2f}. 
+\begin{table}[h!]
+\centering
+\begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 10pt}c} 
+ \hline
+ \textbf{Shape} 	& \textbf{$\boldsymbol{f}$} 		& \textbf{$\boldsymbol{F}$} \\ [1ex] 
+ Rectangle 	& $\text{rect}(x/a)$ 				& $a\: \text{sinc}(\pi ua)$ \\ 
+ Circle 		& $\text{circ}(\rho/D)$ 			& $(\pi D^2/4)\: \text{jinc}(\pi \varpi D)$ \\
+ \hline
+\end{tabular}
+\caption{Functional form of each specified shape and the result when it has been Fourier transformed. Where $a$ is the width of a rectangular pulse, $\rho=\sqrt{x^2+y^2}$ is the radial distance, $\varpi=\sqrt{u^2+v^2}$ is the Fourier equivalent of this radial distance, and $D$ is the diameter of the circle.}
+\label{fshapes}
+\end{table}
+
+With the one dimensional rect function, the Fourier function is a \textit{sinc}, this can be defined in the more familiar terms of $\text{sinc}(\pi ua)=\sin (\pi ua)/(\pi ua)$. Similarly, the result for the circ is a \textit{jinc} function, which is a Bessel function of the first order. So rewritten it is: $\text{jinc}(\pi \varpi D)=J_1 (\pi \varpi D)/(\pi \varpi D)$.
+
 
 
 \vspace{-3ex}
 \section{Method} 
 \vspace{-2ex}
-
-Method
-
+To create and observe diffraction patterns we need an experimental set-up as shown in Figure \ref{m-fig1}. 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=6cm]{method/fig1}
-\caption[]{A plan view schematic of the experimental set-up used to collect data. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.  }
-\label{fig:fig1}
+\includegraphics[width=6.5cm]{method/fig1-1}
+\caption[]{A plan view schematic of the experimental set-up used to collect data. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
+\label{m-fig1}
 \end{center}
 \end{figure}
 
@@ -71,19 +119,24 @@ Method
 
 Results
 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=9cm]{results/single_slit}
+\caption[]{The intensity profiles in the horizontal and vertical directions for the diffraction pattern of a single slit in the Fourier plane.}
+\end{center}
+\end{figure}
+
 \begin{table}[h!]
 \centering
 \begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
  \hline
- \textbf{Tube} & \textbf{Radius, a [mm]} & \textbf{$\boldsymbol{\eta}$ [mPa {s}]} & \textbf{$\boldsymbol{\chi^2_{\nu}}$} \\ [0.5ex] 
- $Blue$ &$0.55\pm0.03$ & $1.0\pm0.2$ & 11.0 \\ 
- $Red$ & $0.47\pm0.03$ & $1.1\pm0.3$ & 5.31 \\
- $Black$ & $0.46\pm0.03$ & $1.0\pm0.3$ & 1.94 \\
- 
+ \textbf{Grating} & \textbf{Real Space [m]} & \textbf{Fourier Space [m]} \\ [0.5ex] 
+ $1$ &$0.55\pm0.03$ & $1.0\pm0.2$ \\ 
+ $2$ & $0.47\pm0.03$ & $1.1\pm0.3$ \\
+ $3$ & $0.46\pm0.03$ & $1.0\pm0.3$ \\
  \hline
 \end{tabular}
-\caption{For each tube is shown its radius, their respective calculated value for the viscosity of water $\eta$, and the reduced chi-squared statistic, $\chi^2_{\nu}$.}
-\label{table:1}
+\caption{For each coarse diffraction grating, the diffraction grating slit width is shown as measured in real space, and as calculated in Fourier space.}
 \end{table}
 
 \vspace{-3ex}
