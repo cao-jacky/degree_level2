@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  21 MAR 2017 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  22 MAR 2017 11:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,9 +375,6 @@ Package gensymb Info: Using \textohm for \ohm on input line 5.
 Package gensymb Info: Using \textmu for \micro on input line 5.
 
 
-Package natbib Warning: Citation `crc' on page 1 undefined on input line 15.
-
-
 Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Friday,
  Lab Partners: Thomas Spriggs \\ Date of experiment: 10/02/2017 to 17/03/2017, 
 Date of report: 19/03/2017.
@@ -385,78 +382,68 @@ Date of report: 19/03/2017.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<method/fig1-1.pdf, id=1, 397.485pt x 269.005pt>
+[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<method/fig1-1.pdf, id=25, 397.485pt x 269.005pt>
 File: method/fig1-1.pdf Graphic file (type pdf)
  <use method/fig1-1.pdf>
-Package pdftex.def Info: method/fig1-1.pdf used on input line 108.
+Package pdftex.def Info: method/fig1-1.pdf used on input line 138.
 (pdftex.def)             Requested size: 184.9429pt x 125.16812pt.
 
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 113.
-
-<results/single_slit.pdf, id=25, 579.64522pt x 438.44745pt>
+<results/single_slit.pdf, id=26, 579.64522pt x 438.44745pt>
 File: results/single_slit.pdf Graphic file (type pdf)
 
 <use results/single_slit.pdf>
-Package pdftex.def Info: results/single_slit.pdf used on input line 124.
+Package pdftex.def Info: results/single_slit.pdf used on input line 154.
 (pdftex.def)             Requested size: 256.0748pt x 193.70023pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 124--125
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 154--155
  [] 
  []
 
 
-Overfull \hbox (4.15251pt too wide) in paragraph at lines 131--139
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (4.15251pt too wide) in paragraph at lines 161--169
  []$[]$ 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2 <./method/fig1-1.pdf> <./results/single_slit.pdf>]
-
-Package natbib Warning: There were undefined citations.
-
-[3] (./optical_fourier_transforms.aux) ) 
+[2 <./method/fig1-1.pdf>] [3 <./results/single_slit.pdf>] [4]
+(./optical_fourier_transforms.aux) ) 
 Here is how much of TeX's memory you used:
- 4461 strings out of 493089
- 59219 string characters out of 6134841
- 141232 words of memory out of 5000000
- 7869 multiletter control sequences out of 15000+600000
- 13602 words of font info for 47 fonts, out of 8000000 for 9000
+ 4491 strings out of 493089
+ 59539 string characters out of 6134841
+ 164904 words of memory out of 5000000
+ 7885 multiletter control sequences out of 15000+600000
+ 18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,23p,557b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (3 pages, 495309 bytes).
+ 38i,13n,23p,671b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti9.pfb>
+Output written on optical_fourier_transforms.pdf (4 pages, 505243 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
