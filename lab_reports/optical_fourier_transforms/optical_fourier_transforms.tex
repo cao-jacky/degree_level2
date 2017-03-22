@@ -9,7 +9,7 @@
 
 \title{Investigating and understanding Fraunhofer diffraction patterns using Fourier analysis with variations of the $\boldsymbol{4f}$ Optical System}
  
-\author{Jacky Cao, Room 205, Friday, Lab Partners: Thomas Spriggs \\ Date of experiment: 10/02/2017 to 17/03/2017, Date of report: 19/03/2017}
+\author{Jacky Cao, Fourier Optics, Friday, Lab Partner: Thomas Spriggs \\ Dates of experiment: 10/02/2017 to 17/03/2017, Date of report: 19/03/2017}
 
 \begin{abstract}              
 Through the study of the Fourier Transforms of blah blah blah. The volume flow rate of a fluid can be expressed functionally as derived by Poiseuille and Hagen. This relationship can be rearranged so that the viscosity of water can be experimentally determined. Using a capillary tube and altering the height of water in a tank, the volume and mass of water which has flowed out in a time period can be measured. Using this data, it is then possible to calculate a value for the viscosity of water. The average value was determined to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value, $1.679$ mPa s. 
@@ -121,7 +121,7 @@ We can relate the mathematics to experimentation through shining radiation throu
 
 What is observed can be quantified in terms of the \textit{intensity}, this is found by taking the absolute value of the Fourier transform, squaring it, and applying a scaling factor $I_0/(\lambda^2z^2)$ - where $I_0$ is a number, $\lambda$ is the wavelength of radiation, and $z$ is the distance 'downstream'.
 
-Using an optical system which composes of a laser and two identical lenses, the radiation of the laser passing through a diffraction grating can be focused to distances equal to multiples of the focal length of the lenses. The resulting pattern can then be observed on a screen or with a CCD. The setup in mind is called the $4f$ optical system.
+Using an optical system which composes of a laser and two identical lenses, the radiation of the laser passing through a diffraction grating can be focused to distances equal to multiples of the focal length of the lenses. The resulting pattern can then be observed on a screen or with a CCD. The setup in mind is called the $4f$ optical system - where each component is a focal length, $f$, apart.
 
 The laser and the lenses have their own mathematical descriptions attached to them.
 
@@ -129,19 +129,34 @@ The profile of the laser beam is of a \textit{gaussian} shape, it can be express
 
 The lenses on the other hand act as a 'magnifier', the effect they have can be described as: \textit{the field in the focal plane of a lens is proportional to the Fourier transform of the incident field}. This results in the diffraction pattern shifting from being at a far-field distance $z$, to a focal length distance of $f$ - any terms that included $z$, are now replaced by $f$.
 
+Using variations of the $4f$ system we can explore and study different diffraction patterns and attempt to relate them back to their mathematics.
+
 \vspace{-3ex}
 \section{Method} 
 \vspace{-2ex}
-To create and observe diffraction patterns we need to set-up the $4f$ system, Figure \ref{m-fig1} shows an experimental setup. 
+To create and observe diffraction patterns we needed to set-up the $4f$ system. Figure \ref{m-fig1} shows the experimental setup that was used. It is worth noting that each component was attached to an optical breadboard.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=6.5cm]{method/fig1-1}
-\caption[]{A plan view schematic of the experimental set-up used to collect data. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
+\caption[]{A plan view schematic of the experimental set-up used to collect data. $f$ is the focal length distances of the lenses. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
 \label{m-fig1}
 \end{center}
 \end{figure}
 
-Method
+A coherent laser source of wavelength $635\pm?$ nm was used as our source of radiation, a $\times10$ beam expander was placed directly after this to allow the beam width to be adjusted during experimentation. 
+
+To place the lenses at the correct distances their focal lengths had to be measured. This was done by placing each lens at the beam expander, then moving a screen towards and away from the source until the brightest and sharpest spot could be observed. At that distance was thus the focal length, measured with a metre ruler. We found that for both lens 1 and 2, their focal lengths were $48\pm1$ cm.
+
+Due to the constraint with the size of the breadboard, mirrors were used to reflect the light so that the set-up would take up less space. Two were positioned so that light could be reflected into a CCD camera. 
+
+This camera was moved at various stages of experimentation, however what concerned us the most was the camera being at the Fourier plane, a distance of $2f$. It was later moved to $4f$ when we wanted observations  at that distance.
+
+Our CCD was controlled using software, images were saved and then later analysed using custom built modules compiled in Python and in MATLAB. The output was an intensity map of the image, and graphs detailing the intensity profiles in the $x$ and $y$ directions.  
+
+Diffraction gratings were placed within a holder, and then the pattern would be observed at the different distances. These gratings included single slits, coarse gratings, and custom shapes such as double circular apertures. 
+
+Before images were saved and processed, adjustments had to be made so that the pattern observed was as clear as possible. One recurring problem was the over saturation of the image, this was accounted for by using a neutral density filter. This removed some of the light, so producing a cleaner image. Other actions were also taken to reduce saturation, for example adjusting the exposure time and gain within the software.
+
 
 \vspace{-3ex}
 \section{Results}
@@ -153,6 +168,15 @@ Results
 \begin{center}
 \includegraphics[width=9cm]{results/single_slit}
 \caption[]{The intensity profiles in the horizontal and vertical directions for the diffraction pattern of a single slit in the Fourier plane.}
+\end{center}
+\end{figure}
+
+More results
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=9cm]{results/double_circle_intensity_overlapped}
+\caption[]{Overlapped intensity profiles of the $x$ and $y$ direction for the double circular aperture. This highlights the envelope nature of the intensities?}
 \end{center}
 \end{figure}
 

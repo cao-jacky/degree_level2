@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  22 MAR 2017 11:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  22 MAR 2017 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,28 +375,42 @@ Package gensymb Info: Using \textohm for \ohm on input line 5.
 Package gensymb Info: Using \textmu for \micro on input line 5.
 
 
-Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Room 205, Friday,
- Lab Partners: Thomas Spriggs \\ Date of experiment: 10/02/2017 to 17/03/2017, 
-Date of report: 19/03/2017.
+Class revtex4 Warning: Assuming \noaffiliation for Jacky Cao, Fourier Optics, F
+riday, Lab Partner: Thomas Spriggs \\ Dates of experiment: 10/02/2017 to 17/03/
+2017, Date of report: 19/03/2017.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<method/fig1-1.pdf, id=25, 397.485pt x 269.005pt>
+<method/fig1-1.pdf, id=25, 397.485pt x 268.00125pt>
 File: method/fig1-1.pdf Graphic file (type pdf)
  <use method/fig1-1.pdf>
-Package pdftex.def Info: method/fig1-1.pdf used on input line 138.
-(pdftex.def)             Requested size: 184.9429pt x 125.16812pt.
+Package pdftex.def Info: method/fig1-1.pdf used on input line 140.
+(pdftex.def)             Requested size: 184.9429pt x 124.70107pt.
 
-<results/single_slit.pdf, id=26, 579.64522pt x 438.44745pt>
+[2 <./method/fig1-1.pdf>]
+<results/single_slit.pdf, id=47, 579.64522pt x 438.44745pt>
 File: results/single_slit.pdf Graphic file (type pdf)
 
 <use results/single_slit.pdf>
-Package pdftex.def Info: results/single_slit.pdf used on input line 154.
+Package pdftex.def Info: results/single_slit.pdf used on input line 169.
 (pdftex.def)             Requested size: 256.0748pt x 193.70023pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 154--155
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 169--170
+ [] 
+ []
+
+
+<results/double_circle_intensity_overlapped.pdf, id=48, 534.48647pt x 402.49594
+pt>
+File: results/double_circle_intensity_overlapped.pdf Graphic file (type pdf)
+ <use results/double_circle_intensity_overlapped.pdf>
+Package pdftex.def Info: results/double_circle_intensity_overlapped.pdf used on
+ input line 178.
+(pdftex.def)             Requested size: 256.0748pt x 192.83963pt.
+
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 178--179
  [] 
  []
 
@@ -404,17 +418,25 @@ Overfull \hbox (10.0748pt too wide) in paragraph at lines 154--155
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (4.15251pt too wide) in paragraph at lines 161--169
+Overfull \hbox (4.15251pt too wide) in paragraph at lines 185--193
  []$[]$ 
  []
 
-[2 <./method/fig1-1.pdf>] [3 <./results/single_slit.pdf>] [4]
+[3 <./results/single_slit.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 252.
+
+
+Class revtex4 Warning: Deferred float stuck during \clearpage processing.
+
+[4 <./results/double_circle_intensity_overlapped.pdf>] [5]
 (./optical_fourier_transforms.aux) ) 
 Here is how much of TeX's memory you used:
- 4491 strings out of 493089
- 59539 string characters out of 6134841
- 164904 words of memory out of 5000000
- 7885 multiletter control sequences out of 15000+600000
+ 4497 strings out of 493089
+ 59790 string characters out of 6134841
+ 141232 words of memory out of 5000000
+ 7890 multiletter control sequences out of 15000+600000
  18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,23p,671b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -440,10 +462,10 @@ s/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (4 pages, 505243 bytes).
+Output written on optical_fourier_transforms.pdf (5 pages, 525655 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 147 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
