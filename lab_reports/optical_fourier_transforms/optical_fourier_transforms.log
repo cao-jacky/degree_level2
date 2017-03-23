@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  22 MAR 2017 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 MAR 2017 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,6 +275,31 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count107
+\c@Blindtext=\count108
+\c@blind@countparstart=\count109
+\blind@countxx=\count110
+\blindtext@numBlindtext=\count111
+\blind@countyy=\count112
+\c@blindlist=\count113
+\c@blindlistlevel=\count114
+\c@blindlist@level=\count115
+\blind@listitem=\count116
+\c@blind@listcount=\count117
+\c@blind@levelcount=\count118
+\blind@mathformula=\count119
+\blind@Mathformula=\count120
+\c@blind@randomcount=\count121
+\c@blind@randommax=\count122
+\c@blind@pangramcount=\count123
+\c@blind@pangrammax=\count124
+)
 (./optical_fourier_transforms.aux)
 \openout1 = `optical_fourier_transforms.aux'.
 
@@ -303,16 +328,16 @@ Class revtex4 Info: multicol was not loaded (OK!) on input line 5.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
+\scratchcounter=\count125
 \scratchdimen=\dimen119
 \scratchbox=\box39
-\nofMPsegments=\count108
-\nofMParguments=\count109
+\nofMPsegments=\count126
+\nofMParguments=\count127
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count110
+\MPscratchCnt=\count128
 \MPscratchDim=\dimen120
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -390,27 +415,24 @@ Package pdftex.def Info: method/fig1-1.pdf used on input line 140.
 (pdftex.def)             Requested size: 184.9429pt x 124.70107pt.
 
 [2 <./method/fig1-1.pdf>]
-<results/single_slit.pdf, id=47, 579.64522pt x 438.44745pt>
-File: results/single_slit.pdf Graphic file (type pdf)
+<results/horizontal_intensity_profiles.pdf, id=47, 590.205pt x 542.025pt>
+File: results/horizontal_intensity_profiles.pdf Graphic file (type pdf)
 
-<use results/single_slit.pdf>
-Package pdftex.def Info: results/single_slit.pdf used on input line 169.
-(pdftex.def)             Requested size: 256.0748pt x 193.70023pt.
-
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 169--170
- [] 
- []
+<use results/horizontal_intensity_profiles.pdf>
+Package pdftex.def Info: results/horizontal_intensity_profiles.pdf used on inpu
+t line 177.
+(pdftex.def)             Requested size: 199.16928pt x 182.90486pt.
 
 
-<results/double_circle_intensity_overlapped.pdf, id=48, 534.48647pt x 402.49594
-pt>
-File: results/double_circle_intensity_overlapped.pdf Graphic file (type pdf)
- <use results/double_circle_intensity_overlapped.pdf>
-Package pdftex.def Info: results/double_circle_intensity_overlapped.pdf used on
- input line 178.
-(pdftex.def)             Requested size: 256.0748pt x 192.83963pt.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 178--179
+<results/collage.pdf, id=48, 377.41pt x 258.9675pt>
+File: results/collage.pdf Graphic file (type pdf)
+ <use results/collage.pdf>
+Package pdftex.def Info: results/collage.pdf used on input line 185.
+(pdftex.def)             Requested size: 256.0748pt x 175.7083pt.
+
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 185--186
  [] 
  []
 
@@ -418,54 +440,88 @@ Overfull \hbox (10.0748pt too wide) in paragraph at lines 178--179
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (4.15251pt too wide) in paragraph at lines 185--193
+<results/double_circle_intensity_overlapped.pdf, id=49, 534.48647pt x 402.49594
+pt>
+File: results/double_circle_intensity_overlapped.pdf Graphic file (type pdf)
+ <use results/double_circle_intensity_overlapped.pdf>
+Package pdftex.def Info: results/double_circle_intensity_overlapped.pdf used on
+ input line 194.
+(pdftex.def)             Requested size: 256.0748pt x 192.83963pt.
+
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 194--195
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (1.9023pt too wide) in paragraph at lines 214--222
  []$[]$ 
  []
 
-[3 <./results/single_slit.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <./results/horizontal_intensity_profiles.pdf> <./results/collage.pdf>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 252.
+ on input line 231.
 
 
-Class revtex4 Warning: Deferred float stuck during \clearpage processing.
+Underfull \hbox (badness 2057) in paragraph at lines 272--275
+ []\OT1/cmr/m/n/9 M. Stokes, et al. \OT1/cmr/m/it/9 A Stan-dard De-fault Color 
+Space
+ []
 
-[4 <./results/double_circle_intensity_overlapped.pdf>] [5]
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
+ \OT1/cmr/m/it/9 for the In-ter-net\OT1/cmr/m/n/9 . Novem-ber 1996, avail-able 
+at:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
+ \OT1/cmr/m/n/9 https://www.w3.org/Graphics/Color/sRGB, ac-cessed:
+ []
+
+[4 <./results/double_circle_intensity_overlapped.pdf>] [5] [6]
 (./optical_fourier_transforms.aux) ) 
 Here is how much of TeX's memory you used:
- 4497 strings out of 493089
- 59790 string characters out of 6134841
- 141232 words of memory out of 5000000
- 7890 multiletter control sequences out of 15000+600000
+ 4682 strings out of 493089
+ 62984 string characters out of 6134841
+ 153803 words of memory out of 5000000
+ 8066 multiletter control sequences out of 15000+600000
  18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,23p,671b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (5 pages, 525655 bytes).
+pe1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti9.pfb>
+Output written on optical_fourier_transforms.pdf (6 pages, 3189698 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+ 161 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

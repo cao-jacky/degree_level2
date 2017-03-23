@@ -303,8 +303,10 @@ if __name__ == '__main__':
 
     #image_analyser.grapher("images/week_3/Grating 1 #1.tif")
     #image_analyser.grapher("images/week_3/Grating 2 #1.tif")
-    image_analyser.grapher("images/week_3/Grating 3 #1.tif")
+    #image_analyser.grapher("images/week_3/Grating 3 #1.tif")
 
     #image_analyser.grapher("images/week_4/5 slit.tif")
 
     #image_analyser.grapher("images/week_5/single metal slit 2.tif")
+
+    image_analyser.grapher("images/week_6/4.tif")

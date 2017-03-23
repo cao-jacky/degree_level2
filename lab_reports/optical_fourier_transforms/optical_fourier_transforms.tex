@@ -1,5 +1,5 @@
 \documentclass[twocolumn]{revtex4}
-\usepackage{graphics,graphicx,epsfig,ulem,amsmath,multirow,gensymb,commath,textcomp,natbib}
+\usepackage{graphics,graphicx,epsfig,ulem,amsmath,multirow,gensymb,commath,textcomp,natbib,blindtext}
 \newcommand{\squeezeup}{\vspace{-2.5mm}}
 
 \begin{document}
@@ -134,40 +134,56 @@ Using variations of the $4f$ system we can explore and study different diffracti
 \vspace{-3ex}
 \section{Method} 
 \vspace{-2ex}
-To create and observe diffraction patterns we needed to set-up the $4f$ system. Figure \ref{m-fig1} shows the experimental setup that was used. It is worth noting that each component was attached to an optical breadboard.
+To create and observe diffraction patterns we needed to set-up the $4f$ system. Figure \ref{m-fig1} shows this experimental setup.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=6.5cm]{method/fig1-1}
-\caption[]{A plan view schematic of the experimental set-up used to collect data. $f$ is the focal length distances of the lenses. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
+\caption[]{A plan view schematic of the experimental set-up used to collect data. $f$ is the focal length distances of the lenses. Each component was attached to an optical breadboard. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
 \label{m-fig1}
 \end{center}
 \end{figure}
 
-A coherent laser source of wavelength $635\pm?$ nm was used as our source of radiation, a $\times10$ beam expander was placed directly after this to allow the beam width to be adjusted during experimentation. 
+A coherent laser source of wavelength $\sim635$ nm was used as our source of radiation. A $\times10$ beam expander was placed directly after this to allow the beam width to be adjusted during experimentation, this was done so that the majority of the light would strike the area of the diffraction grating.
 
-To place the lenses at the correct distances their focal lengths had to be measured. This was done by placing each lens at the beam expander, then moving a screen towards and away from the source until the brightest and sharpest spot could be observed. At that distance was thus the focal length, measured with a metre ruler. We found that for both lens 1 and 2, their focal lengths were $48\pm1$ cm.
+To place the lenses at the correct distances their focal lengths had to be measured. This was done by placing each lens at the beam expander, a screen was then moved closer and further away from the source until the brightest and sharpest spot could be observed. At that distance was thus the focal length, measured with a metre ruler we found that for both lens 1 and 2, their focal lengths were $48\pm1$ cm.
 
-Due to the constraint with the size of the breadboard, mirrors were used to reflect the light so that the set-up would take up less space. Two were positioned so that light could be reflected into a CCD camera. 
+Due to the constraint with the size of the breadboard, mirrors were used to reflect the light so that the set-up would take up less space. Two were positioned so that light could be reflected into a CCD camera, and ensuring that the focal length distances were preserved.
 
-This camera was moved at various stages of experimentation, however what concerned us the most was the camera being at the Fourier plane, a distance of $2f$. It was later moved to $4f$ when we wanted observations  at that distance.
+This camera was moved at various stages of experimentation, from being in the Fourier plane at a distance of $2f$ to $4f$ when we wanted observations made in the Image plane.
 
-Our CCD was controlled using software, images were saved and then later analysed using custom built modules compiled in Python and in MATLAB. The output was an intensity map of the image, and graphs detailing the intensity profiles in the $x$ and $y$ directions.  
+Our CCD was controlled using the manufacturer's software, images were saved and then later analysed using modules compiled in Python and in MATLAB. The outputs contained an intensity map of a grayscale version of the image, and intensity profiles of the $x$ and $y$ directions of the intensity map.  
 
-Diffraction gratings were placed within a holder, and then the pattern would be observed at the different distances. These gratings included single slits, coarse gratings, and custom shapes such as double circular apertures. 
+The grayscale images were obtained by converting each pixel from sRGB into a singular value defined by the CIE 1931 Linear Luminance,
+\begin{equation}
+Y_{\text{linear}}=0.2126R+0.7152G+0.0722B,
+\end{equation}
 
-Before images were saved and processed, adjustments had to be made so that the pattern observed was as clear as possible. One recurring problem was the over saturation of the image, this was accounted for by using a neutral density filter. This removed some of the light, so producing a cleaner image. Other actions were also taken to reduce saturation, for example adjusting the exposure time and gain within the software.
+where $R,G,B$ are the respective \textit{red}, \textit{green}, and \textit{blue} values of a pixel \cite{rgbtogray}. This equations limits the range of the value that a pixel could hold, from 0 to 255. Where 0 is equations to being completely dark to 255 which means that the maximum amount of light can be achieved.
 
+The intensity profiles were created by averaging the rows or columns within the images that contained the greatest amount of pixels with values of 255. When averaged together a standard deviation could be found and then subsequently a $\chi^2$ value could be calculated when a theoretical model was compared to the intensity graphs.
+
+Throughout our research we varied the gratings that were used, the diffraction gratings were placed within a holder just after the beam expander and the pattern that they created was observed at different distances. 
+
+Adjustments had to be made to the set-up so that the pattern observed was as clear as possible. A recurring problem was the over-saturation of the features in the diffraction pattern. This was corrected by using a neutral density filter, adjusting the exposure time and the gain of the CCD within the software.
+
+To measure small scale distances of features on the diffraction grating, a travelling microscope with a Vernier scale was used.
 
 \vspace{-3ex}
 \section{Results}
 \vspace{-2ex}
-
-Results
+Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity graph in the Fourier plane against the distance along the $x$ direction for different diffraction patterns.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=7cm]{results/horizontal_intensity_profiles}
+\caption[]{The horizontal intensity profiles of diffraction patterns within the Fourier plane created with different diffraction gratings. The grey shadow behind the main diagrams are the graphs that were average to create the profile that is shown. The intensity ranges from 0 to 256.}
+\label{horizontal_profiles}
+\end{center}
+\end{figure}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=9cm]{results/single_slit}
-\caption[]{The intensity profiles in the horizontal and vertical directions for the diffraction pattern of a single slit in the Fourier plane.}
+\includegraphics[width=9cm]{results/collage}
+\caption[]{Intensity maps of four different diffraction patterns taken from different planes: (a) double circle grating in Fourier plane, (b) L grating in image plane, (c) K grating in image plane which has been low-passed filtered, (d) L grating in '$3f$' plane.}
 \end{center}
 \end{figure}
 
@@ -184,10 +200,23 @@ More results
 \centering
 \begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
  \hline
- \textbf{Grating} & \textbf{Real Space [m]} & \textbf{Fourier Space [m]} \\ [0.5ex] 
- $1$ &$0.55\pm0.03$ & $1.0\pm0.2$ \\ 
- $2$ & $0.47\pm0.03$ & $1.1\pm0.3$ \\
- $3$ & $0.46\pm0.03$ & $1.0\pm0.3$ \\
+ \textbf{Grating} & $\boldsymbol{\chi^2}$ \\ [0.5ex] 
+ Single Slit &$36.8$ \\ 
+ Five Slits & $-$ \\
+ Double Circle & $-$ \\
+ \hline
+\end{tabular}
+\caption{A theoretical model was applied to the single slit, five slits, and double circle diffraction gratings. Only the single slit provided a fit that would allow us to calculate a $\chi^2$ value.}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c@{\hskip 15pt}c@{\hskip 15pt}c@{\hskip 10pt}c} 
+ \hline
+ \textbf{Grating} & \textbf{Real Space [mm]} & \textbf{Fourier Space [mm]} \\ [0.5ex] 
+ $1$ &$0.20\pm0.01$ & $0.11\pm0.03$ \\ 
+ $2$ & $0.12\pm0.01$ & $0.11\pm0.01$ \\
+ $3$ & $0.08\pm0.01$ & $0.05\pm0.01$ \\
  \hline
 \end{tabular}
 \caption{For each coarse diffraction grating, the diffraction grating slit width is shown as measured in real space, and as calculated in Fourier space.}
@@ -196,14 +225,17 @@ More results
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
+From our results we see that 
 
-Discussion
+\Blindtext
 
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
 
 Conclusion
+
+\blindtext
 
 \begin{thebibliography}{5}
 \bibitem{mathmethods}
@@ -235,12 +267,16 @@ Conclusion
 	S. C. Mayo, et al.
 	\textit{X-ray phase-contrast microscopy and microtomography}.
 	Optical Express, 2003, Vol. 11, No. 19, pp. 2289-2302.
+	
+\bibitem{rgbtogray}
+	M. Stokes, et al.
+	\textit{A Standard Default Color Space for the Internet}.
+	November 1996, available at: https://www.w3.org/Graphics/Color/sRGB, accessed: 11th February 2017. 
 
 \bibitem{youngandfreedman} 
 	Hugh D. Young and Roger A. Freedman.
 	\textit{University Physics with Modern Physics, 13th Edition}. 
 	Pearson Education Limited, Essex, UK, 2015.
-	
 	
 \bibitem{hughesandhayes} 
 	I. G. Hughes and T. P. A. Hase.
