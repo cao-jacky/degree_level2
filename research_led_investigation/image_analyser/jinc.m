@@ -24,7 +24,7 @@ plot(h_domain,h_data,'LineWidth',1)   % Plotting the imported horizontla data
 %% Ploting Bessel function
 % Define the domain for the theoretical function
 %theo_domain = sqrt(x.^2 + y.^2)
-theo_domain = sqrt(linspace(0,1279,100).^2 + linspace(0,1023,100).^2)
+theo_domain = sqrt(linspace(0,1279,300).^2 + linspace(0,1023,300).^2)
 
 u = 1/(lmda*fl) % Spatial frequency, u
 v = 1/(lmda*fl) % Spatial freqneucy, v
@@ -39,7 +39,7 @@ omega = sqrt((u*x).^2+(v*y).^2)
 %bsl = besselj(0,(pi.*sqrt((u.*x).^2+(v.*y).^2)*D))
 %f = ((2 * cos(pi*u.*x*d).*bsl.*(pi*D^2))./(4.*pi.*D)).^2
 
-f = 40000 * (besselj(0,(theo_domain-690)/0.89) .* cos(pi*theo_domain)).^2 + 10
+f = 40000 * (besselj(0,(theo_domain-690)/0.89) .* cos(pi*theo_domain)).^2 + 15
 
 %figure(2)               % Figure value of 2 for the theoretical data
 hold on
@@ -53,3 +53,10 @@ legend('Horizontal Intensity','Theoretical Model','Location','Best')
 %title('Bessel Functions of the First Kind for v = 0')
 xlabel('Distance (px)')
 ylabel('Intensity')
+
+%csvwrite('saved_data/jinc.txt',f)
+csvwrite('saved_data/theo_domain.txt',theo_domain)
+
+%{fid = fopen('saved_data/jinc.txt')
+fprintf(fid, '%f %f r\n', f');
+fclose(fid);true%}

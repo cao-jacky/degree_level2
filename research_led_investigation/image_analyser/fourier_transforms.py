@@ -19,8 +19,8 @@ def five_slit(x):
     k = (numpy.pi) / (lmda)
     d = 0.016 * 10 ** (-2)
 
-    t1 = 2 * (numpy.cos((2*k*d*x)/5))
-    t2 = 2 * (numpy.cos((k*d*x)/5))
+    t1 = 2 * (numpy.cos((2*k*d*(x+30))/5))
+    t2 = 2 * (numpy.cos((k*d*(x+30))/5))
 
     return 50 * (t1 + t2 + 1)**2 + 10
 

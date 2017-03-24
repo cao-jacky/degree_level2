@@ -138,40 +138,44 @@ To create and observe diffraction patterns we needed to set-up the $4f$ system. 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=6.5cm]{method/fig1-1}
-\caption[]{A plan view schematic of the experimental set-up used to collect data. $f$ is the focal length distances of the lenses. Each component was attached to an optical breadboard. (a) Represents the main $2f$ optical system used where the majority of data was collected. (b) Represents the 'standard' $4f$ optical system.}
+\caption[]{A plan view schematic of the experimental set-up used to collect data. $f$ are the focal lengths of lenses 1 and 2. Each component was attached to an optical breadboard. (a) $2f$ optical system used in studying the Fourier plane (b) $4f$ optical system used in studying the image plane.}
 \label{m-fig1}
 \end{center}
 \end{figure}
 
-A coherent laser source of wavelength $\sim635$ nm was used as our source of radiation. A $\times10$ beam expander was placed directly after this to allow the beam width to be adjusted during experimentation, this was done so that the majority of the light would strike the area of the diffraction grating.
+A coherent laser source of wavelength $\sim635$ nm was used as our source of radiation. A $\times10$ beam expander was placed directly after this to allow the beam width to be adjusted during experimentation, this was done in an attempt to focus the majority of the light onto area of the diffraction grating.
 
-To place the lenses at the correct distances their focal lengths had to be measured. This was done by placing each lens at the beam expander, a screen was then moved closer and further away from the source until the brightest and sharpest spot could be observed. At that distance was thus the focal length, measured with a metre ruler we found that for both lens 1 and 2, their focal lengths were $48\pm1$ cm.
+To place the lenses at the correct $f$ distances their focal lengths had to be measured. This was done by placing each lens at the beam expander, a screen was then moved closer and further away from the source until the brightest and sharpest spot could be observed. At that distance was thus the focal length, measured with a metre ruler we found that for both lens 1 and 2, their focal lengths were $48\pm1$ cm.
 
 Due to the constraint with the size of the breadboard, mirrors were used to reflect the light so that the set-up would take up less space. Two were positioned so that light could be reflected into a CCD camera, and ensuring that the focal length distances were preserved.
 
-This camera was moved at various stages of experimentation, from being in the Fourier plane at a distance of $2f$ to $4f$ when we wanted observations made in the Image plane.
+The camera was moved at various stages of experimentation, from being in the Fourier plane at a distance of $2f$ to a distance of $4f$ when we wanted observations made within the image plane.
 
-Our CCD was controlled using the manufacturer's software, images were saved and then later analysed using modules compiled in Python and in MATLAB. The outputs contained an intensity map of a grayscale version of the image, and intensity profiles of the $x$ and $y$ directions of the intensity map.  
+Our CCD was controlled using the manufacturer's software, images were saved and then later analysed using modules compiled in Python and in MATLAB. 
 
-The grayscale images were obtained by converting each pixel from sRGB into a singular value defined by the CIE 1931 Linear Luminance,
+They would convert the image from RGB colour into grayscale, calculate intensity profiles for the $x$ and $y$ directions of the image, and then an attempt at model fitting would be made.
+
+The grayscale images were obtained by converting the three RGB values from a pixel into a singular value defined as the CIE 1931 Linear Luminance,
 \begin{equation}
 Y_{\text{linear}}=0.2126R+0.7152G+0.0722B,
 \end{equation}
 
-where $R,G,B$ are the respective \textit{red}, \textit{green}, and \textit{blue} values of a pixel \cite{rgbtogray}. This equations limits the range of the value that a pixel could hold, from 0 to 255. Where 0 is equations to being completely dark to 255 which means that the maximum amount of light can be achieved.
+where $R,G,B$ are the respective \textit{red}, \textit{green}, and \textit{blue} values from the pixel \cite{rgbtogray}. The possible value range for a pixel was fixed between 0 (total black) to 255 (total white).
 
-The intensity profiles were created by averaging the rows or columns within the images that contained the greatest amount of pixels with values of 255. When averaged together a standard deviation could be found and then subsequently a $\chi^2$ value could be calculated when a theoretical model was compared to the intensity graphs.
+The intensity profiles were created by locating the rows (and columns) within the images that contained the greatest amount of pixels with the value of 255, those were then averaged together. 
 
-Throughout our research we varied the gratings that were used, the diffraction gratings were placed within a holder just after the beam expander and the pattern that they created was observed at different distances. 
+A graph could then be plotted, and subsequently a $\chi^2$ value could be calculated when a theoretical model was compared to the intensity graphs.
 
-Adjustments had to be made to the set-up so that the pattern observed was as clear as possible. A recurring problem was the over-saturation of the features in the diffraction pattern. This was corrected by using a neutral density filter, adjusting the exposure time and the gain of the CCD within the software.
+Throughout our research we varied the gratings that were used, they were placed within a holder just after the beam expander and the pattern that they created was observed at different distances. 
+
+Adjustments had to be made so that the pattern observed was as clear as possible. A recurring problem was the over-saturation of the diffraction pattern. This was corrected for by using a neutral density filter, and adjusting the exposure time and the gain of the CCD within the software.
 
 To measure small scale distances of features on the diffraction grating, a travelling microscope with a Vernier scale was used.
 
 \vspace{-3ex}
 \section{Results}
 \vspace{-2ex}
-Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity graph in the Fourier plane against the distance along the $x$ direction for different diffraction patterns.
+Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity against the distance along the $x$ direction for different diffraction patterns in the Fourier plane.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=7cm]{results/horizontal_intensity_profiles}
@@ -187,26 +191,25 @@ Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity
 \end{center}
 \end{figure}
 
-More results
-
+Table \ref{theoretical_model_applying}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{results/double_circle_intensity_overlapped}
 \caption[]{Overlapped intensity profiles of the $x$ and $y$ direction for the double circular aperture. This highlights the envelope nature of the intensities?}
 \end{center}
 \end{figure}
-
 \begin{table}[h!]
 \centering
 \begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
  \hline
- \textbf{Grating} & $\boldsymbol{\chi^2}$ \\ [0.5ex] 
+ \textbf{Grating} & $\boldsymbol{\chi_\nu^2}$ \\ [0.5ex] 
  Single Slit &$36.8$ \\ 
- Five Slits & $-$ \\
- Double Circle & $-$ \\
+ Five Slits & $8.24\times10^{6}$ \\
+ Double Circle & $6.55\times10^{4}$ \\
  \hline
 \end{tabular}
 \caption{A theoretical model was applied to the single slit, five slits, and double circle diffraction gratings. Only the single slit provided a fit that would allow us to calculate a $\chi^2$ value.}
+\label{theoretical_model_applying}
 \end{table}
 
 \begin{table}[h!]
@@ -214,9 +217,9 @@ More results
 \begin{tabular}{c@{\hskip 15pt}c@{\hskip 15pt}c@{\hskip 10pt}c} 
  \hline
  \textbf{Grating} & \textbf{Real Space [mm]} & \textbf{Fourier Space [mm]} \\ [0.5ex] 
- $1$ &$0.20\pm0.01$ & $0.11\pm0.03$ \\ 
- $2$ & $0.12\pm0.01$ & $0.11\pm0.01$ \\
- $3$ & $0.08\pm0.01$ & $0.05\pm0.01$ \\
+ $1$ &$0.20\pm0.05$ & $0.11\pm0.03$ \\ 
+ $2$ & $0.12\pm0.05$ & $0.11\pm0.01$ \\
+ $3$ & $0.08\pm0.05$ & $0.05\pm0.01$ \\
  \hline
 \end{tabular}
 \caption{For each coarse diffraction grating, the diffraction grating slit width is shown as measured in real space, and as calculated in Fourier space.}
@@ -227,15 +230,12 @@ More results
 \vspace{-2ex}
 From our results we see that 
 
-\Blindtext
 
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
 
 Conclusion
-
-\blindtext
 
 \begin{thebibliography}{5}
 \bibitem{mathmethods}

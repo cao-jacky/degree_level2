@@ -105,8 +105,8 @@ def grapher(x):
     horizontal.tick_params(axis='y', which='major', labelsize=17)
     horizontal.tick_params(axis='x', labelsize=17)
 
-    horizontal.set_xlabel(r'\textbf{Distance} $(px)$', fontsize=17)
-    horizontal.set_ylabel(r'\textbf{Intensity}', fontsize=17)
+    horizontal.set_xlabel(r'\textbf{Distance (px)}', fontsize=17)
+    horizontal.set_ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
 
     horizontal.set_xlim([0,size[0]])    # Ensures the figure is same size as heat map
     horizontal.set_ylim([0,255])        # Ensures the figure is same size as heat map
@@ -169,8 +169,8 @@ def grapher(x):
     vertical.tick_params(axis='x', which='major', labelsize=17)
     vertical.tick_params(axis='y', labelsize=17)
 
-    vertical.set_xlabel(r'\textbf{Intensity}', fontsize=17)
-    vertical.set_ylabel(r'\textbf{Distance} $(px)$', fontsize=17)
+    vertical.set_xlabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
+    vertical.set_ylabel(r'\textbf{Distance (px)}', fontsize=17)
 
     vertical.set_ylim([0,size[1]])  # Ensures the figure is same size as heat map
     vertical.set_xlim([0,255])      # Ensures the figure is same size as heat map
@@ -257,7 +257,17 @@ def grapher(x):
     #pyplot.axvspan(270, 1100, color='grey', alpha=0.05) # For the double airy disks, highlights area to compare
 
     # Plotting theoretical intensity
-    x = numpy.linspace(0,size[0],size[0]) # Generates points
+    x = numpy.linspace(0,size[0],200)   # Generates points
+    x_round = numpy.round(x,decimals=0) # Rounds generated points to no decimal places
+    x_round = x_round.astype(int)       # Turns them into integer values
+    x_round[-1] = 1279                  # Changes 1280 value to 1279
+    numpy.savetxt('saved_data/x_gen.txt',x_round,delimiter=',')
+
+    s_h_list_1 = list(h_list_1[x_round])        # Shortened h_list_1
+    numpy.savetxt('saved_data/s_h_list_1.txt',s_h_list_1,delimiter=',')
+    s_h_list_std = list(h_list_std[x_round])    # Selects out the standard deviation values
+    s_h_list_no = numpy.shape(s_h_list_1)       # Finds number of values in arrray
+
     five_slits = fourier_transforms.five_slit(x)
     #jinc = fourier_transforms.jinc(x)
     #jinc = numpy.vectorize(jinc)
@@ -266,16 +276,55 @@ def grapher(x):
 
     """ Chi-squared calculations """
     # sinc
-    sinc_std_error = h_list_std/numpy.sqrt(h_list_no[1])
+    """sinc_std_error = h_list_std/numpy.sqrt(h_list_no[1])
     for i in range(numpy.size(sinc_std_error)):
         if sinc_std_error[i] == 0:
             sinc_std_error[i] = 1
     numpy.savetxt('saved_data/sinc_std_error.txt', sinc_std_error, delimiter='-')
     sinc_cs = chi_squared_calculator.sinc(x,h_list_1,sinc_std_error)
 
-    print sinc_cs
+    print sinc_cs"""
 
-    #pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
+    # five_slits
+    """five_std_error = s_h_list_std/numpy.sqrt(s_h_list_no)
+    for i in range(numpy.size(five_std_error)):
+        if five_std_error[i] == 0:
+            five_std_error[i] = 1
+    numpy.savetxt('saved_data/five_std_error.txt', five_std_error, delimiter='-')
+    five_cs = chi_squared_calculator.five_slit(x,s_h_list_1,five_std_error)
+
+    print five_cs"""
+
+    # jinc
+    # Dealing with the jinc data
+    jinc_data = numpy.loadtxt('saved_data/jinc.txt')                # Load the jinc theoretical data
+    jinc_theo_data = numpy.loadtxt('saved_data/theo_domain.txt')    # Load the domain of the data
+    jinc_theo_data = numpy.delete(jinc_theo_data,numpy.s_[157:200]) # Removes the greater than domain points
+    jinc_round = numpy.round(jinc_theo_data,decimals=0)        # Rounds generated points to no decimal places
+    jinc_round = jinc_round.astype(int)
+    jinc_round[-1] = 1279
+    numpy.savetxt('saved_data/jinc_round.txt', jinc_round, delimiter='-')
+
+    #jinc_data = list(jinc_data[jinc_round])
+
+    jinc_list = list(h_list_1[jinc_round])        # Shortened h_list_1
+    numpy.savetxt('saved_data/jinc_list.txt',jinc_list,delimiter=',')
+    jinc_list = list(h_list_std[jinc_round])    # Selects out the standard deviation values
+    jinc_list_no = numpy.shape(jinc_list)       # Finds number of values in arrray
+
+    jinc_std_error = jinc_list/numpy.sqrt(jinc_list_no)
+
+    print numpy.shape(jinc_round),jinc_list_no, numpy.shape(jinc_std_error)
+    for i in range(numpy.size(jinc_std_error)):
+        if jinc_std_error[i] == 0:
+            jinc_std_error[i] = 1
+    numpy.savetxt('saved_data/jinc_std_error.txt', jinc_std_error, delimiter='-')
+    jinc_cs = chi_squared_calculator.jinc(jinc_round,jinc_list,jinc_std_error)
+
+    print jinc_cs
+
+
+    pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
     #pyplot.plot(x, jinc, '-g', label=r'\textbf{Theoretical Model}')
     #pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
 
@@ -284,8 +333,8 @@ def grapher(x):
     pyplot.tick_params(axis='y', labelsize=17)
     pyplot.tick_params(axis='x', labelsize=17)
 
-    pyplot.xlabel(r'\textbf{Distance} $(px)$', fontsize=17)
-    pyplot.ylabel(r'\textbf{Intensity}', fontsize=17)
+    pyplot.xlabel(r'\textbf{Distance (px)}', fontsize=17)
+    pyplot.ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
 
     pyplot.legend(loc='upper right')
 
@@ -297,7 +346,7 @@ def grapher(x):
 if __name__ == '__main__':
     import image_analyser
 
-    #image_analyser.grapher("images/week_2/double circles gain 2.tif")
+    image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
 
@@ -309,4 +358,4 @@ if __name__ == '__main__':
 
     #image_analyser.grapher("images/week_5/single metal slit 2.tif")
 
-    image_analyser.grapher("images/week_6/4.tif")
+    #image_analyser.grapher("images/week_6/4.tif")
