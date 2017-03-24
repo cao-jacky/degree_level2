@@ -183,21 +183,25 @@ Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity
 \label{horizontal_profiles}
 \end{center}
 \end{figure}
-
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=9cm]{results/data_and_models}
+\caption[]{The red lines are the intensity data from the horizontal direction, the green a theoretical model, and the blue is the vertical intensity data. Data from Fourier plane. The uncertainties within the horizontal and vertical intensities are too small to be seen. (a) Single slit with model. (b) Five slits with model. (c) Double circles with model. (d) Envelope nature of double circle slit.}
+\label{datamodels}
+\end{center}
+\end{figure}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{results/collage}
 \caption[]{Intensity maps of four different diffraction patterns taken from different planes: (a) double circle grating in Fourier plane, (b) L grating in image plane, (c) K grating in image plane which has been low-passed filtered, (d) L grating in '$3f$' plane.}
+\label{collage}
 \end{center}
 \end{figure}
 
-Table \ref{theoretical_model_applying}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=9cm]{results/double_circle_intensity_overlapped}
-\caption[]{Overlapped intensity profiles of the $x$ and $y$ direction for the double circular aperture. This highlights the envelope nature of the intensities?}
-\end{center}
-\end{figure}
+Figures \ref{datamodels}(a), \ref{datamodels}(b), and \ref{datamodels}(c) show the horizontal intensity data for the single slit, five slits, and double circle slit plotted with a theoretical model. The reduced $\chi^2$ values for these have been calculated and can be found in Table \ref{theoretical_model_applying}.
+
+The horizontal and vertical intensity graphs for the double circular slit have been superimposed and can be found in Figure \ref{datamodels}(d).
+
 \begin{table}[h!]
 \centering
 \begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
@@ -228,14 +232,31 @@ Table \ref{theoretical_model_applying}
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
-From our results we see that 
+From an initial inspection of Figure \ref{horizontal_profiles} we can see the possible mathematics involved with the diffraction patterns.
 
+We can see the application of the convolution theorem with the five slits and double circle slit - each of their initial functions have been convoluted with the comb function, thus producing the semi-repeating pattern that can be seen.
+
+Looking at the calculated values for $\chi^2_\nu$ we see that they are not near unity at all, a requirement for the theoretical models to be a good fit to the data \cite{hughesandhayes}. For the five and double circles slits they are orders of magnitude out, this tells us that the model used is quite wrong. In the attempt at applying the models for these two gratings (a rect convolved with a comb$_5$ function, and the Bessel function convolved with a comb$_2$ respectively), we found that it was difficult to get the parameters correct within the variables. Values would become sensitive to if they were odd or even, producing completely different graphs depending if you either rounded up or down.
+
+Other problems arose such as?
+
+However with the single slit we found that it was possible to achieve a \textit{similar} fit, the implementation of this function was not entirely difficult, but, the same problems with the sensitive parameters did plague us. There is also discrepancies within the data. The principal maxima of the model in Figure \ref{datamodels}(a) exceeds the principal maxima of the data.
+
+After exploring patterns within the Fourier plane, we then moved into the image plane for extended research. In Figure \ref{collage}(b) the pattern is an L shape, the original L grating was the correct way up - if you were a photon passing through the grating you would recognise the shape as an L.  We find that the image has been inverted in the $y$ direction.
+
+A curious expansion to our research can be seen in Figure \ref{collage}(d). This is an image of the diffraction pattern of the L grating as seen in a '$3f$' system, to create this we moved the source and grating so that it was directly behind the first lens. This pattern has features from both the Fourier and image plane. In the centre there is a clear \textit{L} shape, something which can be found in the Image plane, but if we also look to the sides we can see what appears to be sinc pattern features. While we do not know the mathematics we can see that it is a mix between Fresnel and Fraunhofer. 
+
+Improvements could be made to our investigation to improve the quality of data taken. For example working harder to to reduce saturation, during experimentation we had not fully considered the possible effects bias might have on the images that were taking. With future experimentation we would reduce things such as CCD bias by pre-taking images of the dark room so that any stray pixels could be remove during analysis.
+
+Other improvements could be made such as collecting multiple repeats of the diffraction pattern images with different CCD cameras. These images could then be averaged together and a possible uncertainty could be calculated for them.
 
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
 
 Conclusion
+
+\blindtext
 
 \begin{thebibliography}{5}
 \bibitem{mathmethods}
@@ -272,11 +293,6 @@ Conclusion
 	M. Stokes, et al.
 	\textit{A Standard Default Color Space for the Internet}.
 	November 1996, available at: https://www.w3.org/Graphics/Color/sRGB, accessed: 11th February 2017. 
-
-\bibitem{youngandfreedman} 
-	Hugh D. Young and Roger A. Freedman.
-	\textit{University Physics with Modern Physics, 13th Edition}. 
-	Pearson Education Limited, Essex, UK, 2015.
 	
 \bibitem{hughesandhayes} 
 	I. G. Hughes and T. P. A. Hase.

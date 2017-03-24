@@ -102,11 +102,11 @@ def grapher(x):
     horizontal.yaxis.tick_right()
     horizontal.yaxis.set_label_position('right')
 
-    horizontal.tick_params(axis='y', which='major', labelsize=17)
-    horizontal.tick_params(axis='x', labelsize=17)
+    horizontal.tick_params(axis='y', which='major', labelsize=34)
+    horizontal.tick_params(axis='x', labelsize=34)
 
-    horizontal.set_xlabel(r'\textbf{Distance (px)}', fontsize=17)
-    horizontal.set_ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
+    horizontal.set_xlabel(r'\textbf{Distance (px)}', fontsize=34)
+    horizontal.set_ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=34)
 
     horizontal.set_xlim([0,size[0]])    # Ensures the figure is same size as heat map
     horizontal.set_ylim([0,255])        # Ensures the figure is same size as heat map
@@ -166,11 +166,11 @@ def grapher(x):
     vertical.xaxis.tick_top()
     vertical.xaxis.set_label_position('top')
 
-    vertical.tick_params(axis='x', which='major', labelsize=17)
-    vertical.tick_params(axis='y', labelsize=17)
+    vertical.tick_params(axis='x', which='major', labelsize=34)
+    vertical.tick_params(axis='y', labelsize=34)
 
-    vertical.set_xlabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
-    vertical.set_ylabel(r'\textbf{Distance (px)}', fontsize=17)
+    vertical.set_xlabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=34)
+    vertical.set_ylabel(r'\textbf{Distance (px)}', fontsize=34)
 
     vertical.set_ylim([0,size[1]])  # Ensures the figure is same size as heat map
     vertical.set_xlim([0,255])      # Ensures the figure is same size as heat map
@@ -235,7 +235,7 @@ def grapher(x):
 
     position=fig.add_axes([0.9,0.26,0.02,0.64])
     colourbar = pyplot.colorbar(heat_map_plot, orientation='vertical',cax=position)
-    colourbar.ax.tick_params(labelsize=17)
+    colourbar.ax.tick_params(labelsize=34)
 
     #pyplot.subplot(gs[2]) # Spare plot
     #pyplot.plot([0,0],[1,1])
@@ -252,12 +252,12 @@ def grapher(x):
     superimpose = pyplot.figure()
     superimpose.canvas.set_window_title('Overlapped Intensity Graphs')
     pyplot.plot(numpy.arange(size[0]), h_list_1, '-r', label=r'\textbf{Horizontal Intensity}')
-    #pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label=r'\textbf{Vertical Intensity}')
+    pyplot.plot(numpy.arange(size[1]+(size[0]-size[1])+16), v_list_1.T, '-b', label=r'\textbf{Vertical Intensity}')
 
     #pyplot.axvspan(270, 1100, color='grey', alpha=0.05) # For the double airy disks, highlights area to compare
 
     # Plotting theoretical intensity
-    x = numpy.linspace(0,size[0],200)   # Generates points
+    x = numpy.linspace(0,size[0],size[0])   # Generates points
     x_round = numpy.round(x,decimals=0) # Rounds generated points to no decimal places
     x_round = x_round.astype(int)       # Turns them into integer values
     x_round[-1] = 1279                  # Changes 1280 value to 1279
@@ -296,7 +296,7 @@ def grapher(x):
     print five_cs"""
 
     # jinc
-    # Dealing with the jinc data
+    """# Dealing with the jinc data
     jinc_data = numpy.loadtxt('saved_data/jinc.txt')                # Load the jinc theoretical data
     jinc_theo_data = numpy.loadtxt('saved_data/theo_domain.txt')    # Load the domain of the data
     jinc_theo_data = numpy.delete(jinc_theo_data,numpy.s_[157:200]) # Removes the greater than domain points
@@ -321,20 +321,21 @@ def grapher(x):
     numpy.savetxt('saved_data/jinc_std_error.txt', jinc_std_error, delimiter='-')
     jinc_cs = chi_squared_calculator.jinc(jinc_round,jinc_list,jinc_std_error)
 
-    print jinc_cs
+    jinc_data_plot = numpy.delete(jinc_data,numpy.s_[157:200])
 
+    print jinc_cs"""
 
-    pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
-    #pyplot.plot(x, jinc, '-g', label=r'\textbf{Theoretical Model}')
-    #pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
+    pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
+    #pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
+    #pyplot.plot(jinc_round, jinc_data_plot, '-g', label=r'\textbf{Theoretical Model}')
 
     pyplot.ylim(0,256) # Limits the size of the y-axis
 
-    pyplot.tick_params(axis='y', labelsize=17)
-    pyplot.tick_params(axis='x', labelsize=17)
+    pyplot.tick_params(axis='y', labelsize=25)
+    pyplot.tick_params(axis='x', labelsize=25)
 
-    pyplot.xlabel(r'\textbf{Distance (px)}', fontsize=17)
-    pyplot.ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=17)
+    pyplot.xlabel(r'\textbf{Distance (px)}', fontsize=25)
+    pyplot.ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=25)
 
     pyplot.legend(loc='upper right')
 
