@@ -7,12 +7,12 @@
 \textheight=26.385cm
 %Change textheight as the last resort...
 
-\title{Investigating and understanding Fraunhofer diffraction patterns using Fourier analysis with variations of the $\boldsymbol{4f}$ Optical System}
+\title{Investigating and understanding diffraction patterns using Fourier analysis with variations of the $\boldsymbol{4f}$ Optical System}
  
 \author{Jacky Cao, Fourier Optics, Friday, Lab Partner: Thomas Spriggs \\ Dates of experiment: 10/02/2017 to 17/03/2017, Date of report: 19/03/2017}
 
 \begin{abstract}              
-Through the study of the Fourier Transforms of blah blah blah. The volume flow rate of a fluid can be expressed functionally as derived by Poiseuille and Hagen. This relationship can be rearranged so that the viscosity of water can be experimentally determined. Using a capillary tube and altering the height of water in a tank, the volume and mass of water which has flowed out in a time period can be measured. Using this data, it is then possible to calculate a value for the viscosity of water. The average value was determined to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value, $1.679$ mPa s. 
+Through the study of the Fourier transforms it is possible to understand diffraction patterns.  The volume flow rate of a fluid can be expressed functionally as derived by Poiseuille and Hagen. This relationship can be rearranged so that the viscosity of water can be experimentally determined. Using a capillary tube and altering the height of water in a tank, the volume and mass of water which has flowed out in a time period can be measured. Using this data, it is then possible to calculate a value for the viscosity of water. The average value was determined to be $1.00 \pm 0.03$ mPa s, which does not agree with the literature value, $1.679$ mPa s. 
 \end{abstract}
 
 \maketitle
@@ -20,7 +20,7 @@ Through the study of the Fourier Transforms of blah blah blah. The volume flow r
 \section{Introduction} 
 \vspace{-2ex} 
 
-In the field of optics, a Fraunhofer diffraction pattern can be produced when a coherent beam of radiation falls onto a partially opaque object \cite{mathmethods}. The pattern can then be viewed at a ``far-field'' distance, this length being larger than the initial size of the object, allowing for the spreading of light due to diffraction to dominate in the observation plane \cite{of2f}. 
+In the field of optics, a diffraction pattern can be produced when a coherent beam of radiation falls onto a partially opaque object \cite{mathmethods}. The pattern can then be viewed at a ``far-field'' distance, this length being larger than the initial size of the object, allowing for the spreading of light due to diffraction to dominate in the observation plane \cite{of2f}. 
 
 The usage of diffraction patterns includes the studying of crystalline structures. Through X-ray and electron diffraction it is possible to obtain accurate information about the identity of phases present, atomic ordering, and for recognising different metallurgical constituents within a specimen. This allows for potential applications within the pharmaceutical industry for example, where early analysis of different mixtures and compounds can be cost and time saving. \cite{elecdiffraction, xraypharma}
 
@@ -95,9 +95,10 @@ In Table \ref{fshapes} we find the functional form of the shapes and their outpu
  Circle 		& $\text{circ}(\rho/D)$ 			& $(\pi D^2/4)\: \text{jinc}(\pi \varpi D)$ \\
  \hline
 \end{tabular}
-\caption{Functional form of each specified shape and the result when it has been Fourier transformed. Where $a$ is the width of a rectangular pulse, $\rho=\sqrt{x^2+y^2}$ is the radial distance, $\varpi=\sqrt{u^2+v^2}$ is the Fourier equivalent of this radial distance, and $D$ is the diameter of the circle.}
+\caption{Function of each specified shape and it's Fourier transform. Where $a$ is the width of a rectangular pulse, $\rho=\sqrt{x^2+y^2}$ is the radial distance, $\varpi=\sqrt{u^2+v^2}$ is the Fourier equivalent of this, and $D$ is the diameter of the circle.}
 \label{fshapes}
 \end{table}
+\setlength{\belowcaptionskip}{-10pt}
 
 With the one dimensional rect function, the Fourier function is a \textit{sinc}, this can be defined in the more familiar terms of $\text{sinc}(\pi ua)=\sin (\pi ua)/(\pi ua)$. Similarly, the result for the circ is a \textit{jinc} function, which is a Bessel function of the first order. So rewritten it is: $\text{jinc}(\pi \varpi D)=J_1 (\pi \varpi D)/(\pi \varpi D)$.
 
@@ -125,9 +126,7 @@ Using an optical system which composes of a laser and two identical lenses, the 
 
 The laser and the lenses have their own mathematical descriptions attached to them.
 
-The profile of the laser beam is of a \textit{gaussian} shape, it can be expressed as $\text{gauss}(x/w_0)=\exp{(-x^2/w_0^2)}$, with $w_0$ as the width of the laser beam. Applying a Fourier transform to this we find that the answer is just another gauss, $\mathcal{F}[\text{gauss}(x/w_0)](u)=\sqrt{\pi}w_0\text{gauss}(\pi u w_0)$.
-
-The lenses on the other hand act as a 'magnifier', the effect they have can be described as: \textit{the field in the focal plane of a lens is proportional to the Fourier transform of the incident field}. This results in the diffraction pattern shifting from being at a far-field distance $z$, to a focal length distance of $f$ - any terms that included $z$, are now replaced by $f$.
+The profile of the laser beam is of a \textit{gaussian} shape, the mathematical definition and Fourier transform of which can be found in \textit{Optics f2f}. The lenses act as a magnifier, this results in the diffraction pattern shifting from being at a far-field distance $z$, to the focal length distance $f$ of the lens.
 
 Using variations of the $4f$ system we can explore and study different diffraction patterns and attempt to relate them back to their mathematics.
 
@@ -168,7 +167,7 @@ A graph could then be plotted, and subsequently a $\chi^2$ value could be calcul
 
 Throughout our research we varied the gratings that were used, they were placed within a holder just after the beam expander and the pattern that they created was observed at different distances. 
 
-Adjustments had to be made so that the pattern observed was as clear as possible. A recurring problem was the over-saturation of the diffraction pattern. This was corrected for by using a neutral density filter, and adjusting the exposure time and the gain of the CCD within the software.
+Adjustments had to be made so that the pattern observed was as clear as possible. A recurring problem was the over-saturation of the diffraction pattern. This was corrected for by using a neutral density filter and adjusting the exposure time and the gain of the CCD within the software.
 
 To measure small scale distances of features on the diffraction grating, a travelling microscope with a Vernier scale was used.
 
@@ -179,29 +178,30 @@ Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=7cm]{results/horizontal_intensity_profiles}
-\caption[]{The horizontal intensity profiles of diffraction patterns within the Fourier plane created with different diffraction gratings. The grey shadow behind the main diagrams are the graphs that were average to create the profile that is shown. The intensity ranges from 0 to 256.}
+\caption[]{The horizontal intensity profiles of diffraction patterns within the Fourier plane created with different diffraction gratings. The shadow behind the diagrams are the rows that were averaged to create the profile that is shown.}
 \label{horizontal_profiles}
 \end{center}
 \end{figure}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{results/data_and_models}
-\caption[]{The red lines are the intensity data from the horizontal direction, the green a theoretical model, and the blue is the vertical intensity data. Data from Fourier plane. The uncertainties within the horizontal and vertical intensities are too small to be seen. (a) Single slit with model. (b) Five slits with model. (c) Double circles with model. (d) Envelope nature of double circle slit.}
+\caption[]{Theoretical model (green), horizontal intensity data (red), and vertical intensity data (blue) - data from Fourier plane. The uncertainties for the horizontal and vertical intensities are too small to be seen. (a) Single slit with model. (b) Five slits with model. (c) Double circles with model. (d) Envelope nature of double circle slit.}
 \label{datamodels}
 \end{center}
 \end{figure}
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=9cm]{results/collage}
-\caption[]{Intensity maps of four different diffraction patterns taken from different planes: (a) double circle grating in Fourier plane, (b) L grating in image plane, (c) K grating in image plane which has been low-passed filtered, (d) L grating in '$3f$' plane.}
+\includegraphics[width=9cm]{results/collage_v2}
+\caption[]{Intensity maps of four different diffraction patterns taken from different planes: (a) double circle grating in Fourier plane, (b) single circle grating in Fourier plane, (c) L grating in image plane, (d) L grating in '$3f$' plane.}
 \label{collage}
 \end{center}
 \end{figure}
 
-Figures \ref{datamodels}(a), \ref{datamodels}(b), and \ref{datamodels}(c) show the horizontal intensity data for the single slit, five slits, and double circle slit plotted with a theoretical model. The reduced $\chi^2$ values for these have been calculated and can be found in Table \ref{theoretical_model_applying}.
+Figures \ref{datamodels}(a), \ref{datamodels}(b), and \ref{datamodels}(c) show the horizontal intensity data for the single slit, five slits, and double circle slit plotted with a theoretical model. The reduced $\chi^2$ values have been calculated and can be found in Table \ref{theoretical_model_applying}.
 
 The horizontal and vertical intensity graphs for the double circular slit have been superimposed and can be found in Figure \ref{datamodels}(d).
 
+Table \ref{realtofourier} shows the slit widths of three different coarse gratings as measured in real space, and calculated from Fourier space.
 \begin{table}[h!]
 \centering
 \begin{tabular}{c@{\hskip 20pt}c@{\hskip 20pt}c@{\hskip 20pt}c} 
@@ -215,7 +215,6 @@ The horizontal and vertical intensity graphs for the double circular slit have b
 \caption{A theoretical model was applied to the single slit, five slits, and double circle diffraction gratings. Only the single slit provided a fit that would allow us to calculate a $\chi^2$ value.}
 \label{theoretical_model_applying}
 \end{table}
-
 \begin{table}[h!]
 \centering
 \begin{tabular}{c@{\hskip 15pt}c@{\hskip 15pt}c@{\hskip 10pt}c} 
@@ -227,34 +226,43 @@ The horizontal and vertical intensity graphs for the double circular slit have b
  \hline
 \end{tabular}
 \caption{For each coarse diffraction grating, the diffraction grating slit width is shown as measured in real space, and as calculated in Fourier space.}
+\label{realtofourier}
 \end{table}
 
 \vspace{-3ex}
 \section{Discussion}
 \vspace{-2ex}
-From an initial inspection of Figure \ref{horizontal_profiles} we can see the possible mathematics involved with the diffraction patterns.
+From just an initial inspection of Figure \ref{horizontal_profiles} we can discern the possible mathematics involved with the diffraction patterns.
 
-We can see the application of the convolution theorem with the five slits and double circle slit - each of their initial functions have been convoluted with the comb function, thus producing the semi-repeating pattern that can be seen.
+We can see the application of the convolution theorem within the functions for the five slits and the double circle grating. Respectively, it is a rect convolved with comb$_5$ , and a circ convolved with comb$_2$. 
 
-Looking at the calculated values for $\chi^2_\nu$ we see that they are not near unity at all, a requirement for the theoretical models to be a good fit to the data \cite{hughesandhayes}. For the five and double circles slits they are orders of magnitude out, this tells us that the model used is quite wrong. In the attempt at applying the models for these two gratings (a rect convolved with a comb$_5$ function, and the Bessel function convolved with a comb$_2$ respectively), we found that it was difficult to get the parameters correct within the variables. Values would become sensitive to if they were odd or even, producing completely different graphs depending if you either rounded up or down.
+Looking at the calculated $\chi^2_\nu$ values for these two gratings we see that they are not near unity at all, in fact they are orders of magnitude out. The basic requirement for the theoretical models to be a good fit to the data  is that they be close to the value of $1$ \cite{hughesandhayes}. For the single slit we see that the model used provides a closer fit than the others do, but it is still not a good.
 
-Other problems arose such as?
+While we do understand the functions of the gratings and conversely their Fourier transforms, there is much difficulty in implementing this within a program. The trouble mainly arises in attempting to scale and translate the model to fit the data. 
 
-However with the single slit we found that it was possible to achieve a \textit{similar} fit, the implementation of this function was not entirely difficult, but, the same problems with the sensitive parameters did plague us. There is also discrepancies within the data. The principal maxima of the model in Figure \ref{datamodels}(a) exceeds the principal maxima of the data.
+The images that we collected are not perfect, we can see that with the intensity profile for the five slits. The principal maximas should all be the same height, as well as the first and last subsidiary maximas. This inevitably leads to a difficult fit with the model. We understood that this arose from the laser beam not creating an even illumination, the top half having less light. 
 
-After exploring patterns within the Fourier plane, we then moved into the image plane for extended research. In Figure \ref{collage}(b) the pattern is an L shape, the original L grating was the correct way up - if you were a photon passing through the grating you would recognise the shape as an L.  We find that the image has been inverted in the $y$ direction.
+We can further understand the double circle slit, the pattern of the convolved circ function retains it's original Airy disk profile but it now also contains cosine-squared interference fringes (Figures \ref{collage}(a) and \ref{collage}(b)). If this is superimposed with a jinc$^2$ function, one can fit into the other - an envelope, as can be seen in Figure \ref{datamodels}(d). This is similar to the sinc$^2$ enveloping of Young's double slit experiment \cite{of2f}.
 
-A curious expansion to our research can be seen in Figure \ref{collage}(d). This is an image of the diffraction pattern of the L grating as seen in a '$3f$' system, to create this we moved the source and grating so that it was directly behind the first lens. This pattern has features from both the Fourier and image plane. In the centre there is a clear \textit{L} shape, something which can be found in the Image plane, but if we also look to the sides we can see what appears to be sinc pattern features. While we do not know the mathematics we can see that it is a mix between Fresnel and Fraunhofer. 
+In trying to develop our knowledge of real and Fourier space, we attempted to measure the slit width of a slit of three different coarse gratings in real space and from Fourier space. Our results are shown in Table \ref{realtofourier}, we see that while the measurements from real space agree with their Fourier counterpart within their experimental error, the converse is not true.
+
+We suspect this could be due to how we defined the size of a pixel in Fourier space, our calculations for the first and third gratings were based off how we calculated what one pixel equals in Fourier space ($\sim36.9$m). If this was incorrect, which we assume it was, then our other values are incorrect too.
+
+After exploring patterns within the Fourier plane, we then moved into the image plane. In Figure \ref{collage}(c) the pattern is a rotated L shape, the original L grating was the correct way up. We find that thee has been a parity change from ($x,y$) to ($-x,-y$). This occurs when we take the Fourier transform of the field in the Fourier plane, it is an inverse transform \cite{of2f}. 
+
+A curious expansion to our research can be seen in Figure \ref{collage}(d). The L grating diffraction pattern as seen in a '$3f$' system, to create this we moved the source and grating to be directly behind the first lens. This pattern has features from both the Fourier and image plane. In the centre there is a clear \textit{L}, something which can be found in the image plane, and to the sides we can see what appears to be sinc$^2$ pattern features. While the mathematics is beyond our scope, we could suggest that this pattern was formed by applying a convolution to the initial function as it has features from both planes.
 
 Improvements could be made to our investigation to improve the quality of data taken. For example working harder to to reduce saturation, during experimentation we had not fully considered the possible effects bias might have on the images that were taking. With future experimentation we would reduce things such as CCD bias by pre-taking images of the dark room so that any stray pixels could be remove during analysis.
 
 Other improvements could be made such as collecting multiple repeats of the diffraction pattern images with different CCD cameras. These images could then be averaged together and a possible uncertainty could be calculated for them.
 
+In experimentation we did omit the fact that? 
+
 \vspace{-5ex}
 \section{Conclusions}
 \vspace{-2ex}
 
-Conclusion
+In conclusion it has been possible to investigate and understand different diffraction patterns, through producing them within a $4f$ system, and then through comparing the intensity graphs with theoretical models.
 
 \blindtext
 

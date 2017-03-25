@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  24 MAR 2017 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  25 MAR 2017 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -411,7 +411,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <method/fig1-1.pdf, id=25, 397.485pt x 268.00125pt>
 File: method/fig1-1.pdf Graphic file (type pdf)
  <use method/fig1-1.pdf>
-Package pdftex.def Info: method/fig1-1.pdf used on input line 140.
+Package pdftex.def Info: method/fig1-1.pdf used on input line 139.
 (pdftex.def)             Requested size: 184.9429pt x 124.70107pt.
 
 [2 <./method/fig1-1.pdf>]
@@ -420,27 +420,28 @@ File: results/horizontal_intensity_profiles.pdf Graphic file (type pdf)
 
 <use results/horizontal_intensity_profiles.pdf>
 Package pdftex.def Info: results/horizontal_intensity_profiles.pdf used on inpu
-t line 181.
+t line 180.
 (pdftex.def)             Requested size: 199.16928pt x 181.06052pt.
 
 <results/data_and_models.pdf, id=48, 568.52402pt x 420.6114pt>
 File: results/data_and_models.pdf Graphic file (type pdf)
 
 <use results/data_and_models.pdf>
-Package pdftex.def Info: results/data_and_models.pdf used on input line 188.
+Package pdftex.def Info: results/data_and_models.pdf used on input line 187.
 (pdftex.def)             Requested size: 256.0748pt x 189.45308pt.
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 188--189
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 187--188
  [] 
  []
 
-<results/collage.pdf, id=49, 377.41pt x 258.9675pt>
-File: results/collage.pdf Graphic file (type pdf)
- <use results/collage.pdf>
-Package pdftex.def Info: results/collage.pdf used on input line 195.
-(pdftex.def)             Requested size: 256.0748pt x 175.7083pt.
+<results/collage_v2.pdf, id=49, 398.48875pt x 258.9675pt>
+File: results/collage_v2.pdf Graphic file (type pdf)
 
-Overfull \hbox (10.0748pt too wide) in paragraph at lines 195--196
+<use results/collage_v2.pdf>
+Package pdftex.def Info: results/collage_v2.pdf used on input line 194.
+(pdftex.def)             Requested size: 256.0748pt x 166.42223pt.
+
+Overfull \hbox (10.0748pt too wide) in paragraph at lines 194--195
  [] 
  []
 
@@ -451,10 +452,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.9023pt too wide) in paragraph at lines 221--229
+Overfull \hbox (1.9023pt too wide) in paragraph at lines 220--228
  []$[]$ 
  []
 
@@ -462,65 +460,65 @@ Overfull \hbox (1.9023pt too wide) in paragraph at lines 221--229
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3 <./results/horizontal_intensity_profiles.pdf> <./results/data_and_models.pdf
->]
+> <./results/collage_v2.pdf>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 238.
+ on input line 237.
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 293--296
+Underfull \hbox (badness 2057) in paragraph at lines 301--304
  []\OT1/cmr/m/n/9 M. Stokes, et al. \OT1/cmr/m/it/9 A Stan-dard De-fault Color 
 Space
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--296
+Underfull \hbox (badness 10000) in paragraph at lines 301--304
  \OT1/cmr/m/it/9 for the In-ter-net\OT1/cmr/m/n/9 . Novem-ber 1996, avail-able 
 at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--296
+Underfull \hbox (badness 10000) in paragraph at lines 301--304
  \OT1/cmr/m/n/9 https://www.w3.org/Graphics/Color/sRGB, ac-cessed:
  []
 
-[4 <./results/collage.pdf>] [5] (./optical_fourier_transforms.aux) ) 
+[4] [5] [6] (./optical_fourier_transforms.aux) ) 
 Here is how much of TeX's memory you used:
- 4684 strings out of 493089
- 62886 string characters out of 6134841
- 153127 words of memory out of 5000000
- 8068 multiletter control sequences out of 15000+600000
+ 4685 strings out of 493089
+ 62916 string characters out of 6134841
+ 165182 words of memory out of 5000000
+ 8069 multiletter control sequences out of 15000+600000
  18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,23p,752b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (5 pages, 8446064 bytes).
+ 38i,13n,23p,704b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti9.pfb>
+Output written on optical_fourier_transforms.pdf (6 pages, 8334948 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 176 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
