@@ -105,8 +105,8 @@ def grapher(x):
     horizontal.tick_params(axis='y', which='major', labelsize=34)
     horizontal.tick_params(axis='x', labelsize=34)
 
-    horizontal.set_xlabel(r'\textbf{Distance (px)}', fontsize=34)
-    horizontal.set_ylabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=34)
+    horizontal.set_xlabel(r'\textbf{Distance (px)}', fontsize=40)
+    horizontal.set_ylabel(r'\textbf{Greyscale Intensity}', fontsize=34)
 
     horizontal.set_xlim([0,size[0]])    # Ensures the figure is same size as heat map
     horizontal.set_ylim([0,255])        # Ensures the figure is same size as heat map
@@ -169,7 +169,7 @@ def grapher(x):
     vertical.tick_params(axis='x', which='major', labelsize=34)
     vertical.tick_params(axis='y', labelsize=34)
 
-    vertical.set_xlabel(r'\textbf{Intensity (Wm$^{-2}$)}', fontsize=34)
+    vertical.set_xlabel(r'\textbf{Greyscale Intensity}', fontsize=34)
     vertical.set_ylabel(r'\textbf{Distance (px)}', fontsize=34)
 
     vertical.set_ylim([0,size[1]])  # Ensures the figure is same size as heat map
