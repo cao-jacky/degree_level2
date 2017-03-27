@@ -17,6 +17,7 @@ def sinc(x,data,uncert):
     sinc_cs = ((data-sinc)/uncert) ** 2 # Calculating the bit before summation
     sinc_cs = numpy.delete(sinc_cs,numpy.s_[539:849]) # Removes the central saturated peak
     numpy.savetxt('saved_data/sinc_cs.txt', sinc_cs, delimiter='-')
+    print numpy.size(x)
     return "reduced chi-squared value for sinc: ", numpy.sum(sinc_cs) / (numpy.size(x)-(849-539))
 
 def five_slit(x,data,uncert):
@@ -24,6 +25,7 @@ def five_slit(x,data,uncert):
     five_cs = ((data-five)/uncert) ** 2 # Calculating the bit before summation
     #five_cs = numpy.delete(five_cs,numpy.s_[539:849]) # Removes the central saturated peak
     numpy.savetxt('saved_data/five_cs.txt', five_cs, delimiter='-')
+    print numpy.size(x)
     return "reduced chi-squared value for five slits: ", numpy.sum(five_cs) / (numpy.size(x))
 
 def jinc(x,data,uncert):
@@ -32,4 +34,5 @@ def jinc(x,data,uncert):
     jinc_cs = ((data-jinc)/uncert) ** 2 # Calculating the bit before summation
     #jinc_cs = numpy.delete(five_cs,numpy.s_[539:849]) # Removes the central saturated peak
     numpy.savetxt('saved_data/jinc_cs.txt', jinc_cs, delimiter='-')
+    print numpy.size(x)
     return "reduced chi-squared value for jinc: ", numpy.sum(jinc_cs) / (numpy.size(x))

@@ -12,7 +12,7 @@
 \author{Jacky Cao, Fourier Optics, Friday, Lab Partner: Thomas Spriggs \\ Dates of experiment: 10/02/2017 to 17/03/2017, Date of report: 19/03/2017}
 
 \begin{abstract}              
-Through the study of Fourier transforms it has been possible to understand diffraction gratings and their patterns. Using a $4f$ optical system illuminated by a coherent laser, different diffraction patterns in different viewing planes can be observed using a CCD camera. Fitting a theoretical model to the observed intensities of the patterns shows us that the data is not perfect.
+Through the study of Fourier transforms it has been possible to understand diffraction gratings and their patterns. Using a $4f$ optical system illuminated by a coherent laser, diffraction patterns in different viewing planes can be observed using a CCD camera. Quantitative data can be collected by comparing the intensity profiles of the patterns with a theoretical model, our reduced $\chi^2$ values ranged from 36.8 (single slit) to $3.63\times10^5$ (five slits), indicating that the fittings were not suitable \cite{hughesandhayes}. Improvements to the experimental procedure are required to improve the quality of data. 
 \end{abstract}
 
 \maketitle
@@ -185,7 +185,7 @@ Figure \ref{horizontal_profiles} show multiple plots of the horizontal intensity
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=9cm]{results/data_and_models2}
-\caption[]{Theoretical model (green), horizontal intensity data (red), and vertical intensity data (blue) - data from Fourier plane. The uncertainties for the horizontal and vertical intensities are too small to be seen. (a) Single slit with model. (b) Five slits with model. (c) Double circles with model. (d) Envelope nature of double circle slit.}
+\caption[]{Theoretical model (green), horizontal intensity data (red), and vertical intensity data (blue) - data taken in Fourier plane. The uncertainties for the horizontal and vertical intensities are too small to be seen. (a) Single slit with model. (b) Five slits with model. (c) Double circles with model. (d) Envelope nature of double circle slit.}
 \label{datamodels}
 \end{center}
 \end{figure}
@@ -208,7 +208,7 @@ Table \ref{realtofourier} shows the slit widths of three different coarse gratin
  \hline
  \textbf{Grating} & $\boldsymbol{\chi_\nu^2}$ \\ [0.5ex] 
  Single Slit &$36.8$ \\ 
- Five Slits & $8.24\times10^{6}$ \\
+ Five Slits & $3.63\times10^{5}$ \\
  Double Circle & $6.55\times10^{4}$ \\
  \hline
 \end{tabular}
@@ -236,25 +236,25 @@ From just an initial inspection of Figure \ref{horizontal_profiles} we can disce
 
 We can see the application of the convolution theorem within the functions for the five slits and the double circle grating. They are respectively, a rect convolved with a comb$_5$, and a circ convolved with a comb$_2$. 
 
-Looking at the calculated reduced $\chi^2$ values for these two gratings we see that they are not near unity at all, in fact they are orders of magnitude out. The basic requirement for the theoretical models to be a good fit to the data  is that they be close to the value of $1$ \cite{hughesandhayes}. For the single slit rect we see that the model used provides a closer fit than the others, but it is still not a good.
+Looking at the calculated reduced $\chi^2$ values for these two gratings we see that they are not near unity at all, in fact they are orders of magnitude out. The basic requirement for the theoretical models to be a good fit to the data  is that they be close to the value of $1$ \cite{hughesandhayes}. For the single slit rect we see that the model used provides a closer fit than the others, but it is still not good.
 
-While we do understand the functions of the gratings and conversely their Fourier transforms, there is much difficulty in implementing this within a program. The trouble mainly arises in attempting to scale and translate the model to fit the data. 
+While we do understand the functions of the gratings and conversely their Fourier transforms, there is much difficulty in implementing this within a program. The trouble mainly arises in attempting to scale and translate the model to fit the data - there is a large sensitivity in changing the smallest of values.
 
-The images that we collected are not perfect, we can see that with the intensity profile for the five slits. The principal maximas should all be the same height, as well as the first and last subsidiary maximas. This inevitably leads to a difficult fit with the model. We understood that this arose partially from saturation and that the laser beam did not create an even illumination, it was a non-uniform gaussian beam.
+The images that we collected are not perfect, we can observe this with the intensity profile for the five slits. The principal maximas should all be the same height, as well as the first and last subsidiary maximas. This inevitably leads to a difficult fit with the model. We understood that this arose partially from saturation, and also from the laser beam not producing an even illumination, instead it was a non-uniform gaussian beam.
 
-We can further understand the double circle slit, the pattern of the convolved circ function retains it's original Airy disk profile but it now also contains cosine-squared interference fringes (Figures \ref{collage}(a) and \ref{collage}(b)). If the intensity of this is superimposed with a jinc$^2$ intensity, one can fit into the other in an envelope nature, as can be seen in Figure \ref{datamodels}(d). This is similar to the sinc$^2$ enveloping of Young's double slit experiment \cite{of2f}.
+We selected to further understand the double circle slit. It's pattern of the convolved circ function retains it's original Airy disk profile but it now also contains cos$^2$ interference fringes [see Figures \ref{collage}(a) and \ref{collage}(b)]. If the horizontal intensity of this is superimposed with a jinc$^2$ intensity, one can fit into the other in an envelope like nature [see Figure \ref{datamodels}(d)]. This is similar to the sinc$^2$ enveloping of Young's double slit experiment \cite{of2f}.
 
-In developing our knowledge of real and Fourier space, we attempted to measure the slit width of a slit of three different coarse gratings in real space and from Fourier space. The function of a coarse grating being a rect convoluted with a comb$_N$, with N being a number often larger than 10. Our results are shown in Table \ref{realtofourier}, we see that while the measurements from real space agree with their Fourier counterpart within their experimental error, the converse is not true.
+In developing our knowledge of real and Fourier space, we attempted to measure the slit width of a single slit of three different coarse gratings in real space and from Fourier space. The function of a coarse grating being a rect convoluted with a comb$_N$, with $N$ being a number often larger than 10. Our results are shown in Table \ref{realtofourier}, we see that not all the measurements from real space agree with their calculated Fourier counterpart within their experimental error.
 
-We suspect this could be due to how we defined the size of a pixel in Fourier space, our calculations for the first and third gratings were based off how we calculated what one pixel equals in Fourier space ($37\pm6$m). If this was incorrect, which we assume it was, then our other values are incorrect too.
+We suspect this could be due to how we defined the size of a pixel in Fourier space, our calculations for the first and third gratings were based off how we calculated what one pixel equals in Fourier space ($37\pm6$m) for the second grating. If this was incorrect, which we assume it was, then our other values are incorrect too.
 
-After exploring patterns within the Fourier plane, we then moved into the image plane. In Figure \ref{collage}(c) the pattern is a rotated L shape, the original L grating was the 'correct way up'. We can imagine that the L grating has a function of two perpendicular rects with one translated to the left. We find from the images that there has been a parity change from ($x,y$) to ($-x,-y$), this is not so obvious in the $x$ direction. This occurs when we take the Fourier transform of the field in the Fourier plane - it becomes an inverse transform \cite{of2f}. 
+After exploring patterns within the Fourier plane, we then moved into the image plane. In Figure \ref{collage}(c) the pattern is a rotated L shape, the original L grating was the 'correct way up'. We can imagine the L grating as two perpendicular rects with one translated to the left. We find from the images that there has been a parity change from ($x,y$) to ($-x,-y$), this is not so obvious in the $x$ direction. This occurs when we take the Fourier transform of the field in the Fourier plane - it becomes an inverse transform \cite{of2f}. 
 
-A curious expansion to our research can be seen in Figure \ref{collage}(d). For this we moved the source and grating to be directly behind the first lens - a '$3f$' system. This pattern has features from both the Fourier and image plane. In the centre there is a clear \textit{L}, something which can be found in the image plane, and to the sides we can see what appears to be Fourier plane sinc$^2$ fringes. While the mathematics for this eludes us, we could suggest that this pattern was formed by applying a convolution to the initial function as it has features from both planes.
+A curious expansion to our research can be seen in Figure \ref{collage}(d). For this we moved the source and grating to be directly behind the first lens - a '$3f$' system. This pattern has features from both the Fourier and image plane. In the centre there is a clear \textit{L}, something as seen before in the image plane, and to the sides we can view what appears to be Fourier plane sinc$^2$ fringes. While we did not explore the mathematics for this, we could suggest that this pattern was formed by applying a convolution to the initial function as it has features from both planes.
 
 Improvements could be made to our investigation to improve the quality of data taken. Considerations of noise is one - bias and readout noise, as well as dark current could be measured, and their effect could be removed from any images taken. A laser source which provides even illumination could also be used so that it provides more uniform data which is closer to the model, thus improving the fit of our models.
 
-An interesting extension to our research could involve creating higher $f$ systems - would the pattern in a $6f$ system be just another inverse Fourier transform of the field from the image plane? What would the pattern look like?
+An interesting extension to our research could involve creating higher $f$ systems - would the pattern in a $6f$ system be just another inverse Fourier transform of the field from the image plane, and what would this pattern look like?
 
 \vspace{-5ex}
 \section{Conclusions}
@@ -262,9 +262,9 @@ An interesting extension to our research could involve creating higher $f$ syste
 
 In conclusion it has been possible to investigate and understand different diffraction gratings and their patterns through the use of Fourier analysis.
 
-Through producing diffraction patterns within a $4f$ optical system we have been able to observe how the properties of Fourier transforms can change a function, e.g. convolution has been seen with the five slits and double circle slit, and we have highlighted the envelope nature that this can create with the double circle slit.
+Through producing diffraction patterns within a $4f$ optical system we have been able to observe how the properties of Fourier transforms can change a function, e.g. convolution has been observed with the five slits and double circle slit.
 
-However, our quantitative data shows that more work has to be made in reducing saturation has to be done to improve the fitting of models and to enable us to make calculations between two different spaces more easily.
+However, our quantitative data shows that more work has to be made in improving the quality of data, e.g. reducing saturation. This then would improve the fitting of models and enable us to make calculations between two different spaces more easily.
 
 \begin{thebibliography}{5}
 \bibitem{mathmethods}
@@ -318,32 +318,65 @@ However, our quantitative data shows that more work has to be made in reducing s
 
 In applying the theoretical models to our intensity data we had to measure features from the diffraction gratings using a travelling microscope with a Vernier scale. 
 
-The slit width of the single slit grating, the width of a single slit from the five slit grating, and the diameters of the circles plus the distance between them for the double circle grating were measured.
-
-The uncertainty associated with these measurements 
+The slit width of the single slit grating, the width of a single slit from the five slit grating, and the diameters of the circles plus the distance between them for the double circle grating each have an uncertainty of $0.005$cm.
 
 The following calculations were derived from \textit{Measurements and their Uncertainties} [I. G. Hughes and T. P. A. Hase, \textit{Measurements and their Uncertainties}, Oxford University Press, Oxford, United Kingdom, 2010].
 
-The reduced $\chi^2$ statistics were calculated using this equation,
+The reduced $\chi^2$ statistics for the single slit, five slit, and double circle slit were calculated using this equation,
 \begin{equation}
 \chi^2_\nu = \frac{\chi^2}{\nu},
 \end{equation}
 
-where $\chi^2$ is the calculated $\chi^2$ value, and $\nu$ the number of degrees of freedom. For the single slit grating $\nu$ was, for the five slit grating it was, and for the double circle grating this was.
+where $\chi^2$ is the calculated $\chi^2$ value, and $\nu$ the number of degrees of freedom. For each of the used gratings $\nu$ was chosen to be 1280 - this equates to the number of pixels in the image, in the horizontal direction.
 
-To calculate $\chi^2$ we used this formula,
+To calculate $\chi^2$ the following formula was used,
 \begin{equation}
 \chi^2 = \sum_i \frac{(y_i -y(x_i))^2}{\alpha_i^2},
 \end{equation}
 
 where $y_i$ represents the theoretical model, $y(x_i)$ is the measured intensity data, and $\alpha_i$ is the uncertainty on that intensity.
 
-As the data was found by averaging multiple sets of data together, the uncertainty $\alpha_i$ is the standard error, found as,
+As the data was found by averaging multiple rows (and columns) together, the uncertainty $\alpha_i$ is the standard error,
 \begin{equation}
 \alpha=\frac{\sigma_{N-1}}{\sqrt{N}},
 \end{equation}
 
-where $\sigma_{N-1}$ is the standard deviation of the mean, and $N$ is the number of readings.
+where $\sigma_{N-1}$ is the standard deviation of the mean, and $N$ is the number of readings. For the single slit 8 rows were averaged together, for the five slits 6 rows, and for the double circle slit 121 rows were averaged together. These rows were chosen as they contained the greatest number of pixels that contained the value 255. 
+
+In finding the uncertainties of the slit widths from Fourier space, $\alpha_x$, the propagation of the uncertainties is as follows. 
+
+The Fourier spacing measurements $u$ had an uncertainty associated with it, $\alpha_u$, this then could be used to calculate the relative error, 
+\begin{equation}
+\alpha_{R(u)}=\frac{\alpha_u}{u}.
+\end{equation}
+
+When converting the units of the Fourier spacing data (pixels) to real space (m$^{-1}$) through using the pixel size defined by calculations performed on coarse grating 2, the uncertainty of the result of this calculation is,
+\begin{equation}
+\alpha_{u^{-1}}=\alpha_{R(P)+R(u)}+{u^{-1}},
+\end{equation}
+
+where $\alpha_{R(P)+R(u)}$ is the relative error of the pixel size plus the relative error on the Fourier spacing, and $u^{-1}$ is the spacing in units of m$^{-1}$.
+
+To find $\alpha_{R(P)+R(u)}$, the following calculations were necessary,
+\begin{equation}
+\alpha_{R(P)+R(u)} = \alpha_{R(P)} + \alpha_{R(u)},
+\end{equation}
+
+where $\alpha_{R(P)}$ is the relative error on the defined pixel size, and $\alpha_{R(u)}$ is the relative error on the Fourier spacing. 
+
+The relative uncertainty on the defined pixel size is,
+\begin{equation}
+\alpha_{R(P)} = \frac{\alpha_P}{P},
+\end{equation}
+
+where $\alpha_P$ is the uncertainty in the pixel size, and $P$ is the pixel size. 
+
+Then to find the uncertainty of the slit width as calculated from Fourier spacing,
+\begin{equation}
+\alpha_x = \alpha_{R(P)+R(u)}  \times x,
+\end{equation}
+
+where $\alpha_{R(P)+R(u)}$ is the relative error of the pixel size plus the relative error on the Fourier spacing, and $x$ is the spacing in real space.
 
 \clearpage
 \end{document}

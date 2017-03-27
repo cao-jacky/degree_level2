@@ -143,6 +143,7 @@ def grapher(x):
     h_list_1 = numpy.delete(h_list_1, 0, 0)         # Removes the initial numpy empty row
     h_list_1 = h_list_1.T                           # Transposing the array
     h_list_no = numpy.shape(h_list_1)               # Counting number of intense rows before averaging
+    print h_list_no
     h_list_std = numpy.std(h_list_1, axis=1)        # Calculates standard deviation for each column
     h_list_1 = numpy.average(h_list_1, axis=1)      # Calculates the average for each column
 
@@ -197,7 +198,7 @@ def grapher(x):
             col_max_count = numpy.sum(column_sliced == array_unique_max)
             mc_v_comparing.append(col_max_count)    # Stores value in the 2 item list
             mc_v_comparing = mc_v_comparing[-2:]    # Limits the list to just 2 items
-            # Calculates the difference between the number of times that max value appears in a row
+            # Calculates the difference between the number of times that max value appears in a column
             de = mc_v_comparing[-1] - mc_v_comparing[0]
 
             if de > 0 : # Plots intensity only for truly 'intense' rows, comparator value can be changed
@@ -205,11 +206,11 @@ def grapher(x):
                 v_list_1 = numpy.hstack((v_list_1,v_list_2))    # Adds columns horizontally
                 pyplot.plot(numpy.flipud(column_sliced), numpy.arange(size[1]), alpha=0.01, color = '0.1')
 
-    v_list_1 = numpy.delete(v_list_1, 0, 1)         # Removes the initial numpy empty row
+    v_list_1 = numpy.delete(v_list_1, 0, 1)         # Removes the initial numpy empty column
     v_list_1 = v_list_1.T                           # Transposes the array
-    v_list_no = numpy.shape(v_list_1)                # Counting number of intense rows before averaging
-    v_list_std = numpy.std(v_list_1, axis=0)        # Calculates standard deviation for each row
-    v_list_1 = numpy.average(v_list_1, axis=0)      # Calculates the average for each row
+    v_list_no = numpy.shape(v_list_1)               # Counting number of intense columns before averaging
+    v_list_std = numpy.std(v_list_1, axis=0)        # Calculates standard deviation for each column
+    v_list_1 = numpy.average(v_list_1, axis=0)      # Calculates the average for each column
     v_list_1 = numpy.flipud(v_list_1)               # Flip list upside down
 
     # Saving v_list_1 so that it can be used in MATLAB
@@ -276,27 +277,27 @@ def grapher(x):
 
     """ Chi-squared calculations """
     # sinc
-    """sinc_std_error = h_list_std/numpy.sqrt(h_list_no[1])
+    sinc_std_error = h_list_std/numpy.sqrt(h_list_no[1])
     for i in range(numpy.size(sinc_std_error)):
         if sinc_std_error[i] == 0:
             sinc_std_error[i] = 1
     numpy.savetxt('saved_data/sinc_std_error.txt', sinc_std_error, delimiter='-')
     sinc_cs = chi_squared_calculator.sinc(x,h_list_1,sinc_std_error)
 
-    print sinc_cs"""
+    print sinc_cs
 
     # five_slits
-    """five_std_error = s_h_list_std/numpy.sqrt(s_h_list_no)
+    five_std_error = s_h_list_std/numpy.sqrt(h_list_no[1])
     for i in range(numpy.size(five_std_error)):
         if five_std_error[i] == 0:
             five_std_error[i] = 1
     numpy.savetxt('saved_data/five_std_error.txt', five_std_error, delimiter='-')
     five_cs = chi_squared_calculator.five_slit(x,s_h_list_1,five_std_error)
 
-    print five_cs"""
+    print five_cs
 
     # jinc
-    """# Dealing with the jinc data
+    # Dealing with the jinc data
     jinc_data = numpy.loadtxt('saved_data/jinc.txt')                # Load the jinc theoretical data
     jinc_theo_data = numpy.loadtxt('saved_data/theo_domain.txt')    # Load the domain of the data
     jinc_theo_data = numpy.delete(jinc_theo_data,numpy.s_[157:200]) # Removes the greater than domain points
@@ -311,6 +312,7 @@ def grapher(x):
     numpy.savetxt('saved_data/jinc_list.txt',jinc_list,delimiter=',')
     jinc_list = list(h_list_std[jinc_round])    # Selects out the standard deviation values
     jinc_list_no = numpy.shape(jinc_list)       # Finds number of values in arrray
+    print jinc_list_no
 
     jinc_std_error = jinc_list/numpy.sqrt(jinc_list_no)
 
@@ -323,9 +325,9 @@ def grapher(x):
 
     jinc_data_plot = numpy.delete(jinc_data,numpy.s_[157:200])
 
-    print jinc_cs"""
+    print jinc_cs
 
-    pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
+    #pyplot.plot(x, sinc, '-g', label=r'\textbf{Theoretical Model}')
     #pyplot.plot(x, five_slits, '-g', label=r'\textbf{Theoretical Model}')
     #pyplot.plot(jinc_round, jinc_data_plot, '-g', label=r'\textbf{Theoretical Model}')
 
@@ -347,16 +349,16 @@ def grapher(x):
 if __name__ == '__main__':
     import image_analyser
 
-    image_analyser.grapher("images/week_2/double circles gain 2.tif")
-
     #image_analyser.grapher("images/week_2/single disk gain 2.tif")
 
     #image_analyser.grapher("images/week_3/Grating 1 #1.tif")
     #image_analyser.grapher("images/week_3/Grating 2 #1.tif")
     #image_analyser.grapher("images/week_3/Grating 3 #1.tif")
 
-    #image_analyser.grapher("images/week_4/5 slit.tif")
+    image_analyser.grapher("images/week_5/single metal slit 2.tif")
 
-    #image_analyser.grapher("images/week_5/single metal slit 2.tif")
+    image_analyser.grapher("images/week_4/5 slit.tif")
+
+    image_analyser.grapher("images/week_2/double circles gain 2.tif")
 
     #image_analyser.grapher("images/week_6/4.tif")
