@@ -241,13 +241,13 @@ We can see the application of the convolution theorem within the functions for t
 
 Looking at the calculated reduced $\chi^2$ values for these two gratings we see that they are not near unity at all, in fact they are orders of magnitude out. The basic requirement for the theoretical models to be a good fit to the data  is that they be close to the value of $1$ \cite{hughesandhayes}. For the single slit rect we see that the model used provides a closer fit than the others, but it is still not good.
 
-While we do understand the functions of the gratings and conversely their Fourier transforms, there is much difficulty in implementing this within a program. The trouble mainly arises in attempting to scale and translate the model to fit the data - there is a large sensitivity in changing variable values.
+While we do understand the functions of the gratings and conversely their Fourier transforms, there is much difficulty in implementing this within a program. The trouble mainly arises in attempting to scale and translate the model to fit the data - there is a large sensitivity in changing variable values, thus large $\chi^2_{\nu}$.
 
 The images that we collected are not perfect, we can observe this with the intensity profile for the five slits. The principal maximas should all be the same height, as well as the first and last subsidiary maximas. This inevitably leads to a difficult fit with the model. We understood that this arose partially from saturation, and also from the laser beam not producing an even illumination, instead it was a non-uniform gaussian beam.
 
 We selected to further understand the double circle slit. It's pattern of the convolved circ function retains it's original Airy disk profile but now also contains cos$^2$ interference fringes [see Figures \ref{collage}(a) and \ref{collage}(b)]. If the horizontal intensity of this is superimposed with a jinc$^2$-type intensity, then one can fit into the other in an envelope like nature [see Figure \ref{datamodels}(d)]. This is similar to the sinc$^2$ enveloping of Young's double slit experiment \cite{of2f}.
 
-In developing our knowledge of real and Fourier space, we attempted to measure the slit width of a single slit of three different coarse gratings in real space and from Fourier space. The function of a coarse grating being a rect convoluted with comb$_N$, with $N$ being a number often larger than 10. Our results are shown in Table \ref{realtofourier}, we see that not all the measurements from real space agree with their calculated Fourier counterpart within their experimental error.
+In developing our knowledge of real and Fourier space, we attempted to measure the slit width of a single slit of three different coarse gratings in real space and from Fourier space. The function of a coarse grating being a rect convoluted with comb$_N$, with $N$ being the number of slits - often a value larger than 10. Our results are shown in Table \ref{realtofourier}, we see that not all the measurements from real space agree with their calculated Fourier counterpart within their experimental error.
 
 We suspect this could be due to how we defined the size of a pixel in Fourier space, our calculations for the first and third gratings were based off how we calculated what one pixel equals in Fourier space ($37\pm6$m) for the second grating. If this was incorrect, which we assume it was, then our other values are incorrect too.
 
@@ -257,7 +257,7 @@ A curious expansion to our research can be seen in Figure \ref{collage}(d). For 
 
 Further experimentation would certainly be required to validate or disprove this.
 
-Improvements could be made to our investigation to improve the quality of data taken. Considerations of noise is one - bias and readout noise, as well as dark current could be measured, and their effect could be removed from any images taken. A laser source which produces even illumination could also be used so that it provides more uniform data which is closer to the model, thus improving the fit of our models.
+Improvements could be made to our investigation to improve the quality of data taken. Considerations of noise is one - bias and readout noise, as well as dark current could be measured, and their effect could be removed from any images taken. A laser source which produces even illumination could also be used so that it provides more uniform data which is closer to the model, thus improving the fit.
 
 Extensions to our research could involve creating higher $f$ systems - would the pattern in a $6f$ system be just another inverse Fourier transform of the field from the image plane, and what would this pattern look like?
 

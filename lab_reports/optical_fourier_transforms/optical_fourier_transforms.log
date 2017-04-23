@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 APR 2017 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 APR 2017 11:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -490,7 +490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 306--309
 Here is how much of TeX's memory you used:
  4686 strings out of 493089
  62925 string characters out of 6134841
- 163467 words of memory out of 5000000
+ 163535 words of memory out of 5000000
  8070 multiletter control sequences out of 15000+600000
  18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -521,7 +521,7 @@ sfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (5 pages, 3685694 bytes).
+Output written on optical_fourier_transforms.pdf (5 pages, 3685759 bytes).
 PDF statistics:
  169 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams
