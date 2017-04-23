@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  27 MAR 2017 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.28)  23 APR 2017 11:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -411,17 +411,17 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <method/fig1-1.pdf, id=25, 397.485pt x 268.00125pt>
 File: method/fig1-1.pdf Graphic file (type pdf)
  <use method/fig1-1.pdf>
-Package pdftex.def Info: method/fig1-1.pdf used on input line 139.
+Package pdftex.def Info: method/fig1-1.pdf used on input line 137.
 (pdftex.def)             Requested size: 184.9429pt x 124.70107pt.
 
 [2 <./method/fig1-1.pdf>]
-<results/horizontal_intensity_profiles2.pdf, id=47, 590.205pt x 542.025pt>
-File: results/horizontal_intensity_profiles2.pdf Graphic file (type pdf)
+<results/horizontal_intensity_profiles3.pdf, id=47, 586.19pt x 542.025pt>
+File: results/horizontal_intensity_profiles3.pdf Graphic file (type pdf)
 
-<use results/horizontal_intensity_profiles2.pdf>
-Package pdftex.def Info: results/horizontal_intensity_profiles2.pdf used on inp
+<use results/horizontal_intensity_profiles3.pdf>
+Package pdftex.def Info: results/horizontal_intensity_profiles3.pdf used on inp
 ut line 180.
-(pdftex.def)             Requested size: 199.16928pt x 182.90486pt.
+(pdftex.def)             Requested size: 199.16928pt x 184.16199pt.
 
 <results/data_and_models2.pdf, id=48, 562.1pt x 417.56pt>
 File: results/data_and_models2.pdf Graphic file (type pdf)
@@ -434,11 +434,29 @@ Overfull \hbox (10.0748pt too wide) in paragraph at lines 187--188
  [] 
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+
+ []
+
+
+Overfull \hbox (1.9023pt too wide) in paragraph at lines 216--224
+ []$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--224
+
+ []
+
 <results/collage3.pdf, id=49, 397.485pt x 258.9675pt>
 File: results/collage3.pdf Graphic file (type pdf)
 
 <use results/collage3.pdf>
-Package pdftex.def Info: results/collage3.pdf used on input line 194.
+Package pdftex.def Info: results/collage3.pdf used on input line 229.
 (pdftex.def)             Requested size: 227.62204pt x 148.3045pt.
 
 
@@ -448,34 +466,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (1.9023pt too wide) in paragraph at lines 220--228
- []$[]$ 
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 <./results/horizontal_intensity_profiles2.pdf> <./results/data_and_models2.p
+[3 <./results/horizontal_intensity_profiles3.pdf> <./results/data_and_models2.p
 df> <./results/collage3.pdf>]
-Underfull \hbox (badness 2057) in paragraph at lines 301--304
+Underfull \hbox (badness 2057) in paragraph at lines 306--309
  []\OT1/cmr/m/n/9 M. Stokes, et al. \OT1/cmr/m/it/9 A Stan-dard De-fault Color 
 Space
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--304
+Underfull \hbox (badness 10000) in paragraph at lines 306--309
  \OT1/cmr/m/it/9 for the In-ter-net\OT1/cmr/m/n/9 . Novem-ber 1996, avail-able 
 at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--304
+Underfull \hbox (badness 10000) in paragraph at lines 306--309
  \OT1/cmr/m/n/9 https://www.w3.org/Graphics/Color/sRGB, ac-cessed:
  []
 
 [4] [5] (./optical_fourier_transforms.aux) ) 
 Here is how much of TeX's memory you used:
- 4685 strings out of 493089
- 62914 string characters out of 6134841
- 162325 words of memory out of 5000000
- 8069 multiletter control sequences out of 15000+600000
+ 4686 strings out of 493089
+ 62925 string characters out of 6134841
+ 163467 words of memory out of 5000000
+ 8070 multiletter control sequences out of 15000+600000
  18469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,23p,675b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -505,7 +521,7 @@ sfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti9.pfb>
-Output written on optical_fourier_transforms.pdf (5 pages, 3679906 bytes).
+Output written on optical_fourier_transforms.pdf (5 pages, 3685694 bytes).
 PDF statistics:
  169 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams
